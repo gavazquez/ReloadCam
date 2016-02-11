@@ -20,19 +20,21 @@
 #python 'ReloadCam.py' -s all                    Refresca el CCcam.cfg con lineas de todas las web (excepto testious y freecline)
 #python 'ReloadCam.py'                           Refresca el CCcam.cfg con lineas de todas las web (excepto testious y freecline)
 
-#Si añades el parametro 'append' al final, las lineas nuevas solo se añadiran abajo 
+#Si añades el parametro '--append' (-a) al final, las lineas nuevas solo se añadiran abajo 
 #del archivo CCCam.cfg sin borrarlo antes.
 
 #Ejemplo:
-#ReloadCam.py cccam4you append
+#ReloadCam.py -s cccam4you --append
+#ReloadCam.py -a
 
 #Con esta llamada tu CCCam.cfg quedaria con las lineas antiguas arriba y las nuevas abajo
 
-#Si ademas le añades el parametro 'check' se abrira el archivo y borrara las lineas que no esten funcionando
+#Si ademas le añades el parametro '--check' (-c) se abrira el archivo y borrara las lineas que no esten funcionando
 #para luego meter las nuevas lineas debajo
 
-#Ejemplo:
-#ReloadCam.py cccam4you append check
+#Ejemplos:
+#ReloadCam.py -s cccam4you --append --check
+#ReloadCam.py -a -c
 
 #Tu archivo RefrescarCcam.sh deberia quedar con una sola linea
 #Ejemplo: ------> python 'ReloadCam.py' all
