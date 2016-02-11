@@ -11,25 +11,14 @@
 #4 - Create otro fichero llamado "RefrescarCcam.sh" (La extension debe ser .sh!) con algun editor de texto
 #5 - Desde ese .sh sera desde donde llames al ReloadCam.py, para ello, puedes llamarlo con los estos parametros
 
-#python 'ReloadCam.py' mycccam                Refresca el CCcam.cfg con lineas de la web de mycccam
-#python 'ReloadCam.py' satna                  Refresca el CCcam.cfg con lineas de la web de satna
-#python 'ReloadCam.py' cccam4you              Refresca el CCcam.cfg con lineas de la web de cccam4you
-#python 'ReloadCam.py' testious               Refresca el CCcam.cfg con las 5 primeras lineas de la web de testious
-#python 'ReloadCam.py' testiousRandom         Refresca el CCcam.cfg con lineas AL AZAR de la web de testious
-#python 'ReloadCam.py' testiousAll            Refresca el CCcam.cfg con TODAS las lineas de la web de testious
-#python 'ReloadCam.py' freecline              Refresca el CCcam.cfg con las lineas validas de la web de freecline
-#python 'ReloadCam.py' all                    Refresca el CCcam.cfg con lineas de todas las web (excepto testious y freecline)
-#python 'ReloadCam.py'                        Refresca el CCcam.cfg con lineas de todas las web (excepto testious y freecline)
-
-#Tu archivo RefrescarCcam.sh deberia quedar con una sola linea
-#Ejemplo: ------> python 'ReloadCam.py' all
-
-#6 - Sube esos 2 ficheros a /usr/script/ con permisos 755
-#7 - Desde el panel de scripts puedes llamarlo o configurarlo para que se ejecute cada X horas en el cron manager.
-
-#-------------------------
-#CONSIDERACIONES ADICIONALES
-#-------------------------
+#python 'ReloadCam.py' -s mycccam                Refresca el CCcam.cfg con lineas de la web de mycccam
+#python 'ReloadCam.py' -s satna                  Refresca el CCcam.cfg con lineas de la web de satna
+#python 'ReloadCam.py' -s cccam4you              Refresca el CCcam.cfg con lineas de la web de cccam4you
+#python 'ReloadCam.py' -s testious               Refresca el CCcam.cfg con las 5 primeras lineas de la web de testious
+#python 'ReloadCam.py' -s freecline              Refresca el CCcam.cfg con las lineas validas de la web de freecline
+#python 'ReloadCam.py' -s allcam                 Refresca el CCcam.cfg con las lineas validas de la web de allcam
+#python 'ReloadCam.py' -s all                    Refresca el CCcam.cfg con lineas de todas las web (excepto testious y freecline)
+#python 'ReloadCam.py'                           Refresca el CCcam.cfg con lineas de todas las web (excepto testious y freecline)
 
 #Si añades el parametro 'append' al final, las lineas nuevas solo se añadiran abajo 
 #del archivo CCCam.cfg sin borrarlo antes.
@@ -44,6 +33,12 @@
 
 #Ejemplo:
 #ReloadCam.py cccam4you append check
+
+#Tu archivo RefrescarCcam.sh deberia quedar con una sola linea
+#Ejemplo: ------> python 'ReloadCam.py' all
+
+#6 - Sube esos 2 ficheros a /usr/script/ con permisos 755
+#7 - Desde el panel de scripts puedes llamarlo o configurarlo para que se ejecute cada X horas en el cron manager.
 
 #-------------------------
 
@@ -93,7 +88,7 @@ def GetCustomClines(): #No borres esta linea!
 
 #region Constants
 
-arguments = ['mycccam','satna','cccam4you','testious','testiousRandom','testiousAll','freecline','all']
+arguments = ['mycccam','satna','cccam4you','testious','freecline','allcam','all']
 
 #endregion
 
@@ -162,17 +157,13 @@ def GetClinesByArgument(argument):
     elif argument == arguments[2]:
         clines += GetCccam4youClines()
     elif argument == arguments[3]:
-        clines += GetTestiousClines(False, False)
+        clines += GetTestiousClines()
     elif argument == arguments[4]:
-        clines += GetTestiousClines(True, False)
-    elif argument == arguments[5]:
-        clines += GetTestiousClines(True, True)
-    elif argument == arguments[6]:
         clines += GetFreeclineClines() + GetFreeclineNlines()
-    elif argument == arguments[7]:
-        clines += GetMycccamClines() + GetSatnaClines() + GetCccam4youClines()
+    elif argument == arguments[5]:
+        clines += GetAllcamClines()
     else:
-        clines += GetMycccamClines() + GetSatnaClines() + GetCccam4youClines()
+        clines += GetMycccamClines() + GetSatnaClines() + GetCccam4youClines() + GetAllcamClines()
 
     return clines
 
@@ -293,7 +284,7 @@ def GetCccam4youCline():
 
 #region Testious
 
-def GetTestiousClines(getRandomLines, getAllLines):
+def GetTestiousClines():
     import re, time, datetime, random
     print "Now getting Testious clines!"
     clines = []
@@ -305,23 +296,14 @@ def GetTestiousClines(getRandomLines, getAllLines):
     regExpr = re.compile('([C]:.*?)#.*\n<br>')
     matches = regExpr.findall(htmlCode)
 
-    if len(matches) < 5:
+    while len(matches) < 5:
         yesterday = datetime.date.today() - datetime.timedelta( days = 1 )        
         url = "http://www.testious.com/free-cccam-servers/" + yesterday.strftime("%Y-%m-%d")
         htmlCode = GetHtmlCode(header, url)
         matches = regExpr.findall(htmlCode)
 
-    if (getAllLines): #get all lines
-        return matches;
-    
-    if len(matches) > 10:
-        for i in range(0, 10):
-            if (getRandomLines): #get 10 random lines
-                clines.append(matches[random.randint(0,len(matches)-1)])
-            else: #get first 10 lines
-                clines.append(matches[i])
-    else:
-        return matches;
+    for i in range(0, 5):
+        clines.append(matches[i])
 
     return clines;
 
@@ -341,20 +323,14 @@ def GetFreeclineClines():
     regExpr = re.compile('Detailed information of the line.*([C]:.*?)<.*\n.*\n.*\n.*\n.*online')
     matches = regExpr.findall(htmlCode)
 
-    if len(matches) < 1:
+    while len(matches) < 3:
         yesterday = datetime.date.today() - datetime.timedelta( days = 1 )        
         url = "http://www.freecline.com/history/CCcam/" + yesterday.strftime("%Y/%m/%d")
         htmlCode = GetHtmlCode(header, url)
         matches = regExpr.findall(htmlCode)
 
-    if len(matches) > 10:
-        for i in range(0, 10):
-            if (getRandomLines): #get 10 random lines
-                clines.append(matches[random.randint(0,len(matches)-1)])
-            else: #get first 10 lines
-                clines.append(matches[i])
-    else:
-        return matches;
+    for i in range(0, 3):
+        clines.append(matches[i])
 
     return clines;
 
@@ -369,69 +345,82 @@ def GetFreeclineNlines():
     regExpr = re.compile('Detailed information of the line.*([N]:.*?)<.*\n.*\n.*\n.*\n.*online')
     matches = regExpr.findall(htmlCode)
 
-    if len(matches) < 1:
+    while len(matches) < 3:
         yesterday = datetime.date.today() - datetime.timedelta( days = 1 )        
         url = "http://www.freecline.com/history/Newcamd/" + yesterday.strftime("%Y/%m/%d")
         htmlCode = GetHtmlCode(header, url)
         matches = regExpr.findall(htmlCode)
 
-    if len(matches) > 10:
-        for i in range(0, 10):
-            if (getRandomLines): #get 10 random lines
-                nlines.append(matches[random.randint(0,len(matches)-1)])
-            else: #get first 10 lines
-                nlines.append(matches[i])
-    else:
-        return matches;
+    for i in range(0, 3):
+        nlines.append(matches[i])
 
     return nlines;
+
+#endregion
+
+#region Allcam
+
+def GetAllcamClines():
+    print "Now getting Allcam clines!"
+    allcamClines = []
+    allcamClines.append(GetAllcamCline(1))
+    allcamClines.append(GetAllcamCline(2))
+    allcamClines.append(GetAllcamCline(3))
+    allcamClines.append(GetAllcamCline(4))
+    return allcamClines;
+
+def GetAllcamCline(serverNo):
+    import re
+
+    htmlCode = GetHtmlCode(None, "http://www.allcccam.com/serv{0}r.php".format(serverNo))
+    regExpr = re.compile('([CN]:\s?\S+?\s+\d*\s?\w+\s?\w+)')
+    match = regExpr.search(htmlCode)
+
+    if match is None:
+        return None;
+
+    cline = match.group(1)
+
+    return cline;
 
 #endregion
 
 #region Main
 
 def main():
-    import sys, os
+    import sys, os, optparse
     clines = []
-    append = False
-    check = False
 
-    if len(sys.argv) == 1:
-        print "Now retrieving all cclines!"
-        clines = GetClinesByArgument('all')
-    elif len(sys.argv) == 2:
-        print "ReloadCam called with '" + sys.argv[1] + "' argument!"
-        append = sys.argv[1] == "append"
-        if append:
-            clines = GetClinesByArgument('all')
-        else:
-            clines = GetClinesByArgument(sys.argv[1])
-    elif len(sys.argv) == 3:
-        print "ReloadCam called with '" + sys.argv[1] + "' and '" + sys.argv[2] + "' arguments!"
-        append = sys.argv[1] == "append" or sys.argv[2] == "append"
-        check = sys.argv[1] == "check" or sys.argv[2] == "check"
-        if append and check:
-            clines = GetClinesByArgument('all')
-        else:
-            if sys.argv[1] == "check" or sys.argv[1] == "append":
-                print "Bad parameters order!" 
-                return;
-            clines = GetClinesByArgument(sys.argv[1])
-    elif len(sys.argv) == 4:
-        print "ReloadCam called with '" + sys.argv[1] + "', '" + sys.argv[2] + "' and '" + sys.argv[3] +"' arguments!"
-        if sys.argv[1] == "check" or sys.argv[1] == "append":
-            print "Bad parameters order!" 
-            return;
-        check = sys.argv[2] == "check" or sys.argv[3] == "check"
-        append = sys.argv[2] == "append" or sys.argv[3] == "append"
-        clines = GetClinesByArgument(sys.argv[1])
-    else:
-        print "Bad parameters!" 
-        return;
+    parser = optparse.OptionParser(description="Refrescador automatico de clines. Creado por Dagger")
+
+    possibleArguments = '%s' % ','.join(map(str, arguments))
+
+    parser.add_option('-s', '--server', default='all', dest='web', action='store', choices=arguments,
+        help='Especifica la web de la que quieres descargar las clines. Por defecto esta opcion tiene el valor %default que descarga de todas excepto testious y freecline. Valores posibles: ' + possibleArguments)
+    
+    parser.add_option('-a', '--append', dest='append', default=False, action='store_true',
+        help='Mete las nuevas lineas al final sin sobreescribir el CCcam.cfg')
+
+    parser.add_option('-c', '--check', dest='check', default=False, action='store_true', 
+        help='Checkea las antiguas lineas del CCcam.cfg y las borra si no funcionan')
+
+    (opts, args) = parser.parse_args()
+
+    if opts.check and not opts.append:
+        print "Option check requires option append\n"
+        parser.print_help()
+        exit(-1)
+    
+    if opts.web not in arguments:
+        print "Bad argument for -s\n"
+        parser.print_help()
+        exit(-1)
+    
+    clines = GetClinesByArgument(opts.web)
 
     if len(clines) > 0:
         print "Now writing to the cccam.cfg!"
-        WriteCccamFile(clines, append, check)
+        WriteCccamFile(clines, opts.append, opts.check)
         print "Now restarting cam!"
         RestartCccam()
         print "Finished restarting cam!"
