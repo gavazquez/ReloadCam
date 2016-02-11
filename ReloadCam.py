@@ -17,6 +17,8 @@
 #python 'ReloadCam.py' -s testious               Refresca el CCcam.cfg con las 5 primeras lineas de la web de testious
 #python 'ReloadCam.py' -s freecline              Refresca el CCcam.cfg con las lineas validas de la web de freecline
 #python 'ReloadCam.py' -s allcam                 Refresca el CCcam.cfg con las lineas validas de la web de allcam
+#python 'ReloadCam.py' -s cccamfree              Refresca el CCcam.cfg con las lineas validas de la web de cccamfree
+#python 'ReloadCam.py' -s cccamgenerator         Refresca el CCcam.cfg con las lineas validas de la web de cccamgenerator
 #python 'ReloadCam.py' -s all                    Refresca el CCcam.cfg con lineas de todas las web (excepto testious y freecline)
 #python 'ReloadCam.py'                           Refresca el CCcam.cfg con lineas de todas las web (excepto testious y freecline)
 
@@ -90,7 +92,7 @@ def GetCustomClines(): #No borres esta linea!
 
 #region Constants
 
-arguments = ['mycccam','satna','cccam4you','testious','freecline','allcam','all']
+arguments = ['mycccam','satna','cccam4you','testious','freecline','allcam','cccamfree','cccamgenerator','all']
 
 #endregion
 
@@ -164,8 +166,13 @@ def GetClinesByArgument(argument):
         clines += GetFreeclineClines() + GetFreeclineNlines()
     elif argument == arguments[5]:
         clines += GetAllcamClines()
+    elif argument == arguments[6]:
+        clines += GetCccamFreeClines()
+    elif argument == arguments[7]:
+        clines += GetCccamGeneratorClines()
     else:
-        clines += GetMycccamClines() + GetSatnaClines() + GetCccam4youClines() + GetAllcamClines()
+        clines += GetMycccamClines() + GetSatnaClines() + GetCccam4youClines() + GetAllcamClines() + \
+            GetCccamFreeClines() + GetCccamGeneratorClines()
 
     return clines
 
@@ -375,6 +382,54 @@ def GetAllcamCline(serverNo):
     import re
 
     htmlCode = GetHtmlCode(None, "http://www.allcccam.com/serv{0}r.php".format(serverNo))
+    regExpr = re.compile('([CN]:\s?\S+?\s+\d*\s?\w+\s?\w+)')
+    match = regExpr.search(htmlCode)
+
+    if match is None:
+        return None;
+
+    cline = match.group(1)
+
+    return cline;
+
+#endregion
+
+#region CccamFree
+
+def GetCccamFreeClines():
+    print "Now getting CccamFree clines!"
+    cccamFreeClines = []
+    cccamFreeClines.append(GetCccamFreeCline())
+    return cccamFreeClines;
+
+def GetCccamFreeCline():
+    import re
+
+    htmlCode = GetHtmlCode(None, "http://cccam-free.com/new0.php")
+    regExpr = re.compile('([CN]:\s?\S+?\s+\d*\s?\w+\s?\w+)')
+    match = regExpr.search(htmlCode)
+
+    if match is None:
+        return None;
+
+    cline = match.group(1)
+
+    return cline;
+
+#endregion
+
+#region CccamGenerator
+
+def GetCccamGeneratorClines():
+    print "Now getting CccamGenerator clines!"
+    cccamGeneratorClines = []
+    cccamGeneratorClines.append(GetCccamGeneratorCline())
+    return cccamGeneratorClines;
+
+def GetCccamGeneratorCline():
+    import re
+
+    htmlCode = GetHtmlCode(None, "http://cccamgenerator.com/generator/get.php")
     regExpr = re.compile('([CN]:\s?\S+?\s+\d*\s?\w+\s?\w+)')
     match = regExpr.search(htmlCode)
 
