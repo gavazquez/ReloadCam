@@ -37,7 +37,7 @@
 #ReloadCam.py -a -c
 
 #Tu archivo RefrescarCcam.sh deberia quedar con una sola linea
-#Ejemplo: ------> python 'ReloadCam.py' all
+#Ejemplo: ------> python 'ReloadCam.py' -s all
 
 #6 - Sube esos 2 ficheros a /usr/script/ con permisos 755
 #7 - Desde el panel de scripts puedes llamarlo o configurarlo para que se ejecute cada X horas en el cron manager.
