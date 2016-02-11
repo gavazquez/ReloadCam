@@ -55,8 +55,8 @@
 #http://free-cccam.tk/MultiUser2/cline.php?f=cline/CCcam.zip
 
 #-------------------------
-cccamPath = "C:\Users\gavaz\Desktop\CCcam.cfg"
-#cccamPath = "/etc/CCcam.cfg"  #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
+#cccamPath = "C:\Users\gavaz\Desktop\CCcam.cfg"
+cccamPath = "/etc/CCcam.cfg"  #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
 cccamBin = "/usr/bin/CCcam_230" #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
 
 def GetCustomClines(): #No borres esta linea!
