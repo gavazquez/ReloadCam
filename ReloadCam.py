@@ -145,6 +145,8 @@ def WriteCccamFile(clines, append, check):
 
     clinesToWrite = clinesToWrite + clines
 
+    clinesToWrite = SortClinesByPing(clinesToWrite)
+
     file = open(cccamPath, 'w')
 
     for cline in clinesToWrite:
@@ -153,11 +155,6 @@ def WriteCccamFile(clines, append, check):
     file.close()
 
     print "Finished refreshing the file!"
-
-def GetRandomClines():
-    import random
-    argument = arguments[random.randint(0,len(arguments)-1)]
-    return GetClinesByArgument(argument)
 
 def GetClinesByArgument(argument):
     clines = []
@@ -214,6 +211,51 @@ def TestCline(cline):
         return False
 
     return False
+
+def SortClinesByPing(clines):
+    clines_ping = []
+    for cline in clines:
+        clines_ping.append([cline, PingCline(cline)])
+
+    clines_ping = sorted(clines_ping, key=lambda cline: cline[1])   # sort by ping
+    return [x[0] for x in clines_ping]
+
+def PingCline(cline):
+    import re, socket
+
+    if cline in GetCustomClines(): #custom lines must be always first!
+        return 0;
+
+    regExpr = re.compile('[CN]:\s?(\S+)?\s+(\d*)')
+    match = regExpr.search(cline)
+
+    if match is None:
+        return 9999;
+
+    try:
+        ip = socket.gethostbyname(match.group(1))
+        return Ping(ip)
+    except:
+        return 9999;
+
+def Ping(host):
+    import subprocess,platform,os,re
+
+    ping = subprocess.Popen(
+        ["ping", "-n" if  platform.system().lower()=="windows" else "-c", "1", host],
+        stdout = subprocess.PIPE,
+        stderr = subprocess.PIPE
+    )
+
+    out, error = ping.communicate()
+
+    if error is None or error == "":
+        regExpr = re.compile('time=(\d+\.?\d*)')
+        match = regExpr.search(out)
+        if match is None:
+            return 9999;
+        return match.group(1)
+    return 9999;
 
 #endregion
 
