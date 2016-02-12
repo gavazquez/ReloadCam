@@ -55,7 +55,6 @@
 #http://free-cccam.tk/MultiUser2/cline.php?f=cline/CCcam.zip
 
 #-------------------------
-#cccamPath = "C:\Users\gavaz\Desktop\CCcam.cfg"
 cccamPath = "/etc/CCcam.cfg"  #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
 cccamBin = "/usr/bin/CCcam_230" #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
 
@@ -115,6 +114,19 @@ def GetHtmlCode(headers, url):
 
     return htmlCode;
 
+def FindClineInText(text):
+    import re
+
+    regExpr = re.compile('([CN]:\s?\S+?\s+\d*\s?\w+\s?\w+)')
+    match = regExpr.search(text)
+
+    if match is None:
+        return None;
+
+    cline = match.group(1)
+
+    return cline;
+
 def WriteCccamFile(clines, append, check):
     import os, os.path
 
@@ -124,23 +136,20 @@ def WriteCccamFile(clines, append, check):
     if append and os.path.exists(cccamPath):
         with open(cccamPath) as f:
             existingClines = f.readlines()
+    
+    existingClines = filter(None, existingClines)
 
-    if check: #Check and only write the Clines that are tested
-        for cline in existingClines:
-            if TestCline(cline) == True:
-                clinesToWrite.append(cline)
-    else:
-        clinesToWrite = existingClines
-
-    for cline in clines:
-        if cline is not None and cline != '' and TestCline(cline):
+    for cline in existingClines:
+        if check == False or (check == True and TestCline(cline) == True):
             clinesToWrite.append(cline)
+
+    clinesToWrite = clinesToWrite + clines
 
     file = open(cccamPath, 'w')
 
     for cline in clinesToWrite:
-        if not check or (check and TestCline(cline)):
-            file.write(cline + '\n')
+        file.write(cline + '\n')
+
     file.close()
 
     print "Finished refreshing the file!"
@@ -220,21 +229,14 @@ def GetMycccamClines():
     myccclineClines.append(GetMycccamCline(5))
     myccclineClines.append(GetMycccamCline(6))
 
-    return myccclineClines;
+    return filter(None, myccclineClines)
 
 def GetMycccamCline(serverNo):
-    import re
-
     htmlCode = GetHtmlCode(None, "http://www.mycccam24.com/{0}sv2016.php".format(serverNo))
-    regExpr = re.compile('Your Free CCcam line is.*C:(.*?)<\/')
-    match = regExpr.search(htmlCode)
-
-    if match is None:
-        return None;
-
-    cline = match.group(1)
-
-    return 'C:' + cline;
+    cline = FindClineInText(htmlCode)
+    if cline != None and TestCline(cline):
+        return cline
+    return None
 
 #endregion
 
@@ -249,21 +251,15 @@ def GetSatnaClines():
     satnaClines.append(GetSatnaCline(4))
     satnaClines.append(GetSatnaCline(5))
     satnaClines.append(GetSatnaCline(6))
-    return satnaClines;
+
+    return filter(None, satnaClines)
 
 def GetSatnaCline(serverNo):
-    import re
-
     htmlCode = GetHtmlCode(None, "http://satna4ever.no-ip.biz/satna/nwx{0}.php".format(serverNo))
-    regExpr = re.compile('Your Free CCcam line is.*C:(.*?)<\/')
-    match = regExpr.search(htmlCode)
-
-    if match is None:
-        return None;
-
-    cline = match.group(1)
-
-    return 'C:' + cline;
+    cline = FindClineInText(htmlCode)
+    if cline != None and TestCline(cline):
+        return cline
+    return None
 
 #endregion
 
@@ -273,21 +269,15 @@ def GetCccam4youClines():
     print "Now getting Cccam4you clines!"
     cccam4youClines = []
     cccam4youClines.append(GetCccam4youCline())
-    return cccam4youClines;
+
+    return filter(None, cccam4youClines)
 
 def GetCccam4youCline():
-    import re
-
     htmlCode = GetHtmlCode(None, "http://cccam4you.com/FREE/get.php")
-    regExpr = re.compile('C:(.*)\r')
-    match = regExpr.search(htmlCode)
-
-    if match is None:
-        return None;
-
-    cline = match.group(1)
-
-    return 'C:' + cline;
+    cline = FindClineInText(htmlCode)
+    if cline != None and TestCline(cline):
+        return cline
+    return None
 
 #endregion
 
@@ -312,7 +302,8 @@ def GetTestiousClines():
         matches = regExpr.findall(htmlCode)
 
     for i in range(0, 5):
-        clines.append(matches[i])
+        if TestCline(matches[i]):
+            clines.append(matches[i])
 
     return clines;
 
@@ -339,7 +330,8 @@ def GetFreeclineClines():
         matches = regExpr.findall(htmlCode)
 
     for i in range(0, 3):
-        clines.append(matches[i])
+        if TestCline(matches[i]):
+            clines.append(matches[i])
 
     return clines;
 
@@ -376,21 +368,15 @@ def GetAllcamClines():
     allcamClines.append(GetAllcamCline(2))
     allcamClines.append(GetAllcamCline(3))
     allcamClines.append(GetAllcamCline(4))
-    return allcamClines;
+
+    return filter(None, allcamClines)
 
 def GetAllcamCline(serverNo):
-    import re
-
     htmlCode = GetHtmlCode(None, "http://www.allcccam.com/serv{0}r.php".format(serverNo))
-    regExpr = re.compile('([CN]:\s?\S+?\s+\d*\s?\w+\s?\w+)')
-    match = regExpr.search(htmlCode)
-
-    if match is None:
-        return None;
-
-    cline = match.group(1)
-
-    return cline;
+    cline = FindClineInText(htmlCode)
+    if cline != None and TestCline(cline):
+        return cline
+    return None
 
 #endregion
 
@@ -400,21 +386,15 @@ def GetCccamFreeClines():
     print "Now getting CccamFree clines!"
     cccamFreeClines = []
     cccamFreeClines.append(GetCccamFreeCline())
-    return cccamFreeClines;
+
+    return filter(None, cccamFreeClines)
 
 def GetCccamFreeCline():
-    import re
-
     htmlCode = GetHtmlCode(None, "http://cccam-free.com/new0.php")
-    regExpr = re.compile('([CN]:\s?\S+?\s+\d*\s?\w+\s?\w+)')
-    match = regExpr.search(htmlCode)
-
-    if match is None:
-        return None;
-
-    cline = match.group(1)
-
-    return cline;
+    cline = FindClineInText(htmlCode)
+    if cline != None and TestCline(cline):
+        return cline
+    return None
 
 #endregion
 
@@ -424,21 +404,15 @@ def GetCccamGeneratorClines():
     print "Now getting CccamGenerator clines!"
     cccamGeneratorClines = []
     cccamGeneratorClines.append(GetCccamGeneratorCline())
-    return cccamGeneratorClines;
+
+    return filter(None, cccamGeneratorClines)
 
 def GetCccamGeneratorCline():
-    import re
-
     htmlCode = GetHtmlCode(None, "http://cccamgenerator.com/generator/get.php")
-    regExpr = re.compile('([CN]:\s?\S+?\s+\d*\s?\w+\s?\w+)')
-    match = regExpr.search(htmlCode)
-
-    if match is None:
-        return None;
-
-    cline = match.group(1)
-
-    return cline;
+    cline = FindClineInText(htmlCode)
+    if cline != None and TestCline(cline):
+        return cline
+    return None
 
 #endregion
 
@@ -459,7 +433,7 @@ def main():
         help='Mete las nuevas lineas al final sin sobreescribir el CCcam.cfg')
 
     parser.add_option('-c', '--check', dest='check', default=False, action='store_true', 
-        help='Checkea las antiguas lineas del CCcam.cfg y las borra si no funcionan')
+        help='Checkea las lineas antiguas del CCcam.cfg y las borra si no funcionan')
 
     (opts, args) = parser.parse_args()
 
@@ -467,7 +441,7 @@ def main():
         print "Option check requires option append\n"
         parser.print_help()
         exit(-1)
-    
+
     if opts.web not in arguments:
         print "Bad argument for -s\n"
         parser.print_help()
