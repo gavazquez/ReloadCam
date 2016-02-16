@@ -11,6 +11,9 @@
 #python 'ReloadCam.py' -s Mycccam                Refresca el CCcam.cfg con lineas de la web de mycccam
 #python 'ReloadCam.py' -s Satna -s Mycccam       Refresca el CCcam.cfg con lineas de la web de satna y mycccam
 
+#TODAS: 
+#python 'ReloadCam.py' -s Mycccam -s Satna -s Cccam4you -s Allcam -s Cccamfree -s Cccamgenerator -s Cccamcafard -s Toopccam -s Kacsat  -s Elaissaoui -s Realtv1 -s Satunivers -s Cccamgratis -s Xhaka -s Greencccamfree
+
 #Los valores posibles de esos servidores los tienes en el archivo ReloadCam_Arguments.py
 #Si todavia no tienes ese fichero, ejecuta el script con cualquier cosa y se te bajaran los archivos necesarios
 
@@ -66,7 +69,7 @@ def GetCustomClines(): #No borres esta linea!
     #customClines.append('C: micline2.no-ip.org 42000 user2 pass2')
     #customClines.append('C: micline3.no-ip.org 42000 user3 pass3')
     #customClines.append('N: miNline1.no-ip.org 42000 user1 pass1')
-    
+
     return customClines; #No borres esta linea!
 
 #--------------------------------------------------------------------------------------------------
@@ -147,7 +150,7 @@ def Main():
     
     #Remove compiled files
     if  platform.system().lower()=="windows":
-        os.system("del /q " + GetCurrentPath() + "*.pyc")
+        os.system('del /q "' + GetCurrentPath() + '*.pyc"')
     else:
         os.system("rm -rf " + GetCurrentPath() + "*.pyo")
 
