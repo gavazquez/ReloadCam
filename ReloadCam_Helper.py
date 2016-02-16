@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 2
+    return 1
 
 cryptoKey = "1234CAMreload"
 
@@ -45,7 +45,7 @@ def GetMyIP():
 
     address = re.search('"([0-9.]*)"', urllib.urlopen("http://ip.jsontest.com/").read()).group(1)
     if address is None or address == '':
-        address = re.search('"([0-9.]*)"', urllib.urlopen("http://checkip.dyndns.org").read()).group(1)    
+        address = re.search('(\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3})', urllib.urlopen("http://checkip.dyndns.org").read()).group(1)    
     return address
 
 def GetRandomString(length):
