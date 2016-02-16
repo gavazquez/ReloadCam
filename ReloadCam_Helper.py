@@ -11,32 +11,30 @@ def GetVersion():
 
 cryptoKey = "1234CAMreload"
 
-#We encript and decript the urls in case the admins looks for their code...
 #Encriptamos las webs por si los administradores de esas webs se ponen a buscar su propio codigo...
 #NO ES UNA ENCRIPTACION MUY SEGURA! Es un simple Vigenere
-def Encrypt(key, clearText):
+def Encrypt(clearText):
     import base64
 
     encriptedText = []
 
     for i in range(len(clearText)):
-        keyChar = key[i % len(key)]
+        keyChar = cryptoKey[i % len(cryptoKey)]
         encriptedChar = chr((ord(clearText[i]) + ord(keyChar)) % 256)
         encriptedText.append(encriptedChar)
 
     return base64.urlsafe_b64encode("".join(encriptedText))
 
-#We encript and decript the urls in case the admins looks for their code...
 #Encriptamos las webs por si los administradores de esas webs se ponen a buscar su propio codigo...
 #NO ES UNA ENCRIPTACION MUY SEGURA! Es un simple Vigenere
-def Decrypt(key, encriptedText):
+def Decrypt(encriptedText):
     import base64
 
     decryptedText = []
     encriptedText = base64.urlsafe_b64decode(encriptedText)
 
     for i in range(len(encriptedText)):
-        keyChar = key[i % len(key)]
+        keyChar = cryptoKey[i % len(cryptoKey)]
         decryptedChar = chr((256 + ord(encriptedText[i]) - ord(keyChar)) % 256)
         decryptedText.append(decryptedChar)
 
@@ -140,9 +138,6 @@ def SortClinesByPing(clines):
 
 def PingCline(cline):
     import re, socket
-
-    if cline in GetCustomClines(): #custom lines must be always first!
-        return 0;
 
     regExpr = re.compile('[CN]:\s?(\S+)?\s+(\d*)')
     match = regExpr.search(cline)
