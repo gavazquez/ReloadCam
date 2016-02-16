@@ -11,8 +11,8 @@
 #python 'ReloadCam.py' -s Mycccam                Refresca el CCcam.cfg con lineas de la web de mycccam
 #python 'ReloadCam.py' -s Satna -s Mycccam       Refresca el CCcam.cfg con lineas de la web de satna y mycccam
 
-#TODAS: 
-#python 'ReloadCam.py' -s Mycccam -s Satna -s Cccam4you -s Allcam -s Cccamfree -s Cccamgenerator -s Cccamcafard -s Toopccam -s Kacsat  -s Elaissaoui -s Realtv1 -s Satunivers -s Cccamgratis -s Xhaka -s Greencccamfree
+#TODAS (menos testious y freecam): 
+#python 'ReloadCam.py' -s Mycccam -s Satna -s Cccam4you -s Allcam -s Cccamfree -s Cccamgenerator -s Cccamcafard -s Toopccam -s Kacsat  -s Elaissaoui -s Realtv1 -s Satunivers -s Cccamgratis -s Xhaka -s Greencccamfree -s Jokercccam -s Ultrahd -s Seduct
 
 #Los valores posibles de esos servidores los tienes en el archivo ReloadCam_Arguments.py
 #Si todavia no tienes ese fichero, ejecuta el script con cualquier cosa y se te bajaran los archivos necesarios
@@ -46,9 +46,7 @@
 #En un futuro seria interesante añadir los servidores de abajo, aunque para eso hay que abrir un zip y leerlas...
 #http://free-cccam.tk/MultiUser/cline.php?f=cline/CCcam.zip
 #http://free-cccam.tk/MultiUser2/cline.php?f=cline/CCcam.zip
-#http://jokercccam.loginto.me/nfree/{0}.php
-#http://ultrahd.no-ip.biz/tv/free.php?new&2
-#http://seduct.loginto.me/ss{0}.php            
+
 #-------------------------
 
 cccamPath = "/etc/CCcam.cfg"  #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
