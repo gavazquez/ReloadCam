@@ -6,8 +6,8 @@
 
 Versions = {
     "ReloadCam_Arguments" : 1,
-    "ReloadCam_Common" : 1,
     "ReloadCam_Helper" : 1,
+    "ReloadCam_Main" : 1,
     "ReloadCam_Server_Mycccam" : 1,
     "ReloadCam_Server_Satna" : 1
 }
