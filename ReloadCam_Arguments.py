@@ -7,4 +7,4 @@
 def GetVersion():
     return 1
 
-Arguments = ['Mycccam','Satna','cccam4you','testious','freecline','allcam','cccamfree','cccamgenerator', 'toopCCcam', 'all']
+Arguments = ['Mycccam','Satna','Cccam4you','Testious','Freecline','Allcam','Cccamfree','Cccamgenerator', 'Toopcccam']
