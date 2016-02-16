@@ -40,5 +40,5 @@ class Greencccamfree(ReloadCam_Main.Server):
         cline = ReloadCam_Helper.FindClineInText(htmlCode, "([CN]:\s?\S+?\s+\d*)")
 
         if cline != None and ReloadCam_Helper.TestCline(cline):
-            return cline + " " + GetMyIP() + " " + password
+            return cline + " " + ReloadCam_Helper.GetMyIP() + " " + password
         return None
