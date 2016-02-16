@@ -4,17 +4,17 @@
 #Refrescador automatico de clines
 #Creado por Dagger
 
-import ReloadCam_Common, ReloadCam_Helper
+import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
     return 1
 
-#Filename, classname and argument must be the same!
-class Satna(ReloadCam_Common.Server):
+#Filename must start with Server, classname and argument must be the same!
+class Satna(ReloadCam_Main.Server):
     
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOXG4N3CmJaomKZxr7yfztydw82rYaaVt6-uodPj59yUrmCjnLM=")
+        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOXG4N3CmJaomKZxr7yfztydw82rYaaVt6-uoeCc7NTWp2CjnLM=")
         return realUrl
 
     def GetClines(self):
