@@ -43,9 +43,8 @@ def Decrypt(encriptedText):
 def GetMyIP():
     import urllib, re
 
-    site = urllib.urlopen("http://checkip.dyndns.org/").read()
-    grab = re.findall('([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)', site)
-    address = grab[0]
+    address = re.search('"([0-9.]*)"', urllib.urlopen("http://ip.jsontest.com/").read()).group(1)
+
     return address
 
 def GetRandomString(length):
@@ -79,7 +78,6 @@ def GetPostHtmlCode(data, headers, url):
         for key in headers.keys():
             req.add_header(key, headers[key])
 
-    response = urllib2.urlopen(req)
     try:
         response = urllib2.urlopen(req)
         htmlCode = response.read()
@@ -114,16 +112,17 @@ def TestCline(cline):
     if match is None:
         return False;
 
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    testSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    testSocket.settimeout(3)
 
     try:
         host = match.group(1)
         port = int(match.group(2))
         ip = socket.gethostbyname(host)
-        s.connect((ip, port))
+        testSocket.connect((ip, port))
         return True
     except:
-        s.close()
+        testSocket.close()
         return False
 
     return False
