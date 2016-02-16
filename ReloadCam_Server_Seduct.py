@@ -24,8 +24,6 @@ class Seduct(ReloadCam_Main.Server):
         myccclineClines.append(self.__GetSeductCline(2))
         myccclineClines.append(self.__GetSeductCline(3))
         myccclineClines.append(self.__GetSeductCline(4))
-        myccclineClines.append(self.__GetSeductCline(5))
-        myccclineClines.append(self.__GetSeductCline(6))
         return filter(None, myccclineClines)
 
     def __GetSeductCline(self, serverNo):
