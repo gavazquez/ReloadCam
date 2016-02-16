@@ -7,5 +7,6 @@
 Versions = {
     "ReloadCam_Arguments" : 1,
     "ReloadCam_Common" : 1,
-    "ReloadCam_Mycccam" : 1
+    "ReloadCam_Mycccam" : 1,
+    "ReloadCam_Satna" : 1
 }
