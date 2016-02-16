@@ -21,7 +21,7 @@ class Greencccamfree(ReloadCam_Main.Server):
         print "Now getting Greencccamfree clines!"
         greencccamfreeClines = []
         greencccamfreeClines.append(self.__GetGreenCCCamFreeCline())
-        return filter(None, cccamcafardClines)
+        return filter(None, greencccamfreeClines)
 
     def __GetGreenCCCamFreeCline(self):
 
