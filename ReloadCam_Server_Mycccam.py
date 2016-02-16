@@ -4,13 +4,13 @@
 #Refrescador automatico de clines
 #Creado por Dagger
 
-import ReloadCam_Common, ReloadCam_Helper
+import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
     return 1
 
-#Filename, classname and argument must be the same!
-class Mycccam(ReloadCam_Common.Server):
+#Filename must start with Server, classname and argument must be the same!
+class Mycccam(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
