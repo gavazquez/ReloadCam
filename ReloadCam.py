@@ -8,11 +8,11 @@
 #4 - Create otro fichero llamado "RefrescarCcam.sh" (La extension debe ser .sh!) con algun editor de texto
 #5 - Desde ese .sh sera desde donde llames al ReloadCam.py, para ello, puedes llamarlo con los estos parametros (por ejemplo)
 
-#python 'ReloadCam.py' -s Mycccam                Refresca el CCcam.cfg con lineas de la web de mycccam
-#python 'ReloadCam.py' -s Satna -s Mycccam       Refresca el CCcam.cfg con lineas de la web de satna y mycccam
+#python '/usr/script/ReloadCam.py' -s Mycccam                Refresca el CCcam.cfg con lineas de la web de mycccam
+#python '/usr/script/ReloadCam.py' -s Satna -s Mycccam       Refresca el CCcam.cfg con lineas de la web de satna y mycccam
 
 #TODAS (menos testious y freecam): 
-#python 'ReloadCam.py' -s Mycccam -s Satna -s Cccam4you -s Allcam -s Cccamfree -s Cccamgenerator -s Cccamcafard -s Toopccam -s Kacsat  -s Elaissaoui -s Realtv1 -s Satunivers -s Cccamgratis -s Xhaka -s Greencccamfree -s Jokercccam -s Ultrahd -s Seduct
+#python '/usr/script/ReloadCam.py' -s Mycccam -s Satna -s Cccam4you -s Allcam -s Cccamfree -s Cccamgenerator -s Cccamcafard -s Toopccam -s Kacsat  -s Elaissaoui -s Realtv1 -s Satunivers -s Cccamgratis -s Xhaka -s Greencccamfree -s Jokercccam -s Ultrahd -s Seduct -s Raul7
 
 #Los valores posibles de esos servidores los tienes en el archivo ReloadCam_Arguments.py
 #Si todavia no tienes ese fichero, ejecuta el script con cualquier cosa y se te bajaran los archivos necesarios
@@ -34,7 +34,7 @@
 #ReloadCam.py -a -c
 
 #Tu archivo RefrescarCcam.sh deberia quedar con una sola linea
-#Ejemplo: ------> python 'ReloadCam.py' -s Mycccam
+#Ejemplo: ------> python '/usr/script/ReloadCam.py' -s Mycccam
 
 #6 - Sube esos 2 ficheros a /usr/script/ con permisos 755
 #7 - Desde el panel de scripts puedes llamarlo o configurarlo para que se ejecute cada X horas en el cron manager.
