@@ -153,7 +153,7 @@ def Main():
     else:
         ReloadCam_Main.Main(GetCustomClines(), cccamPath, cccamBin)
 
-    ReloadCam_Main.Cleanup(GetCustomClines(), cccamPath, cccamBin)
+    ReloadCam_Main.Cleanup()
 
 #endregion
 
