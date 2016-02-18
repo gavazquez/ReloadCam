@@ -49,8 +49,11 @@
 
 #-------------------------
 
-cccamPath = "/etc/CCcam.cfg"  #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
 cccamBin = "/usr/bin/CCcam_230" #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
+cccamPath = "/etc/CCcam.cfg"  #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
+
+#Cambia esta ruta SOLO si vas a ejecutar el script en windows. Si lo vas a poner en el vu+ no hace falta que la toques
+cccamPathWindows = "C:\Users\gavaz\Desktop\CCcam.cfg"  
 
 #-------------------------
 
@@ -144,10 +147,14 @@ def GetScriptVersion(path):
 
 def Main():
     import ReloadCam_Main, platform
-    ReloadCam_Main.Main(GetCustomClines(), cccamPath, cccamBin)
+    
+    if  platform.system().lower() == "windows": #Esto es solo por si lo ejecutas en windows
+        ReloadCam_Main.Main(GetCustomClines(), cccamPathWindows, cccamBin)
+    else:
+        ReloadCam_Main.Main(GetCustomClines(), cccamPath, cccamBin)
     
     #Remove compiled files
-    if  platform.system().lower()=="windows":
+    if  platform.system().lower() == "windows":
         os.system('del /q "' + GetCurrentPath() + '*.pyc"')
     else:
         os.system("rm -rf " + GetCurrentPath() + "*.pyo")
