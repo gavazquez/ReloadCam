@@ -104,10 +104,10 @@ def Main(customClines, cccamPath, cccamBin):
         print "ERROR!!!! NO CCCAMS LOADED!"
     return;
 
-def CleanFiles(currentPath):
-    import platform, os
+def CleanFiles(currentPath, platform):
+    import os
 
-    if  platform.system().lower() == "windows":
+    if  platform.lower() == "windows":
         os.system('del /q "' + currentPath + '*.pyc"')
     else:
         os.system("rm -rf " + currentPath + "*.pyo")
