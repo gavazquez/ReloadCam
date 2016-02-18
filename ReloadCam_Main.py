@@ -109,7 +109,9 @@ def CleanFiles(currentPath, platform):
 
     if  platform.lower() == "windows":
         os.system('del /q "' + currentPath + '*.pyc"')
+        os.system('del /q "' + currentPath + '*.pyo"')
     else:
         os.system("rm -rf " + currentPath + "*.pyo")
+        os.system("rm -rf " + currentPath + "*.pyc")
 
 #endregion
