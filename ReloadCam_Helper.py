@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 2
+    return 3
 
 cryptoKey = "1234CAMreload"
 
@@ -89,7 +89,7 @@ def GetPostHtmlCode(data, headers, url):
     return htmlCode;
 
 def FindStandardClineInText(text):
-    return FindClineInText(text, "([CN]:\s?\S+?\s+\d*\s+\w+\s?\w+)");
+    return FindClineInText(text, "([CN]:\s*\S+\s+\d+\s+\S+\s+[\w.-]+)");
 
 def FindClineInText(text, regex):
     import re
@@ -107,7 +107,7 @@ def FindClineInText(text, regex):
 def TestCline(cline):
     import socket, re, sys
 
-    regExpr = re.compile('[CN]:\s?(\S+)?\s+(\d*)')
+    regExpr = re.compile('[CN]:\s+(\S+)+\s+(\d*)')
     match = regExpr.search(cline)
 
     if match is None:
@@ -139,7 +139,7 @@ def SortClinesByPing(clines):
 def PingCline(cline):
     import re, socket
 
-    regExpr = re.compile('[CN]:\s?(\S+)?\s+(\d*)')
+    regExpr = re.compile('[CN]:\s+(\S+)+\s+(\d*)')
     match = regExpr.search(cline)
 
     if match is None:
