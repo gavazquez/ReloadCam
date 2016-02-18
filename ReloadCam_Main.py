@@ -61,7 +61,7 @@ def RestartCccam(path):
 
     if os.path.exists(path):
         os.system('killall ' + os.path.basename(path))
-        time.sleep(2)
+        time.sleep(0.5)
         os.system('rm -rf /tmp/*.info* /tmp/*.tmp*')
         os.system(path + ' &')
     else:
