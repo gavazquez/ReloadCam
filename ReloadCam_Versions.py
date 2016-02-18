@@ -5,7 +5,7 @@
 #Creado por Dagger
 
 Versions = {
-    "ReloadCam_Arguments" : 1,
+    "ReloadCam_Arguments" : 2,
     "ReloadCam_Helper" : 2,
     "ReloadCam_Main" : 1,
     "ReloadCam_Server_Allcam" : 1,
