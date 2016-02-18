@@ -133,13 +133,12 @@ def RefreshFiles():
                 DownloadScript(key)
 
 def GetScriptVersion(path):
-    execfile(path)
     try:
+        execfile(path)
         version = locals()["GetVersion"]()
         return version
     except:
-        print "ERROR! Could not get version number for file " + path
-        return 9999;
+        return 0;
 
 #endregion
 
