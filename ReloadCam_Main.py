@@ -105,7 +105,7 @@ def Main(customClines, cccamPath, cccamBin):
     return;
 
 def Cleanup():
-    import platform
+    import platform, os
 
     if  platform.system().lower() == "windows":
         os.system('del /q "' + GetCurrentPath() + '*.pyc"')
