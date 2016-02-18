@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 class Server(object):
     def GetUrl():
@@ -103,5 +103,13 @@ def Main(customClines, cccamPath, cccamBin):
     else :
         print "ERROR!!!! NO CCCAMS LOADED!"
     return;
+
+def Cleanup():
+    import platform
+
+    if  platform.system().lower() == "windows":
+        os.system('del /q "' + GetCurrentPath() + '*.pyc"')
+    else:
+        os.system("rm -rf " + GetCurrentPath() + "*.pyo")
 
 #endregion
