@@ -27,5 +27,6 @@ Arguments = [
     'Greencccamfree',
     'Jokercccam',
     'Ultrahd',
-    'Seduct'
+    'Seduct',
+    'Raul7'
 ]
