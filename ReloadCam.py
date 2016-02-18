@@ -122,7 +122,7 @@ def RefreshFiles():
 
     print "Comparing local files with latest version..."
     for key in ReloadCam_Versions.Versions.keys():
-        fileExists = os.path.isfile(GetCurrentPath() + key + ".py")
+        fileExists = os.path.exists(GetCurrentPath() + key + ".py")
         if fileExists is False: #File not exists so download it
             print "File not found! Downloading script with filename: " + key
             DownloadScript(key)
