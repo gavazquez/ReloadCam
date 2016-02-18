@@ -128,7 +128,7 @@ def RefreshFiles():
             DownloadScript(key)
         else:   #File exists so check version number
             currentVersion = GetScriptVersion(GetCurrentPath() + key + ".py")
-            if ReloadCam_Versions.Versions[key] < currentVersion:
+            if ReloadCam_Versions.Versions[key] > currentVersion:
                 print "Old version found! Downloading script with filename: " + key
                 DownloadScript(key)
 
