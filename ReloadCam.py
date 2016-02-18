@@ -152,12 +152,8 @@ def Main():
         ReloadCam_Main.Main(GetCustomClines(), cccamPathWindows, cccamBin)
     else:
         ReloadCam_Main.Main(GetCustomClines(), cccamPath, cccamBin)
-    
-    #Remove compiled files
-    if  platform.system().lower() == "windows":
-        os.system('del /q "' + GetCurrentPath() + '*.pyc"')
-    else:
-        os.system("rm -rf " + GetCurrentPath() + "*.pyo")
+
+    ReloadCam_Main.Cleanup(GetCustomClines(), cccamPath, cccamBin)
 
 #endregion
 
