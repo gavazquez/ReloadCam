@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 3
+    return 2
 
 class Server(object):
     def GetUrl():
@@ -31,7 +31,6 @@ def WriteCccamFile(clines, append, check, path):
             clinesToWrite.append(cline)
 
     clinesToWrite += clines
-    clinesToWrite = filter('', clinesToWrite)
     clinesToWrite = filter(None, clinesToWrite)
     clinesToWrite = ReloadCam_Helper.SortClinesByPing(clinesToWrite)
 
