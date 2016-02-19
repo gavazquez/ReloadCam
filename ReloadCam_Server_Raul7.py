@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Raul7(ReloadCam_Main.Server):
@@ -27,7 +27,7 @@ class Raul7(ReloadCam_Main.Server):
         clines = []
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl())
 
-        regExpr = re.compile('([CN]:\s?\S+?\s+\d*\s+\w+\s?\w+)')
+        regExpr = re.compile('([CN]:\s*\S+\s+\d+\s+\S+\s+[\w.-]+)')
         matches = regExpr.findall(htmlCode)
         
         for match in matches:
