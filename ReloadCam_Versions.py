@@ -7,7 +7,7 @@
 Versions = {
     "ReloadCam_Arguments" : 2,
     "ReloadCam_Helper" : 3,
-    "ReloadCam_Main" : 3,
+    "ReloadCam_Main" : 4,
     "ReloadCam_Server_Allcam" : 1,
     "ReloadCam_Server_Cccam4you" : 1,
     "ReloadCam_Server_Cccamcafard" : 1,
