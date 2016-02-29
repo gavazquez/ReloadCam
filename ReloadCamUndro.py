@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- 
 
-#ReloadCamUndro creado por Zurder
+#ReloadCamUndro creado por Zurder y Jograben
 
 def ReloadCamUndro():
+   import ReloadCam
+   import os.path
    # Read in the file
-   with open(cccamPath, 'r') as file :
+   with open(ReloadCam.cccamPath, 'r') as file :
       
       # Replace the target string 
-      lines = [( '' + line.replace('C: ', 'C:').replace('|1|0', '').replace('DEFAULT:1', '#').replace('DEFAULT:0', '#').replace(' ', '|').rstrip('\n') + '|1|0' + "\n" ) for line in open(cccamPath) ]
+      lines = [( '' + line.replace('C: ', 'C:').replace('|1|0', '').replace('DEFAULT:1', '#').replace('DEFAULT:0', '#').replace(' ', '|').rstrip('\n') + '|1|0' + "\n" ) for line in open(ReloadCam.cccamPath) ]
 
    # Write the file out again
-   with open(cccamPath, 'w') as file: 
+   with open(ReloadCam.cccamPath, 'w') as file: 
    
       #IKS
       if lines == 0:
