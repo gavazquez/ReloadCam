@@ -4,8 +4,7 @@
 #ReloadCamUndro creado por Zurder y Jograben
 
 def ReloadCamUndro():
-   import ReloadCam
-   import os.path
+   import ReloadCam, os
    # Read in the file
    with open(ReloadCam.cccamPath, 'r') as file :
       
