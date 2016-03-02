@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 3
+    return 4
 
 cryptoKey = "1234CAMreload"
 
@@ -121,6 +121,7 @@ def TestCline(cline):
         port = int(match.group(2))
         ip = socket.gethostbyname(host)
         testSocket.connect((ip, port))
+        testSocket.close()
         return True
     except:
         testSocket.close()
