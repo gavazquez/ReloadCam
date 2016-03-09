@@ -118,12 +118,12 @@ def DownloadScript(fileName):
         newFile.close()
 
 def RefreshFiles():
-    import ReloadCam_Versions, platform
+    import ReloadCam_Versions, os
 
     print "Comparing local files with latest version..."
     for key in ReloadCam_Versions.Versions.keys():
         if ReloadCam_Versions.Versions[key] == 0: #If version is "0" means that we must delete the file
-            if  platform.lower() == "windows":
+            if  platform.system().lower() == "windows":
                 os.system('del /q "' + GetCurrentPath() + key + '.py"')
             else:
                 os.system('rm -rf "' + GetCurrentPath() + key + '.py"')
