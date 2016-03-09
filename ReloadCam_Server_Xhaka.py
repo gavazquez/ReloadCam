@@ -7,14 +7,14 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Xhaka(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOrNzdrCkqSXpaqos3rayZre08tglZaXpK574s3c")
+        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfN_e0uHGyV-VlpekrnvU35vdxttglZaXpK574s3c")
         return realUrl
 
     def GetClines(self):
