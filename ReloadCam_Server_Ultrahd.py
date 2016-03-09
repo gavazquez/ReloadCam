@@ -7,19 +7,18 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 0
 
 #Filename must start with Server, classname and argument must be the same!
 class Ultrahd(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        "http://ultrahd.no-ip.biz/tv/free.php?new&2"
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOfR4OHCzJVgoaNwqr2gx9XpkNinYZmmqKZ74s3crs_JqFhl')
         return realUrl
 
     def GetClines(self):
-        print "Now getting Cccam4you clines!"
+        print "Now getting Ultrahd clines!"
         ultraHdClines = []
         ultraHdClines.append(self.__GetUltraHdCline())
         return filter(None, ultraHdClines)
