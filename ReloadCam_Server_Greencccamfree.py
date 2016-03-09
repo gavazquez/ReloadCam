@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Greencccamfree(ReloadCam_Main.Server):
@@ -24,10 +24,10 @@ class Greencccamfree(ReloadCam_Main.Server):
         return filter(None, greencccamfreeClines)
 
     def __GetGreenCCCamFreeCline(self):
-
+        ip = ReloadCam_Helper.GetMyIP()
         password = ReloadCam_Helper.GetRandomString(5)
         values= {
-            'u1': ReloadCam_Helper.GetMyIP(),
+            'u1': ip,
             'clav1': password,
             'arrob1':   ReloadCam_Helper.GetRandomString(5) + "@" + ReloadCam_Helper.GetRandomString(5) + ".com"
         }
@@ -40,5 +40,5 @@ class Greencccamfree(ReloadCam_Main.Server):
         cline = ReloadCam_Helper.FindClineInText(htmlCode, "([CN]:\s?\S+?\s+\d*)")
 
         if cline != None and ReloadCam_Helper.TestCline(cline):
-            return cline + " " + ReloadCam_Helper.GetMyIP() + " " + password
+            return cline + " " + ip + " " + password
         return None
