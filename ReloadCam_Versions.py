@@ -18,7 +18,7 @@ Versions = {
     "ReloadCam_Server_Freecline" : 1,
     "ReloadCam_Server_Greencccamfree" : 1,
     "ReloadCam_Server_Jokercccam" : 1,
-    "ReloadCam_Server_Kacsat" : 1,
+    "ReloadCam_Server_Kacsat" : 2,
     "ReloadCam_Server_Mycccam" : 1,
     "ReloadCam_Server_Realtv1" : 1,
     "ReloadCam_Server_Raul7" : 2,
