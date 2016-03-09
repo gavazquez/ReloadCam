@@ -120,11 +120,11 @@ def DownloadScript(fileName):
 def RefreshFiles():
     import ReloadCam_Versions, platform
 
-    print "Comparing local files with latest version..."
     for key in ReloadCam_Versions.Versions.keys():
         fileExists = os.path.exists(GetCurrentPath() + key + ".py")
-        if ReloadCam_Versions.Versions[key] == 0: #If version is "0" means that we must delete the file
+        if ReloadCam_Versions.Versions[key] <= 0: #If version is "0" means that we must delete the file
             if fileExists is True:
+                print "Removing file: " + key
                 if  platform.system().lower() == "windows":
                     os.system('del /q "' + GetCurrentPath() + key + '.py"')
                 else:
@@ -136,7 +136,8 @@ def RefreshFiles():
             else:   #File exists so check version number
                 currentVersion = GetScriptVersion(GetCurrentPath() + key + ".py")
                 if ReloadCam_Versions.Versions[key] > currentVersion:
-                    print "Old version found! Downloading script with filename: " + key
+                    print "Old version (" + str(currentVersion) + ") found! " + \
+                        "Downloading new version (" + str(ReloadCam_Versions.Versions[key]) + ") for filename: " + key
                     DownloadScript(key)
 
 def GetScriptVersion(path):
