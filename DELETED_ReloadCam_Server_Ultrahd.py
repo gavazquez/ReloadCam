@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 0
+    return 1
 
 #Filename must start with Server, classname and argument must be the same!
 class Ultrahd(ReloadCam_Main.Server):
