@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 0
 
 #Filename must start with Server, classname and argument must be the same!
 class Realtv1(ReloadCam_Main.Server):
