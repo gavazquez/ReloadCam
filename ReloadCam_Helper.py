@@ -7,9 +7,10 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 4
+    return 5
 
 cryptoKey = "1234CAMreload"
+currentIpAddress = "0"
 
 #Encriptamos las webs por si los administradores de esas webs se ponen a buscar su propio codigo...
 #NO ES UNA ENCRIPTACION MUY SEGURA! Es un simple Vigenere
@@ -43,10 +44,14 @@ def Decrypt(encriptedText):
 def GetMyIP():
     import urllib, re
 
-    address = re.search('"([0-9.]*)"', urllib.urlopen("http://ip.jsontest.com/").read()).group(1)
-    if address is None or address == '':
-        address = re.search('(\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3})', urllib.urlopen("http://checkip.dyndns.org").read()).group(1)    
-    return address
+    global currentIpAddress
+    if currentIpAddress == '0':
+        address = re.search('"([0-9.]*)"', urllib.urlopen("http://ip.jsontest.com/").read()).group(1)
+        if address is None or address == '':
+            address = re.search('(\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3})', urllib.urlopen("http://checkip.dyndns.org").read()).group(1)    
+        currentIpAddress = address
+
+    return currentIpAddress
 
 def GetRandomString(length):
     import random, string
