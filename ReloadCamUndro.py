@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- 
 
-#ReloadCamUndro creado por Zurder y Jograben
+#ReloadCamUndro creado por Zurder
 
 def ReloadCamUndro():
    import ReloadCam, os
