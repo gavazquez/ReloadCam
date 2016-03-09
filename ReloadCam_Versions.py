@@ -28,6 +28,6 @@ Versions = {
     "ReloadCam_Server_Seduct" : 1,
     "ReloadCam_Server_Testious" : 1,
     "ReloadCam_Server_Toopccam" : 1,
-    "ReloadCam_Server_Ultrahd" : 1,
+    "ReloadCam_Server_Ultrahd" : 0,
     "ReloadCam_Server_Xhaka" : 2,
 }
