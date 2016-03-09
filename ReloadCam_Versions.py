@@ -29,5 +29,5 @@ Versions = {
     "ReloadCam_Server_Testious" : 1,
     "ReloadCam_Server_Toopccam" : 1,
     "ReloadCam_Server_Ultrahd" : 1,
-    "ReloadCam_Server_Xhaka" : 1,
+    "ReloadCam_Server_Xhaka" : 2,
 }
