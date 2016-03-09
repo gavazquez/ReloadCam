@@ -4,7 +4,7 @@
 #Refrescador automatico de clines
 #Creado por Dagger
 
-#If version is 0 means that we will delete that file
+#If version is 0 or less it will mean that we will delete that file
 Versions = {
     "ReloadCam_Arguments" : 2,
     "ReloadCam_Helper" : 5,
