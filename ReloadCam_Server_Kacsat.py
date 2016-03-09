@@ -7,14 +7,14 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Kacsat(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfN3Gz5zUxaVgoaOssXvfypvk1MmjpWKdsaWy6pPc19E=")
+        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfN3Gz5zUxaVgoaOssXvfypvYz8iWqmGkq7E=")
         return realUrl
 
     def GetClines(self):
