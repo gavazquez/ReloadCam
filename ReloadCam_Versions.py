@@ -7,7 +7,7 @@
 #If version is 0 means that we will delete that file
 Versions = {
     "ReloadCam_Arguments" : 2,
-    "ReloadCam_Helper" : 4,
+    "ReloadCam_Helper" : 5,
     "ReloadCam_Main" : 4,
     "ReloadCam_Server_Allcam" : 1,
     "ReloadCam_Server_Cccam4you" : 1,
