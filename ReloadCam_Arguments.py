@@ -5,7 +5,7 @@
 #Creado por Dagger
 
 def GetVersion():
-    return 2
+    return 3
 
 Arguments = [
     'Mycccam',
@@ -20,13 +20,13 @@ Arguments = [
     'Toopccam',
     'Kacsat',
     'Elaissaoui',
-    'Realtv1',
+    #'Realtv1',
     'Satunivers',
     'Cccamgratis',
     'Xhaka',
     'Greencccamfree',
     'Jokercccam',
-    'Ultrahd',
+    #'Ultrahd',
     'Seduct',
     'Raul7'
 ]
