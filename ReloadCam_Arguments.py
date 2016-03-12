@@ -20,13 +20,13 @@ Arguments = [
     'Toopccam',
     'Kacsat',
     'Elaissaoui',
-    #'Realtv1',
+    #'Realtv1', Deleted
     'Satunivers',
     'Cccamgratis',
     'Xhaka',
     'Greencccamfree',
     'Jokercccam',
-    #'Ultrahd',
+    #'Ultrahd', Deleted
     'Seduct',
     'Raul7',
     'ALL', #ALL Servers,
