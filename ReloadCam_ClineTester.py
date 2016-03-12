@@ -27,7 +27,7 @@ def TestCline(cline):
         return False;
 
     testSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_IP)
-    testSocket.settimeout(30)
+    testSocket.settimeout(10)
 
     host = match.group(1)
     port = int(match.group(2))
