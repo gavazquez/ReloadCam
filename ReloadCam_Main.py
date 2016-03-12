@@ -86,8 +86,8 @@ def Main(customClines, cccamPath, cccamBin):
     possibleArguments = '%s' % ','.join(map(str, ReloadCam_Arguments.Arguments))
 
     parser.add_option('-s', '--server', dest='web', action='append', choices=ReloadCam_Arguments.Arguments,
-        help='Especifica la web de la que quieres descargar las clines. Puedes repetir este parametro varias veces. \
-        Valores posibles: ' + possibleArguments)
+        help="Especifica la web de la que quieres descargar las clines. Puedes repetir este parametro varias \
+            veces o usar ALL para llamar a todos. Valores posibles: " + possibleArguments)
 
     parser.add_option('-r', '--norestart', dest='norestart', default=False, action='store_true', 
         help='NO reinicia la cccam despues del refresco de clines')
