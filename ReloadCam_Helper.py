@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 6
+    return 7
 
 cryptoKey = "1234CAMreload"
 currentIpAddress = "0"
