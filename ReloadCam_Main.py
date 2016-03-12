@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 7
+    return 8
 
 class Server(object):
     def GetUrl():
@@ -49,6 +49,13 @@ def GetClinesByArgument(arguments, customClines):
 
     clines = []
     clines += customClines #Primero agregamos las clines custom
+
+    if len(arguments) > 1 and 'ALL' in arguments:
+        print "Cannot use parameter ALL with other parameters"
+        return clines
+    elif len(arguments) == 1 and 'ALL' in arguments:
+        arguments = ReloadCam_Arguments.Arguments
+        arguments.remove('ALL')
 
     for argument in arguments:
         moduleName = 'ReloadCam_Server_' + argument #creamos el nombre del modulo que tenemos que importar ej:ReloadCam_Myccam
