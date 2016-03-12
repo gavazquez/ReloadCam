@@ -15,14 +15,14 @@ class Server(object):
     def GetClines(self):
         pass
 
-def WriteCccamFile(clines, append, path):
+def WriteCccamFile(clines, path):
     """Crea el archivo CCCam.cfg"""
     import os, os.path
 
     existingClines = []
     clinesToWrite = []
 
-    if append and os.path.exists(path):
+    if os.path.exists(path):
         with open(path) as f:
             existingClines = f.readlines()
 
@@ -78,9 +78,6 @@ def Main(customClines, cccamPath, cccamBin):
     parser.add_option('-s', '--server', dest='web', action='append', choices=ReloadCam_Arguments.Arguments,
         help='Especifica la web de la que quieres descargar las clines. Puedes repetir este parametro varias veces. \
         Valores posibles: ' + possibleArguments)
-    
-    parser.add_option('-a', '--append', dest='append', default=False, action='store_true',
-        help='Mete las nuevas lineas al final sin sobreescribir el CCcam.cfg')
 
     parser.add_option('-r', '--norestart', dest='norestart', default=False, action='store_true', 
         help='NO reinicia la cccam despues del refresco de clines')
@@ -91,7 +88,7 @@ def Main(customClines, cccamPath, cccamBin):
 
     if len(clines) > 0:
         print "Writing to the cccam.cfg!"
-        WriteCccamFile(clines, opts.append, cccamPath)
+        WriteCccamFile(clines, cccamPath)
         if opts.norestart is False:
             print "Restarting cam!"
             RestartCccam(cccamBin)
