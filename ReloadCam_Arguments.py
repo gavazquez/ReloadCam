@@ -29,6 +29,6 @@ Arguments = [
     #'Ultrahd',
     'Seduct',
     'Raul7',
-    'ALL' #ALL Servers,
+    'ALL', #ALL Servers,
     'ALLTF' #ALL Servers except testious and freecline
 ]
