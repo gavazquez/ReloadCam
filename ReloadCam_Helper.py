@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 5
+    return 6
 
 cryptoKey = "1234CAMreload"
 currentIpAddress = "0"
@@ -110,9 +110,20 @@ def FindClineInText(text, regex):
     return cline;
 
 def TestCline(cline):
+    import socket, re, sys, ReloadCam_ClineTester
+
+    regExpr = re.compile('[C].*')
+    match = regExpr.search(cline)
+
+    if match is None:
+        return TestNLine(cline);
+    else:
+        return ReloadCam_ClineTester.TestCline(cline)
+
+def TestNLine(nline):
     import socket, re, sys
 
-    regExpr = re.compile('[CN]:\s+(\S+)+\s+(\d*)')
+    regExpr = re.compile('[N]:\s+(\S+)+\s+(\d*)')
     match = regExpr.search(cline)
 
     if match is None:
@@ -129,9 +140,9 @@ def TestCline(cline):
         testSocket.close()
         return True
     except:
-        testSocket.close()
-        return False
+        pass
 
+    testSocket.close()
     return False
 
 def SortClinesByPing(clines):
