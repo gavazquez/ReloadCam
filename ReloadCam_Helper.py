@@ -124,7 +124,7 @@ def TestNLine(nline):
     import socket, re, sys
 
     regExpr = re.compile('[N]:\s+(\S+)+\s+(\d*)')
-    match = regExpr.search(cline)
+    match = regExpr.search(nline)
 
     if match is None:
         return False;
