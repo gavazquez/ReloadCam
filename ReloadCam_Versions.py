@@ -8,8 +8,8 @@
 Versions = {
     "ReloadCam_Arguments" : 3,
     "ReloadCam_ClineTester" : 1,
-    "ReloadCam_Helper" : 6,
-    "ReloadCam_Main" : 5,
+    "ReloadCam_Helper" : 7,
+    "ReloadCam_Main" : 6,
     "ReloadCam_Server_Allcam" : 1,
     "ReloadCam_Server_Cccam4you" : 1,
     "ReloadCam_Server_Cccamcafard" : 2,
