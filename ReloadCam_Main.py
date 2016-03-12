@@ -25,11 +25,13 @@ def WriteCccamFile(clines, path):
     if os.path.exists(path):
         with open(path) as f:
             existingClines = f.readlines()
-
+    
+    print "Testing existing clines..."
     for cline in existingClines:
         if ReloadCam_Helper.TestCline(cline) == True:
             clinesToWrite.append(cline)
 
+    print "Writing to the cccam.cfg!"
     clinesToWrite += clines
     clinesToWrite = filter(None, clinesToWrite)
     clinesToWrite = list(set(clinesToWrite)) #Remove duplicated lines
@@ -87,7 +89,6 @@ def Main(customClines, cccamPath, cccamBin):
     clines = GetClinesByArgument(opts.web, customClines)
 
     if len(clines) > 0:
-        print "Writing to the cccam.cfg!"
         WriteCccamFile(clines, cccamPath)
         if opts.norestart is False:
             print "Restarting cam!"
