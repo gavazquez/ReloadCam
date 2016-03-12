@@ -27,7 +27,7 @@ def WriteCccamFile(clines, path):
             existingClines = f.readlines()
 
     for cline in existingClines:
-        if TestCline(cline) == True:
+        if ReloadCam_Helper.TestCline(cline) == True:
             clinesToWrite.append(cline)
 
     clinesToWrite += clines
