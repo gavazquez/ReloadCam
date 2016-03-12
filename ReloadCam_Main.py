@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 4
+    return 5
 
 class Server(object):
     def GetUrl():
@@ -15,7 +15,7 @@ class Server(object):
     def GetClines(self):
         pass
 
-def WriteCccamFile(clines, append, check, path):
+def WriteCccamFile(clines, append, path):
     """Crea el archivo CCCam.cfg"""
     import os, os.path
 
@@ -27,7 +27,7 @@ def WriteCccamFile(clines, append, check, path):
             existingClines = f.readlines()
 
     for cline in existingClines:
-        if check == False or (check == True and TestCline(cline) == True):
+        if TestCline(cline) == True:
             clinesToWrite.append(cline)
 
     clinesToWrite += clines
@@ -82,9 +82,6 @@ def Main(customClines, cccamPath, cccamBin):
     parser.add_option('-a', '--append', dest='append', default=False, action='store_true',
         help='Mete las nuevas lineas al final sin sobreescribir el CCcam.cfg')
 
-    parser.add_option('-c', '--check', dest='check', default=False, action='store_true', 
-        help='Checkea las lineas antiguas del CCcam.cfg y las borra si no funcionan')
-
     parser.add_option('-r', '--norestart', dest='norestart', default=False, action='store_true', 
         help='NO reinicia la cccam despues del refresco de clines')
 
@@ -99,7 +96,7 @@ def Main(customClines, cccamPath, cccamBin):
 
     if len(clines) > 0:
         print "Writing to the cccam.cfg!"
-        WriteCccamFile(clines, opts.append, opts.check, cccamPath)
+        WriteCccamFile(clines, opts.append, cccamPath)
         if opts.norestart is False:
             print "Restarting cam!"
             RestartCccam(cccamBin)
