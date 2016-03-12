@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 8
+    return 9
 
 class Server(object):
     def GetUrl():
@@ -50,12 +50,19 @@ def GetClinesByArgument(arguments, customClines):
     clines = []
     clines += customClines #Primero agregamos las clines custom
 
-    if len(arguments) > 1 and 'ALL' in arguments:
-        print "Cannot use parameter ALL with other parameters"
+    if len(arguments) > 1 and ('ALL' in arguments or 'ALLTF' in arguments):
+        print "Cannot use parameter ALL/ALLTF with other parameters"
         return clines
     elif len(arguments) == 1 and 'ALL' in arguments:
         arguments = ReloadCam_Arguments.Arguments
         arguments.remove('ALL')
+        arguments.remove('ALLTF')
+    elif len(arguments) == 1 and 'ALLTF' in arguments:
+        arguments = ReloadCam_Arguments.Arguments
+        arguments.remove('ALL')
+        arguments.remove('ALLTF')
+        arguments.remove('Testious')
+        arguments.remove('Freecline')
 
     for argument in arguments:
         moduleName = 'ReloadCam_Server_' + argument #creamos el nombre del modulo que tenemos que importar ej:ReloadCam_Myccam
@@ -87,7 +94,7 @@ def Main(customClines, cccamPath, cccamBin):
 
     parser.add_option('-s', '--server', dest='web', action='append', choices=ReloadCam_Arguments.Arguments,
         help="Especifica la web de la que quieres descargar las clines. Puedes repetir este parametro varias \
-            veces o usar ALL para llamar a todos. Valores posibles: " + possibleArguments)
+            veces o usar ALL para llamar a todos o ALLTF para todos menos testious y feecline. Valores posibles: " + possibleArguments)
 
     parser.add_option('-r', '--norestart', dest='norestart', default=False, action='store_true', 
         help='NO reinicia la cccam despues del refresco de clines')
