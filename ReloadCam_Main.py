@@ -87,11 +87,6 @@ def Main(customClines, cccamPath, cccamBin):
 
     (opts, args) = parser.parse_args()
 
-    if opts.check and not opts.append:
-        print "Option check requires option append\n"
-        parser.print_help()
-        exit(-1)
-
     clines = GetClinesByArgument(opts.web, customClines)
 
     if len(clines) > 0:
