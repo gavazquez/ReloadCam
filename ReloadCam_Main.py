@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 6
+    return 7
 
 class Server(object):
     def GetUrl():
@@ -33,7 +33,8 @@ def WriteCccamFile(clines, path):
 
     print "Writing to the cccam.cfg!"
     clinesToWrite += clines
-    clinesToWrite = filter(None, clinesToWrite)
+    clinesToWrite = filter(None, clinesToWrite) #Remove "None" lines
+    clinesToWrite = [cline.strip() for cline in clinesToWrite] #Remove '\n' in all clines
     clinesToWrite = list(set(clinesToWrite)) #Remove duplicated lines
     clinesToWrite = ReloadCam_Helper.SortClinesByPing(clinesToWrite)
 
