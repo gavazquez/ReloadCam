@@ -130,7 +130,7 @@ def TestNLine(nline):
         return False;
 
     testSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    testSocket.settimeout(3)
+    testSocket.settimeout(10)
 
     try:
         host = match.group(1)
