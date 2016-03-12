@@ -130,15 +130,14 @@ def RefreshFiles():
                 else:
                     os.system('rm -rf "' + GetCurrentPath() + key + '.py"')
         else:
-            if fileExists is False: #File not exists so download it
+            currentVersion = GetScriptVersion(GetCurrentPath() + key + ".py")
+            if currentVersion == 0:
                 print "File not found! Downloading script with filename: " + key
                 DownloadScript(key)
-            else:   #File exists so check version number
-                currentVersion = GetScriptVersion(GetCurrentPath() + key + ".py")
-                if ReloadCam_Versions.Versions[key] > currentVersion:
-                    print "Old version (" + str(currentVersion) + ") found! " + \
+            elif currentVersion > 0 and ReloadCam_Versions.Versions[key] > currentVersion:
+                print "Old version (" + str(currentVersion) + ") found! " + \
                         "Downloading new version (" + str(ReloadCam_Versions.Versions[key]) + ") for filename: " + key
-                    DownloadScript(key)
+                DownloadScript(key)
 
 def GetScriptVersion(path):
     try:
