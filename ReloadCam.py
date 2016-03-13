@@ -154,10 +154,13 @@ def GetScriptVersion(path):
 def Main():
     import ReloadCam_Main, platform
     
-    if  platform.system().lower() == "windows": #Esto es solo por si lo ejecutas en windows
-        ReloadCam_Main.Main(GetCustomClines(), cccamPathWindows, cccamBin)
-    else:
-        ReloadCam_Main.Main(GetCustomClines(), cccamPath, cccamBin)
+    try:
+        if  platform.system().lower() == "windows": #Esto es solo por si lo ejecutas en windows
+            ReloadCam_Main.Main(GetCustomClines(), cccamPathWindows, cccamBin)
+        else:
+            ReloadCam_Main.Main(GetCustomClines(), cccamPath, cccamBin)
+    except:
+        ReloadCam_Main.CleanFiles(GetCurrentPath(), platform.system())
 
     ReloadCam_Main.CleanFiles(GetCurrentPath(), platform.system())
 
