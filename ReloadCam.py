@@ -159,8 +159,8 @@ def Main():
             ReloadCam_Main.Main(GetCustomClines(), cccamPathWindows, cccamBin)
         else:
             ReloadCam_Main.Main(GetCustomClines(), cccamPath, cccamBin)
-    except:
-        pass
+    except Exception,e:
+        print "Unexpected error: " + str(e)
     finally:
         ReloadCam_Main.CleanFiles(GetCurrentPath(), platform.system())
 
