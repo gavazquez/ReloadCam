@@ -159,10 +159,10 @@ def Main():
             ReloadCam_Main.Main(GetCustomClines(), cccamPathWindows, cccamBin)
         else:
             ReloadCam_Main.Main(GetCustomClines(), cccamPath, cccamBin)
-
-        ReloadCam_Main.CleanFiles(GetCurrentPath(), platform.system())
     except:
-        ReloadCam_Main.CleanFiles(GetCurrentPath(), platform.system()) #SIEMPRE limpiar los archivos aunque falle todo
+        pass
+    finally:
+        ReloadCam_Main.CleanFiles(GetCurrentPath(), platform.system())
 
 #endregion
 
