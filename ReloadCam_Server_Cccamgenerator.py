@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Cccamgenerator(ReloadCam_Main.Server):
@@ -28,4 +28,4 @@ class Cccamgenerator(ReloadCam_Main.Server):
         cline = ReloadCam_Helper.FindStandardClineInText(htmlCode)
         if cline != None and ReloadCam_Helper.TestCline(cline):
             return cline
-        return NoneReloadCam_Server_Cccamgenerator
+        return None
