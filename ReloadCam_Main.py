@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 12
+    return 13
 
 class Server(object):
     def GetUrl():
@@ -116,17 +116,14 @@ def Main(customClines, cccamPath, cccamBin):
 
 def CleanFiles(currentPath, platform):
     import os, glob
-
-    if len(filter(os.path.isfile, glob.glob('./*.pyc'))) > 0:
-        if  platform.lower() == "windows":
+    
+    if  platform.lower() == "windows":
+        if len(filter(os.path.isfile, glob.glob('./*.pyc'))) > 0:
             os.system('del /q "' + currentPath + '*.pyc"')
-        else:
-            os.system("rm -rf " + currentPath + "*.pyc")
-
-    if len(filter(os.path.isfile, glob.glob('./*.pyo'))) > 0:
-        if  platform.lower() == "windows":
+        if len(filter(os.path.isfile, glob.glob('./*.pyo'))) > 0:            
             os.system('del /q "' + currentPath + '*.pyo"')
-        else:
-            os.system("rm -rf " + currentPath + "*.pyo")
+    else: 
+        os.system("rm -rf " + currentPath + "*.pyc")
+        os.system("rm -rf " + currentPath + "*.pyo")
 
 #endregion
