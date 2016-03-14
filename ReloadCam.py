@@ -18,7 +18,6 @@
 
 #Si añades el parametro '--norestart' (-r) al final, el CCCam no se reiniciara despues del refresco
 #Ejemplo: python '/usr/script/ReloadCam.py' -s ALLTF --norestart
-----
 
 #6 - Sube esos 2 ficheros (tanto el .sh como este .py) a /usr/script/ con permisos 755
 #7 - Desde el panel de scripts puedes llamarlo o configurarlo para que se ejecute cada X horas en el cron manager.
