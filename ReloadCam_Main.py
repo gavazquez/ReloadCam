@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 10
+    return 11
 
 class Server(object):
     def GetUrl():
@@ -103,14 +103,15 @@ def Main(customClines, cccamPath, cccamBin):
 
     clines = GetClinesByArgument(opts.web, customClines)
 
-    if len(clines) > 0:
-        WriteCccamFile(clines, cccamPath)
-        if opts.norestart is False and platform.system().lower() != "windows":
-            print "Restarting cam!"
-            RestartCccam(cccamBin)
-        print "Finished!!!"
-    else :
-        print "ERROR!!!! NO CCCAMS LOADED!"
+    if len(clines) <= 0:
+        print "CAUTION! No new lines retrieved"
+    
+    WriteCccamFile(clines, cccamPath)
+    if opts.norestart is False and platform.system().lower() != "windows":
+        print "Restarting cam!"
+        RestartCccam(cccamBin)
+    print "Finished!!!"
+
     return;
 
 def CleanFiles(currentPath, platform):
