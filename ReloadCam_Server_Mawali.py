@@ -17,11 +17,6 @@ class Mawali(ReloadCam_Main.Server):
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfN_G49DNzV-gomGssXvh19OeytKVl6tis6m9')
         return realUrl
 
-    def GetRedirectUrl(self):
-        #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNfRzdjU15KhqJ1xr7yfztydxNNfp55j")
-        return realUrl
-
     def GetClines(self):
         print "Now getting Mawali clines!"
         mawaliClines = []
