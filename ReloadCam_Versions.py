@@ -9,7 +9,7 @@ Versions = {
     "ReloadCam_Arguments" : 7,
     "ReloadCam_ClineTester" : 1,
     "ReloadCam_Helper" : 9,
-    "ReloadCam_Main" : 9,
+    "ReloadCam_Main" : 10,
     "ReloadCam_Server_Allcam" : 2,
     "ReloadCam_Server_Cccam4you" : 1,
     "ReloadCam_Server_Cccamcafard" : 3,
