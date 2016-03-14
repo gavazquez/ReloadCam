@@ -10,7 +10,7 @@ Versions = {
     "ReloadCam_ClineTester" : 1,
     "ReloadCam_Helper" : 8,
     "ReloadCam_Main" : 9,
-    "ReloadCam_Server_Allcam" : 1,
+    "ReloadCam_Server_Allcam" : 2,
     "ReloadCam_Server_Cccam4you" : 1,
     "ReloadCam_Server_Cccamcafard" : 3,
     "ReloadCam_Server_Cccamfree" : 1,
@@ -29,6 +29,6 @@ Versions = {
     "ReloadCam_Server_Seduct" : 1,
     "ReloadCam_Server_Testious" : 1,
     "ReloadCam_Server_Toopccam" : 1,
-    "ReloadCam_Server_Ultrahd" : 2,
+    "ReloadCam_Server_Ultrahd" : 0,
     "ReloadCam_Server_Xhaka" : 2,
 }
