@@ -10,36 +10,20 @@
 
 #python '/usr/script/ReloadCam.py' -s Mycccam                Refresca el CCcam.cfg con lineas de la web de mycccam
 #python '/usr/script/ReloadCam.py' -s Satna -s Mycccam       Refresca el CCcam.cfg con lineas de la web de satna y mycccam
-
-#TODAS (menos testious y freecam): 
-#python '/usr/script/ReloadCam.py' -s Mycccam -s Satna -s Cccam4you -s Allcam -s Cccamfree -s Cccamgenerator -s Cccamcafard -s Toopccam -s Kacsat  -s Elaissaoui -s Realtv1 -s Satunivers -s Cccamgratis -s Xhaka -s Greencccamfree -s Jokercccam -s Ultrahd -s Seduct -s Raul7
+#python '/usr/script/ReloadCam.py' -s ALL                    Refresca el CCcam.cfg con lineas de todas las webs
+#python '/usr/script/ReloadCam.py' -s ALLTF                  Refresca el CCcam.cfg con lineas de todas las webs excepto testious y freecline
 
 #Los valores posibles de esos servidores los tienes en el archivo ReloadCam_Arguments.py
-#Si todavia no tienes ese fichero, ejecuta el script con cualquier cosa y se te bajaran los archivos necesarios
+#Si todavia no tienes ese fichero, ejecuta el script con cualquier parametro y se te bajaran los archivos necesarios
 
-#Si añades el parametro '--append' (-a) al final, las lineas nuevas solo se añadiran abajo 
-#del archivo CCCam.cfg sin borrarlo antes.
+#Si añades el parametro '--norestart' (-r) al final, el CCCam no se reiniciara despues del refresco
+#Ejemplo: python '/usr/script/ReloadCam.py' -s ALLTF --norestart
+----
 
-#Ejemplo (ambos son iguales):
-#ReloadCam.py -s Mycccam --append
-#ReloadCam.py -s Mycccam -a
-
-#Con esta llamada tu CCCam.cfg quedaria con las lineas antiguas arriba y las nuevas abajo
-
-#Si ademas le añades el parametro '--check' (-c) se abrira el archivo y borrara las lineas que no esten funcionando
-#para luego meter las nuevas lineas debajo
-
-#Ejemplos (ambos son iguales):
-#ReloadCam.py -s Mycccam --append --check
-#ReloadCam.py -a -c
-
-#Tu archivo RefrescarCcam.sh deberia quedar con una sola linea
-#Ejemplo: ------> python '/usr/script/ReloadCam.py' -s Mycccam
-
-#6 - Sube esos 2 ficheros a /usr/script/ con permisos 755
+#6 - Sube esos 2 ficheros (tanto el .sh como este .py) a /usr/script/ con permisos 755
 #7 - Desde el panel de scripts puedes llamarlo o configurarlo para que se ejecute cada X horas en el cron manager.
 #8 - La primera vez que se ejecute el script se bajaran todos los archivos necesarios para que funcione
-#9 - Cada vez que se ejecuta el script se comprueba la ultima version
+#9 - Cada vez que se ejecuta el script se comprueba la ultima version y se eliminan los archivos que no se necesitan
 
 #-------------------------
 
