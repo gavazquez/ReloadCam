@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 13
+    return 14
 
 class Server(object):
     def GetUrl():
@@ -122,7 +122,7 @@ def CleanFiles(currentPath, platform):
             os.system('del /q "' + currentPath + '*.pyc"')
         if len(filter(os.path.isfile, glob.glob('./*.pyo'))) > 0:            
             os.system('del /q "' + currentPath + '*.pyo"')
-    else: 
+    else:
         os.system("rm -rf " + currentPath + "*.pyc")
         os.system("rm -rf " + currentPath + "*.pyo")
 
