@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 9
+    return 10
 
 class Server(object):
     def GetUrl():
@@ -85,7 +85,7 @@ def RestartCccam(path):
         print "ERROR! Cannot restart cccam! Restart manually or fix variable path cccamBin! Current value: " + path
 
 def Main(customClines, cccamPath, cccamBin):
-    import sys, os, optparse, ReloadCam_Arguments
+    import sys, os, optparse, ReloadCam_Arguments, platform
     clines = []
 
     parser = optparse.OptionParser(description="Refrescador automatico de clines. Creado por Dagger")
@@ -105,7 +105,7 @@ def Main(customClines, cccamPath, cccamBin):
 
     if len(clines) > 0:
         WriteCccamFile(clines, cccamPath)
-        if opts.norestart is False:
+        if opts.norestart is False and platform.system().lower() != "windows":
             print "Restarting cam!"
             RestartCccam(cccamBin)
         print "Finished!!!"
@@ -114,13 +114,18 @@ def Main(customClines, cccamPath, cccamBin):
     return;
 
 def CleanFiles(currentPath, platform):
-    import os
+    import os, glob
 
-    if  platform.lower() == "windows":
-        os.system('del /q "' + currentPath + '*.pyc"')
-        os.system('del /q "' + currentPath + '*.pyo"')
-    else:
-        os.system("rm -rf " + currentPath + "*.pyo")
-        os.system("rm -rf " + currentPath + "*.pyc")
+    if len(filter(os.path.isfile, glob.glob('./*.pyc'))) > 0: #If any .pyc file exist...
+        if  platform.lower() == "windows":
+            os.system('del /q "' + currentPath + '*.pyc"')
+        else:
+            os.system("rm -rf " + currentPath + "*.pyc")
+
+    if len(filter(os.path.isfile, glob.glob('./*.pyo'))) > 0: #If any .pyo file exist...
+        if  platform.lower() == "windows":
+            os.system('del /q "' + currentPath + '*.pyo"')
+        else:
+            os.system("rm -rf " + currentPath + "*.pyo")
 
 #endregion
