@@ -26,17 +26,17 @@ def WriteCccamFile(clines, path):
         with open(path) as f:
             existingClines = f.readlines()
     
-    print "Testing existing clines..."
+    print "Testing " + len(existingClines) + " existing clines..."
     for cline in existingClines:
         if ReloadCam_Helper.TestCline(cline) == True:
             clinesToWrite.append(cline)
 
-    print "Writing to the cccam.cfg!"
     clinesToWrite += clines
     clinesToWrite = filter(None, clinesToWrite) #Remove "None" lines
     clinesToWrite = [cline.strip() for cline in clinesToWrite] #Remove '\n' in all clines
     clinesToWrite = list(set(clinesToWrite)) #Remove duplicated lines
-    clinesToWrite = ReloadCam_Helper.SortClinesByPing(clinesToWrite)
+    clinesToWrite = ReloadCam_Helper.SortClinesByPing(clinesToWrite)    
+    print "Writing a total of " + len(clinesToWrite) + " lines to the cccam.cfg!"
 
     file = open(path, 'w')
     for cline in clinesToWrite:
@@ -116,13 +116,13 @@ def Main(customClines, cccamPath, cccamBin):
 def CleanFiles(currentPath, platform):
     import os, glob
 
-    if len(filter(os.path.isfile, glob.glob('./*.pyc'))) > 0: #If any .pyc file exist...
+    if len(filter(os.path.isfile, glob.glob('./*.pyc'))) > 0:
         if  platform.lower() == "windows":
             os.system('del /q "' + currentPath + '*.pyc"')
         else:
             os.system("rm -rf " + currentPath + "*.pyc")
 
-    if len(filter(os.path.isfile, glob.glob('./*.pyo'))) > 0: #If any .pyo file exist...
+    if len(filter(os.path.isfile, glob.glob('./*.pyo'))) > 0:
         if  platform.lower() == "windows":
             os.system('del /q "' + currentPath + '*.pyo"')
         else:
