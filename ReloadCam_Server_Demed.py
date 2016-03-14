@@ -17,11 +17,6 @@ class Demed(ReloadCam_Main.Server):
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNbK2dTFkp-hYJ2zb7zkzJvYz8iWqmGkq7E=')
         return realUrl
 
-    def GetRedirectUrl(self):
-        #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNfRzdjU15KhqJ1xr7yfztydxNNfp55j")
-        return realUrl
-
     def GetClines(self):
         print "Now getting Demed clines!"
         demedClines = []
