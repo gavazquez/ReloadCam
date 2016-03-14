@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 8
+    return 9
 
 cryptoKey = "1234CAMreload"
 currentIpAddress = "0"
@@ -87,6 +87,7 @@ def GetPostHtmlCode(data, headers, url):
     try:
         response = urllib2.urlopen(req)
         htmlCode = response.read()
+        if htmlCode == '': raise Exception('No HTMLCode')
     except:
         print "Could not open website! (No internet connection or bad URL: " + url + ")"
         return '';
