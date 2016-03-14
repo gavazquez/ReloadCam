@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 9
+    return 10
 
 cryptoKey = "1234CAMreload"
 currentIpAddress = "0"
@@ -65,7 +65,8 @@ def GetHtmlCode(headers, url):
     if headers is not None and len(headers) > 0:
         opener.addheaders = headers
     try:
-        htmlCode = opener.open(url, timeout=3).read()
+        htmlCode = opener.open(url, timeout=5).read()
+        if htmlCode == '': raise Exception('No HTMLCode')
     except:
         print "Could not open website! (No internet connection or bad URL: " + url + ")"
         return '';
