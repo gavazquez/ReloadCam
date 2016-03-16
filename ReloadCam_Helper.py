@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 10
+    return 11
 
 cryptoKey = "1234CAMreload"
 currentIpAddress = "0"
@@ -42,16 +42,33 @@ def Decrypt(encriptedText):
     return "".join(decryptedText)
 
 def GetMyIP():
-    import urllib, re
+    import urllib2, re
 
     global currentIpAddress
+
     if currentIpAddress == '0':
-        address = re.search('"([0-9.]*)"', urllib.urlopen("http://ip.jsontest.com/").read()).group(1)
-        if address is None or address == '':
-            address = re.search('(\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3})', urllib.urlopen("http://checkip.dyndns.org").read()).group(1)    
-        currentIpAddress = address
+        currentIpAddress = TryGetIpAddress("http://ip.42.pl/raw", '(\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3})', 5)
+    if currentIpAddress == '0':
+        currentIpAddress = TryGetIpAddress("http://jsonip.com", '(\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3})', 5)
+    if currentIpAddress == '0':
+        currentIpAddress = TryGetIpAddress("http://ip.jsontest.com/", '([0-9.]*)', 5)
+    if currentIpAddress == '0':
+        currentIpAddress = TryGetIpAddress("http://httpbin.org/ip", '(\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3})', 5)
+    if currentIpAddress == '0':
+        currentIpAddress = TryGetIpAddress("https://api.ipify.org/", '(\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3})', 5)
+    if currentIpAddress == '0':
+        currentIpAddress = TryGetIpAddress("http://checkip.dyndns.org", '(\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3})', 15)
 
     return currentIpAddress
+
+def TryGetIpAddress(url, regex, timeout):
+    import urllib2, re
+
+    try:
+        return re.search(regex, urllib2.urlopen(url, timeout=5).read()).group(1)
+    except:
+        return ""
+    
 
 def GetRandomString(length):
     import random, string
@@ -86,7 +103,7 @@ def GetPostHtmlCode(data, headers, url):
             req.add_header(key, headers[key])
 
     try:
-        response = urllib2.urlopen(req)
+        response = urllib2.urlopen(req, timeout=5)
         htmlCode = response.read()
         if htmlCode == '': raise Exception('No HTMLCode')
     except:
