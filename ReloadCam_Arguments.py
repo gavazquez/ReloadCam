@@ -5,7 +5,7 @@
 #Creado por Dagger
 
 def GetVersion():
-    return 7
+    return 8
 
 Arguments = [
     'Mycccam',
@@ -35,6 +35,7 @@ Arguments = [
     'ManiaForall',
     'Foot4sport',
     'Top2servers',
+    'Mario',
     'ALL', #ALL Servers,
     'ALLTF' #ALL Servers except testious and freecline
 ]
