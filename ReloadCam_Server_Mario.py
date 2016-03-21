@@ -15,11 +15,11 @@ class Mario(ReloadCam_Main.Server):
     def GetUrl(self, serverNo):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
 
-        if (serverNo < 4):
+        if (serverNo <= 4):
             realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjcq5-oZU=")
-        elif (serverNo > 4 and serverNo < 9):
+        elif (serverNo >= 5 and serverNo <= 8):
             realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjcq5_oZU=")
-        elif (serverNo > 9):
+        elif (serverNo >= 9):
             realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjcq6AoZU=")
         
         realUrl = realUrl + str(serverNo)
