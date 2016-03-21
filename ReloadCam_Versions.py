@@ -14,7 +14,7 @@ Versions = {
     "ReloadCam_Server_Cccam4you" : 1,
     "ReloadCam_Server_Cccamcafard" : 3,
     "ReloadCam_Server_Cccamfree" : 1,
-    "ReloadCam_Server_Cccamgenerator" : 2,
+    "ReloadCam_Server_Cccamgenerator" : 3,
     "ReloadCam_Server_Cccamgratis" : 1,
     "ReloadCam_Server_Elaissaoui" : 1,
     "ReloadCam_Server_Freecline" : 1,
