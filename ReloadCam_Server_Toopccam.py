@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Toopccam(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Toopccam(ReloadCam_Main.Server):
         print "Now getting Toopccam clines!"
         toopCCcamClines = []
         toopCCcamClines.append(self.__GetToopccamCline())
-        return filter(None, toopCCcamClines)
+        top2Clines = filter(None, toopCCcamClines)
+        if len(toopCCcamClines) == 0: print "No Toopccam lines retrieved"
+        return toopCCcamClines
 
     def __GetToopccamCline(self):
 
