@@ -26,7 +26,10 @@ class Cccamfree(ReloadCam_Main.Server):
         return cccamFreeClines
 
     def __GetCccamfreeCline(self):
-        htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl())
+
+        header = [('User-agent', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36')]
+
+        htmlCode = ReloadCam_Helper.GetHtmlCode(header, self.GetUrl())
         cline = ReloadCam_Helper.FindStandardClineInText(htmlCode)
         if cline != None and ReloadCam_Helper.TestCline(cline):
             return cline
