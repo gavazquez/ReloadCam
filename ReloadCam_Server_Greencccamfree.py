@@ -7,65 +7,46 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 2
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
-class Freecline(ReloadCam_Main.Server):
+class Greencccamfree(ReloadCam_Main.Server):
 
-    def GetUrl(self):
-        return None
+    def GetUrl(self, serverNo):
+        #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+
+        if serverNo == 0:
+            realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNnX0dTPx5SVlKGps7LXk9DTz9dfoJiocqiy4Mua38nU")
+        else: 
+            realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNnX0dTPx5SVlKGps7LXk9DTz9dfoJiocqiy4MuendHMoQ==")
+
+        return realUrl
 
     def GetClines(self):
-        print "Now getting Freecline clines!"
-        freeClineClines = []
-        freeClineClines += self.__GetFreeclineClines()
-        freeClineClines += self.__GetFreeclineNlines()
-        freeClineClines = filter(None, freeClineClines)
-        if len(freeClineClines) == 0: print "No Freecline lines retrieved"
-        return freeClineClines
+        print "Now getting Greencccamfree clines!"
+        greencccamfreeClines = []
+        greencccamfreeClines.append(self.__GetGreenCCCamFreeCline(0))
+        greencccamfreeClines.append(self.__GetGreenCCCamFreeCline(1))
+        greencccamfreeClines = filter(None, greencccamfreeClines)
+        if len(greencccamfreeClines) == 0: print "No Greencccamfree lines retrieved"
+        return greencccamfreeClines
 
-    def __GetFreeclineClines(self):
-        import re, time, datetime, random
-        clines = []
+    def __GetGreenCCCamFreeCline(self, serverNo):
+        ip = ReloadCam_Helper.GetMyIP()
+        password = ReloadCam_Helper.GetRandomString(5)
+        values= {
+            'u1': ip,
+            'clav1': password,
+            'arrob1':   ReloadCam_Helper.GetRandomString(5) + "@" + ReloadCam_Helper.GetRandomString(5) + ".com"
+        }
 
-        header = [('User-agent', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36')]
-        url = "http://www.freecline.com/history/CCcam/" + datetime.date.today().strftime("%Y/%m/%d")
-        htmlCode = ReloadCam_Helper.GetHtmlCode(header, url)
+        header= {
+           'Referer': self.GetUrl(serverNo)
+        }
 
-        regExpr = re.compile('Detailed information of the line.*([C]:.*?)<.*\n.*\n.*\n.*\n.*online')
-        matches = regExpr.findall(htmlCode)
+        htmlCode = ReloadCam_Helper.GetPostHtmlCode(values, header, self.GetUrl(serverNo))
+        cline = ReloadCam_Helper.FindStandardClineInText(htmlCode)
 
-        while len(matches) < 3:
-            yesterday = datetime.date.today() - datetime.timedelta( days = 1 )        
-            url = "http://www.freecline.com/history/CCcam/" + yesterday.strftime("%Y/%m/%d")
-            htmlCode = ReloadCam_Helper.GetHtmlCode(header, url)
-            matches = regExpr.findall(htmlCode)
-
-        for i in range(0, 3):
-            if ReloadCam_Helper.TestCline(matches[i]):
-                clines.append(matches[i])
-
-        return clines;
-
-    def __GetFreeclineNlines(self):
-        import re, time, datetime, random
-        nlines = []
-
-        header = [('User-agent', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36')]
-        url = "http://www.freecline.com/history/Newcamd/" + datetime.date.today().strftime("%Y/%m/%d")
-        htmlCode = ReloadCam_Helper.GetHtmlCode(header, url)
-
-        regExpr = re.compile('Detailed information of the line.*([N]:.*?)<.*\n.*\n.*\n.*\n.*online')
-        matches = regExpr.findall(htmlCode)
-
-        while len(matches) < 3:
-            yesterday = datetime.date.today() - datetime.timedelta( days = 1 )        
-            url = "http://www.freecline.com/history/Newcamd/" + yesterday.strftime("%Y/%m/%d")
-            htmlCode = ReloadCam_Helper.GetHtmlCode(header, url)
-            matches = regExpr.findall(htmlCode)
-
-        for i in range(0, 3):
-            if ReloadCam_Helper.TestCline(matches[i]):
-                nlines.append(matches[i])
-
-        return nlines;
+        if cline != None and ReloadCam_Helper.TestCline(cline):
+            return cline + " " + ip + " " + password
+        return None
