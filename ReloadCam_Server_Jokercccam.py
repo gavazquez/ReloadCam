@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Jokercccam(ReloadCam_Main.Server):
@@ -26,7 +26,9 @@ class Jokercccam(ReloadCam_Main.Server):
         jokerClines.append(self.__GetJokerCline(4))
         jokerClines.append(self.__GetJokerCline(5))
         jokerClines.append(self.__GetJokerCline(6))
-        return filter(None, jokerClines)
+        jokerClines = filter(None, jokerClines)
+        if len(jokerClines) == 0: print "No Jokercccam lines retrieved"
+        return jokerClines
 
     def __GetJokerCline(self, serverNo):
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl().format(serverNo))
