@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 2
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
 class Greencccamfree(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Greencccamfree(ReloadCam_Main.Server):
         print "Now getting Greencccamfree clines!"
         greencccamfreeClines = []
         greencccamfreeClines.append(self.__GetGreenCCCamFreeCline())
-        return filter(None, greencccamfreeClines)
+        greencccamfreeClines = filter(None, greencccamfreeClines)
+        if len(greencccamfreeClines) == 0: print "No Greencccamfree lines retrieved"
+        return greencccamfreeClines
 
     def __GetGreenCCCamFreeCline(self):
         ip = ReloadCam_Helper.GetMyIP()
