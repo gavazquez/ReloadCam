@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Satunivers(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Satunivers(ReloadCam_Main.Server):
         print "Now getting Satunivers clines!"
         satUniverseClines = []
         satUniverseClines.append(self.__GetSatuniversCline())
-        return filter(None, satUniverseClines)
+        satUniverseClines = filter(None, satUniverseClines)
+        if len(satUniverseClines) == 0: print "No Satunivers lines retrieved"
+        return satUniverseClines
 
     def __GetSatuniversCline(self):
 
