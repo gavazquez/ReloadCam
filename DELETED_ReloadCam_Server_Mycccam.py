@@ -14,6 +14,9 @@ class Mycccam(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://www.mycccam24.com/1sv2016.php
+        #...
+        ##http://www.mycccam24.com/6sv2016.php
         realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOnc453O3ZSVlpWwc4GgyNvckN9hr6aqdXF-qJPc19E=")
         return realUrl
 
