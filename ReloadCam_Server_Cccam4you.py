@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Cccam4you(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Cccam4you(ReloadCam_Main.Server):
         print "Now getting Cccam4you clines!"
         cccam4youClines = []
         cccam4youClines.append(self.__GetCccam4youCline())
-        return filter(None, cccam4youClines)
+        cccam4youClines = filter(None, cccam4youClines)
+        if len(cccam4youClines) == 0: print "No Cccam4you lines retrieved"
+        return cccam4youClines
 
     def __GetCccam4youCline(self):
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl())
