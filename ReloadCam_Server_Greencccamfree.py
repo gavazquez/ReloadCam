@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 3
+    return 4
 
 #Filename must start with Server, classname and argument must be the same!
 class Greencccamfree(ReloadCam_Main.Server):
