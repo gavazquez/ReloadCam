@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Cccamfree(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Cccamfree(ReloadCam_Main.Server):
         print "Now getting Cccamfree clines!"
         cccamFreeClines = []
         cccamFreeClines.append(self.__GetCccamfreeCline())
-        return filter(None, cccamFreeClines)
+        cccamFreeClines = filter(None, cccamFreeClines)
+        if len(cccamFreeClines) == 0: print "No Cccamfree lines retrieved"
+        return cccamFreeClines
 
     def __GetCccamfreeCline(self):
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl())
