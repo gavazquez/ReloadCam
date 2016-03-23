@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class ManiaForall(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class ManiaForall(ReloadCam_Main.Server):
         print "Now getting ManiaForall clines!"
         maniaForallClines = []
         maniaForallClines.append(self.__GetManiaForallCline())
-        return filter(None, maniaForallClines)
+        maniaForallClines = filter(None, maniaForallClines)
+        if len(maniaForallClines) == 0: print "No ManiaForall lines retrieved"
+        return maniaForallClines
 
     def __GetManiaForallCline(self):
 
