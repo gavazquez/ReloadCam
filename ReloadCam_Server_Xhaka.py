@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 2
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
 class Xhaka(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Xhaka(ReloadCam_Main.Server):
         print "Now getting Xhaka clines!"
         xhakaClines = []
         xhakaClines.append(self.__GetXhakaCline())
-        return filter(None, xhakaClines)
+        xhakaClines = filter(None, xhakaClines)
+        if len(xhakaClines) == 0: print "No Xhaka lines retrieved"
+        return xhakaClines
 
     def __GetXhakaCline(self):
 
