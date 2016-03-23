@@ -7,19 +7,14 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 2
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
 class Elaissaoui(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNfRzdjU15KhqJ1xr7yfztydxNNfp55juLSy5Nib2M_IlqphpKux")
-        return realUrl
-
-    def GetRedirectUrl(self):
-        #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNfRzdjU15KhqJ1xr7yfztydxNNfp55j")
+        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNfRzdjU15KhqJ1xr7yfztydxNNfp55jq6Kw3djN45DNn5aYrHGxteI=")
         return realUrl
 
     def GetClines(self):
@@ -39,9 +34,7 @@ class Elaissaoui(ReloadCam_Main.Server):
         }
 
         htmlCode = ReloadCam_Helper.GetPostHtmlCode(values, None, self.GetUrl())
-        htmlCode = ReloadCam_Helper.GetPostHtmlCode(values, None, self.GetRedirectUrl())
         cline = ReloadCam_Helper.FindStandardClineInText(htmlCode)
         if cline != None and ReloadCam_Helper.TestCline(cline):
             return cline
         return None
-
