@@ -14,6 +14,7 @@ class Demed(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://demed.no-ip.org/index.php
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNbK2dTFkp-hYJ2zb7zkzJvYz8iWqmGkq7E=')
         return realUrl
 
