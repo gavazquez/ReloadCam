@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Seduct(ReloadCam_Main.Server):
@@ -19,12 +19,14 @@ class Seduct(ReloadCam_Main.Server):
 
     def GetClines(self):
         print "Now getting Seduct clines!"
-        myccclineClines = []
-        myccclineClines.append(self.__GetSeductCline(1))
-        myccclineClines.append(self.__GetSeductCline(2))
-        myccclineClines.append(self.__GetSeductCline(3))
-        myccclineClines.append(self.__GetSeductCline(4))
-        return filter(None, myccclineClines)
+        seductClines = []
+        seductClines.append(self.__GetSeductCline(1))
+        seductClines.append(self.__GetSeductCline(2))
+        seductClines.append(self.__GetSeductCline(3))
+        seductClines.append(self.__GetSeductCline(4))   
+        seductClines = filter(None, seductClines)
+        if len(seductClines) == 0: print "No Seduct lines retrieved"
+        return seductClines
 
     def __GetSeductCline(self, serverNo):
 
