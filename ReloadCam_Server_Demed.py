@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Demed(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Demed(ReloadCam_Main.Server):
         print "Now getting Demed clines!"
         demedClines = []
         demedClines.append(self.__GetDemedCline())
-        return filter(None, demedClines)
+        demedClines = filter(None, demedClines)
+        if len(demedClines) == 0: print "No Demed lines retrieved"
+        return demedClines
 
     def __GetDemedCline(self):
 
