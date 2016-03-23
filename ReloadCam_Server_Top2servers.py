@@ -21,7 +21,7 @@ class Top2servers(ReloadCam_Main.Server):
         print "Now getting Top2servers clines!"
         top2Clines = []
         top2Clines.append(self.__GetTop2serversCline())
-        top2Clines = filter(None, xhakaClines)
+        top2Clines = filter(None, top2Clines)
         if len(top2Clines) == 0: print "No Top2servers lines retrieved"
         return top2Clines
 
