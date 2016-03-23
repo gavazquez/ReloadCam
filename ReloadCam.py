@@ -172,7 +172,7 @@ def InternetConnected():
     import urllib2
 
     try:
-        response = urllib2.urlopen('http://www.google.com',timeout=1)
+        response = urllib2.urlopen('http://www.google.com',timeout=5)
         return True
     except:
         pass
