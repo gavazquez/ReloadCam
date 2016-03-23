@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Elaissaoui(ReloadCam_Main.Server):
@@ -26,7 +26,9 @@ class Elaissaoui(ReloadCam_Main.Server):
         print "Now getting Elaissaoui clines!"
         elaissaouiClines = []
         elaissaouiClines.append(self.__GetElaissaouiCline())
-        return filter(None, elaissaouiClines)
+        elaissaouiClines = filter(None, elaissaouiClines)
+        if len(elaissaouiClines) == 0: print "No Elaissaoui lines retrieved"
+        return elaissaouiClines
 
     def __GetElaissaouiCline(self):
 
