@@ -5,10 +5,10 @@
 #Creado por Dagger
 
 def GetVersion():
-    return 8
+    return 10
 
 Arguments = [
-    'Mycccam',
+    #'Mycccam',
     'Satna',
     #'Cccam4you',
     'Testious',
@@ -31,8 +31,8 @@ Arguments = [
     'Raul7',
     'Myfree',
     'Mawali',
-    'Demed',
-    'ManiaForall',
+    #'Demed',
+    #'ManiaForall',
     'Foot4sport',
     'Top2servers',
     'Mario',
