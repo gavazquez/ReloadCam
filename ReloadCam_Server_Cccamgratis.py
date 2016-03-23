@@ -7,13 +7,14 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Cccamgratis(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        "http://cccam.gratis/free/index.php"
         realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOXG4OTPzaeXpadxpbHg2Jrdxthgm6GYqLl74s3c")
         return realUrl
 
@@ -21,7 +22,9 @@ class Cccamgratis(ReloadCam_Main.Server):
         print "Now getting Cccamgratis clines!"
         camGratisClines = []
         camGratisClines.append(self.__GetCccamgratisCline())
-        return filter(None, camGratisClines)
+        camGratisClines = filter(None, camGratisClines)
+        if len(camGratisClines) == 0: print "No Cccamgratis lines retrieved"
+        return camGratisClines
 
     def __GetCccamgratisCline(self):
 
