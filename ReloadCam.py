@@ -6,7 +6,7 @@
 
 #Para usarlo: 
 #1 - Crea un archivo llamado "ReloadCam.py" (La extension debe ser .py!) con algun editor de texto
-#2 - Pega TODO (absolutamente TODO) este texto en ese fichero y guardalo
+#2 - Pega TOTALMENTE (absolutamente todo) este texto en ese fichero y guardalo
 #3 - Lee todo este texto hasta abajo y haz las correcciones que se indiquen en caso de que sea necesario
 #4 - Create otro fichero llamado "RefrescarCcam.sh" (La extension debe ser .sh!) con algun editor de texto
 #5 - Desde ese .sh sera desde donde llames al ReloadCam.py, para ello, puedes llamarlo con los estos parametros (por ejemplo)
