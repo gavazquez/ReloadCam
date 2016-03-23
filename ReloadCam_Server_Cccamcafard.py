@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 3
+    return 4
 
 #Filename must start with Server, classname and argument must be the same!
 class Cccamcafard(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Cccamcafard(ReloadCam_Main.Server):
         print "Now getting CCcamcafard clines!"
         cccamcafardClines = []
         cccamcafardClines.append(self.__GetCccamcafardCline())
-        return filter(None, cccamcafardClines)
+        cccamcafardClines = filter(None, cccamcafardClines)
+        if len(cccamcafardClines) == 0: print "No CCcamcafard lines retrieved"
+        return cccamcafardClines
 
     def __GetCccamcafardCline(self):
 
