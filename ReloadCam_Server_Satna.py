@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Satna(ReloadCam_Main.Server):
@@ -26,7 +26,9 @@ class Satna(ReloadCam_Main.Server):
         satnaClines.append(self.__GetSatnaCline(4))
         satnaClines.append(self.__GetSatnaCline(5))
         satnaClines.append(self.__GetSatnaCline(6))
-        return filter(None, satnaClines)
+        satnaClines = filter(None, satnaClines)
+        if len(satnaClines) == 0: print "No Satna lines retrieved"
+        return satnaClines
 
     def __GetSatnaCline(self, serverNo):
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl().format(serverNo))
