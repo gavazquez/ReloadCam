@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Top2servers(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Top2servers(ReloadCam_Main.Server):
         print "Now getting Top2servers clines!"
         top2Clines = []
         top2Clines.append(self.__GetTop2serversCline())
-        return filter(None, top2Clines)
+        top2Clines = filter(None, xhakaClines)
+        if len(top2Clines) == 0: print "No Top2servers lines retrieved"
+        return top2Clines
 
     def __GetTop2serversCline(self):
 
