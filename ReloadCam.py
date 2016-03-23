@@ -32,7 +32,7 @@
 
 
 #IMPORTANTE!!!  Tu archivo RefrescarCcam.sh deberia quedar con una sola linea y sin ningun simbolo ------> #
-#Ejemplo: ------> python '/usr/script/ReloadCam.py' -s Mycccam
+#Ejemplo: ------> python '/usr/script/ReloadCam.py' -s ALLTF
 
 #6 - Sube esos 2 ficheros a /usr/script/ con permisos 755
 #7 - Desde el panel de scripts puedes llamarlo o configurarlo para que se ejecute cada X horas en el cron manager.
