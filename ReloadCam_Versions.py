@@ -6,12 +6,12 @@
 
 #If version is 0 or less it will mean that we will delete that file
 Versions = {
-    "ReloadCam_Arguments" : 11,
+    "ReloadCam_Arguments" : 12,
     "ReloadCam_ClineTester" : 1,
     "ReloadCam_Helper" : 11,
     "ReloadCam_Main" : 14,
     "ReloadCam_Server_Allcam" : 3,
-    "ReloadCam_Server_Cccam4you" : 0,
+    "ReloadCam_Server_Cccam4you" : 3,
     "ReloadCam_Server_Cccamcafard" : 4,
     "ReloadCam_Server_Cccamfree" : 3,
     "ReloadCam_Server_Cccamgenerator" : 4,
