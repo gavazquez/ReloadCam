@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Mycccam(ReloadCam_Main.Server):
@@ -18,15 +18,17 @@ class Mycccam(ReloadCam_Main.Server):
         return realUrl
 
     def GetClines(self):
-        print "Now getting Myccam clines!"
-        myccclineClines = []
-        myccclineClines.append(self.__GetMycccamCline(1))
-        myccclineClines.append(self.__GetMycccamCline(2))
-        myccclineClines.append(self.__GetMycccamCline(3))
-        myccclineClines.append(self.__GetMycccamCline(4))
-        myccclineClines.append(self.__GetMycccamCline(5))
-        myccclineClines.append(self.__GetMycccamCline(6))
-        return filter(None, myccclineClines)
+        print "Now getting Mycccam clines!"
+        mycccamClines = []
+        mycccamClines.append(self.__GetMycccamCline(1))
+        mycccamClines.append(self.__GetMycccamCline(2))
+        mycccamClines.append(self.__GetMycccamCline(3))
+        mycccamClines.append(self.__GetMycccamCline(4))
+        mycccamClines.append(self.__GetMycccamCline(5))
+        mycccamClines.append(self.__GetMycccamCline(6))
+        mycccamClines = filter(None, mycccamClines)
+        if len(mycccamClines) == 0: print "No Mycccam lines retrieved"
+        return mycccamClines
 
     def __GetMycccamCline(self, serverNo):
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl().format(serverNo))
