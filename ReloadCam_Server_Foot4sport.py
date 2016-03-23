@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Foot4sport(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Foot4sport(ReloadCam_Main.Server):
         print "Now getting Foot4sport clines!"
         foot4SportClines = []
         foot4SportClines.append(self.__GetFoot4sportCline())
-        return filter(None, foot4SportClines)
+        foot4SportClines = filter(None, freeClineClines)
+        if len(foot4SportClines) == 0: print "No Foot4sport lines retrieved"
+        return foot4SportClines
 
     def __GetFoot4sportCline(self):
 
