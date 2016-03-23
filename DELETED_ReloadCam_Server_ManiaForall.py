@@ -14,6 +14,7 @@ class ManiaForall(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://maniaforall.no-ip.org/index.php
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfN_G2tjCyqCklKCvb7vhktXfj9OjmWKdsaWy6pPc19E=')
         return realUrl
 
