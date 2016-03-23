@@ -33,7 +33,7 @@ Versions = {
     "ReloadCam_Server_Xhaka" : 3,
     "ReloadCam_Server_Myfree" : 2,
     "ReloadCam_Server_Mawali" : 2,
-    "ReloadCam_Server_Demed" : 2,
+    "ReloadCam_Server_Demed" : 0,
     "ReloadCam_Server_ManiaForall" : 2,
     "ReloadCam_Server_Foot4sport" : 2,
     "ReloadCam_Server_Top2servers" : 2,
