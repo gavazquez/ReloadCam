@@ -10,7 +10,7 @@ def GetVersion():
 Arguments = [
     'Mycccam',
     'Satna',
-    'Cccam4you',
+    #'Cccam4you',
     'Testious',
     'Freecline',
     'Allcam',
