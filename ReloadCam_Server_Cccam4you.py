@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 2
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
 class Cccam4you(ReloadCam_Main.Server):
@@ -15,7 +15,7 @@ class Cccam4you(ReloadCam_Main.Server):
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
         realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNXIz9DOmKqhqGKmsLqhq760ppOYl6dis6m9")
-        #http://cccam4you.com/FREE/get.php
+        #http://cccam-free2.com/cccamfree/get.php
         return realUrl
 
     def GetClines(self):
