@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Testious(ReloadCam_Main.Server):
@@ -17,7 +17,9 @@ class Testious(ReloadCam_Main.Server):
 
     def GetClines(self):
         print "Now getting Testious clines!"
-        return filter(None, self.__GetTestiousClines())
+        testiousClines = filter(None, self.__GetTestiousClines())
+        if len(testiousClines) == 0: print "No Testious lines retrieved"
+        return testiousClines
 
     def __GetTestiousClines(self):
         import re, time, datetime
