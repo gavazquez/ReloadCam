@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 2
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
 class Kacsat(ReloadCam_Main.Server):
@@ -21,7 +21,9 @@ class Kacsat(ReloadCam_Main.Server):
         print "Now getting Kacsat clines!"
         kacsatClines = []
         kacsatClines.append(self.__GetKacsatCline())
-        return filter(None, kacsatClines)
+        kacsatClines = filter(None, kacsatClines)
+        if len(kacsatClines) == 0: print "No Kacsat lines retrieved"
+        return kacsatClines
 
     def __GetKacsatCline(self):
 
