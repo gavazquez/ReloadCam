@@ -21,7 +21,7 @@ class Foot4sport(ReloadCam_Main.Server):
         print "Now getting Foot4sport clines!"
         foot4SportClines = []
         foot4SportClines.append(self.__GetFoot4sportCline())
-        foot4SportClines = filter(None, freeClineClines)
+        foot4SportClines = filter(None, foot4SportClines)
         if len(foot4SportClines) == 0: print "No Foot4sport lines retrieved"
         return foot4SportClines
 
