@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- 
 
+#IMPORTANTE!!! este simbolo -----> #    Son COMENTARIOS en python, son simplemente para que el python lo ignore,
+#esto significa que en tus scripts .sh NO debes ponerlo!
+
 #Para usarlo: 
 #1 - Crea un archivo llamado "ReloadCam.py" (La extension debe ser .py!) con algun editor de texto
 #2 - Pega todo este texto en ese fichero y guardalo
@@ -8,32 +11,27 @@
 #4 - Create otro fichero llamado "RefrescarCcam.sh" (La extension debe ser .sh!) con algun editor de texto
 #5 - Desde ese .sh sera desde donde llames al ReloadCam.py, para ello, puedes llamarlo con los estos parametros (por ejemplo)
 
-#python '/usr/script/ReloadCam.py' -s Mycccam                Refresca el CCcam.cfg con lineas de la web de mycccam
-#python '/usr/script/ReloadCam.py' -s Satna -s Mycccam       Refresca el CCcam.cfg con lineas de la web de satna y mycccam
+#(Recuerda borrar el simbolo ----> #)
+#python '/usr/script/ReloadCam.py' -s Allcam                Refresca el CCcam.cfg con lineas de la web de allcam
+#python '/usr/script/ReloadCam.py' -s Satna -s Allcam       Refresca el CCcam.cfg con lineas de la web de satna y allcam
 
 #TODAS (menos testious y freecam): 
-#python '/usr/script/ReloadCam.py' -s Mycccam -s Satna -s Cccam4you -s Allcam -s Cccamfree -s Cccamgenerator -s Cccamcafard -s Toopccam -s Kacsat  -s Elaissaoui -s Realtv1 -s Satunivers -s Cccamgratis -s Xhaka -s Greencccamfree -s Jokercccam -s Ultrahd -s Seduct -s Raul7
+#python '/usr/script/ReloadCam.py' -s ALLTF
+
+#TODAS (incluidas testious y freecam): 
+#python '/usr/script/ReloadCam.py' -s ALL
 
 #Los valores posibles de esos servidores los tienes en el archivo ReloadCam_Arguments.py
 #Si todavia no tienes ese fichero, ejecuta el script con cualquier cosa y se te bajaran los archivos necesarios
 
-#Si añades el parametro '--append' (-a) al final, las lineas nuevas solo se añadiran abajo 
-#del archivo CCCam.cfg sin borrarlo antes.
-
-#Ejemplo (ambos son iguales):
-#ReloadCam.py -s Mycccam --append
-#ReloadCam.py -s Mycccam -a
-
-#Con esta llamada tu CCCam.cfg quedaria con las lineas antiguas arriba y las nuevas abajo
-
-#Si ademas le añades el parametro '--check' (-c) se abrira el archivo y borrara las lineas que no esten funcionando
-#para luego meter las nuevas lineas debajo
+#Si ademas le añades el parametro '--norestart' (-r) el CCCam NO se reiniciara despues de actualizar las lineas
 
 #Ejemplos (ambos son iguales):
-#ReloadCam.py -s Mycccam --append --check
-#ReloadCam.py -a -c
+#ReloadCam.py -s Satna --norestart
+#ReloadCam.py -s Satna -r
 
-#Tu archivo RefrescarCcam.sh deberia quedar con una sola linea
+
+#IMPORTANTE!!!  Tu archivo RefrescarCcam.sh deberia quedar con una sola linea y sin ningun simbolo ------> #
 #Ejemplo: ------> python '/usr/script/ReloadCam.py' -s Mycccam
 
 #6 - Sube esos 2 ficheros a /usr/script/ con permisos 755
@@ -58,7 +56,6 @@ cccamPathWindows = "C:\Users\gavaz\Desktop\CCcam.cfg"
 #-------------------------
 
 #Si quieres poner tus Clines propias, añadelas al metodo GetCustomClines() Tal y como se indica
-
 
 def GetCustomClines(): #No borres esta linea!
     customClines = [] #No borres esta linea!
