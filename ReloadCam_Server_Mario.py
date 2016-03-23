@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Mario(ReloadCam_Main.Server):
@@ -40,7 +40,9 @@ class Mario(ReloadCam_Main.Server):
         marioClines.append(self.__GetMarioCline(10))
         marioClines.append(self.__GetMarioCline(11))
         marioClines.append(self.__GetMarioCline(12))
-        return filter(None, marioClines)
+        marioClines = filter(None, marioClines)
+        if len(marioClines) == 0: print "No Mario lines retrieved"
+        return marioClines
 
     def __GetMarioCline(self, serverNo):
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl(serverNo))
