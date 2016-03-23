@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 2
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
 class Raul7(ReloadCam_Main.Server):
@@ -19,7 +19,9 @@ class Raul7(ReloadCam_Main.Server):
 
     def GetClines(self):
         print "Now getting Raul7 clines!"
-        return filter(None, self.__GetRaul7Cline())
+        raul7Clines = filter(None, self.__GetRaul7Cline())
+        if len(raul7Clines) == 0: print "No Raul7 lines retrieved"
+        return raul7Clines
 
     def __GetRaul7Cline(self):
         import re
