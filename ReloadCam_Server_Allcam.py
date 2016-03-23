@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 2
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
 class Allcam(ReloadCam_Main.Server):
@@ -27,8 +27,9 @@ class Allcam(ReloadCam_Main.Server):
         allcamClines.append(self.__GetAllcamCline(2))
         allcamClines.append(self.__GetAllcamCline(3))
         allcamClines.append(self.__GetAllcamCline(4))
-
-        return filter(None, allcamClines)
+        allcamClines = filter(None, allcamClines)
+        if len(allcamClines) == 0: print "No Allcam lines retrieved"
+        return allcamClines
 
     def __GetAllcamCline(self, serverNo):
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl(serverNo))
