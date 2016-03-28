@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 5
+    return 6
 
 #Filename must start with Server, classname and argument must be the same!
 class Cccam4you(ReloadCam_Main.Server):
@@ -27,7 +27,7 @@ class Cccam4you(ReloadCam_Main.Server):
 
     def __GetCccam4youCline(self):
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl())
-        cline = ReloadCam_Helper.FindClineInText(htmlCode, "<h1>(\s*\S+\s+\d+\s+\S+\s+[\w.-]+)")
+        cline = ReloadCam_Helper.FindStandardClineInText(htmlCode)
         if cline != None and ReloadCam_Helper.TestCline(cline):
-            return "C: " + cline
+            return cline
         return None
