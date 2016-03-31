@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 14
+    return 15
 
 class Server(object):
     def GetUrl():
@@ -34,7 +34,7 @@ def WriteCccamFile(clines, path):
     clinesToWrite += clines
     clinesToWrite = filter(None, clinesToWrite) #Remove "None" lines
     clinesToWrite = [cline.strip() for cline in clinesToWrite] #Remove '\n' in all clines
-    clinesToWrite = list(set(clinesToWrite)) #Remove duplicated lines
+    clinesToWrite = RemoveRepeatedLines(clinesToWrite) #Remove duplicated lines
     clinesToWrite = ReloadCam_Helper.SortClinesByPing(clinesToWrite)    
     print "Writing a total of " + str(len(clinesToWrite)) + " lines to the cccam.cfg!"
 
@@ -42,6 +42,36 @@ def WriteCccamFile(clines, path):
     for cline in clinesToWrite:
         file.write(cline + '\n')
     file.close()
+
+def RemoveRepeatedLines(clines):
+    clines = list(set(clines))#first remove the ones that are exactly the same    
+
+    #Now remove all the lines that have same hostname and port
+    for cline in clines:        
+        if ClineAlreadyExists(cline, clines):
+            clines.remove(cline)
+    return clines
+
+def ClineAlreadyExists(cline, clines):
+    host, port = GetHostPort(cline)
+    count = 0
+    for currentCline in clines:
+        currentHost, currentPort = GetHostPort(currentCline)
+        if host == currentHost and port == currentPort:
+            count += 1
+    if count > 1:
+        return True
+    return False
+
+def GetHostPort(cline):
+    import re
+
+    regExpr = re.compile('[CN]:\s*(\S+)+\s+(\d*)\s+')
+    match = regExpr.search(cline)
+    if match is not None:
+        host = match.group(1)
+        port = int(match.group(2))
+    return host, port
 
 def GetClinesByArgument(arguments, customClines):
     """Lee los arguments y carga las clines pertinentes"""
