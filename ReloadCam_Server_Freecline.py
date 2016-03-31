@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Freecline(ReloadCam_Main.Server):
@@ -20,7 +20,9 @@ class Freecline(ReloadCam_Main.Server):
         freeClineClines = []
         freeClineClines += self.__GetFreeclineClines()
         freeClineClines += self.__GetFreeclineNlines()
-        return filter(None, freeClineClines)
+        freeClineClines = filter(None, freeClineClines)
+        if len(freeClineClines) == 0: print "No Freecline lines retrieved"
+        return freeClineClines
 
     def __GetFreeclineClines(self):
         import re, time, datetime, random
