@@ -7,7 +7,10 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 3
+    return 4
+
+BestEuroCccamUsername = 'username'
+BestEuroCccamPort = 170099
 
 #Filename must start with Server, classname and argument must be the same!
 class Raul7(ReloadCam_Main.Server):
@@ -23,16 +26,30 @@ class Raul7(ReloadCam_Main.Server):
         if len(raul7Clines) == 0: print "No Raul7 lines retrieved"
         return raul7Clines
 
+    def GetBestEuroCccamCline(self, cline):
+        import re
+
+        regExpr = re.compile('[C]:\s*\S+\s+\S*\s+\S+\s+([\w.-]+)')
+        match = regExpr.search(cline)
+
+        if match is None:
+            return cline;
+
+        password = match.group(1)
+        return 'C: user.besteurocccam.com ' + str(BestEuroCccamPort) + ' ' + BestEuroCccamUsername + ' ' + password
+        
     def __GetRaul7Cline(self):
         import re
 
         clines = []
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl())
 
-        regExpr = re.compile('([CN]:\s*\S+\s+\d+\s+\S+\s+[\w.-]+)')
+        regExpr = re.compile('([CN]:\s*\S+\s+\S+\s+\S+\s+[\w.-]+)')
         matches = regExpr.findall(htmlCode)
         
         for match in matches:
+            if re.match('[C]:\s*user.besteurocccam.com\s*', match):
+                match = self.GetBestEuroCccamCline(match)    
             if (ReloadCam_Helper.TestCline(match)):
                 clines.append(match)
         
