@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 15
+    return 16
 
 class Server(object):
     def GetUrl():
@@ -53,24 +53,33 @@ def RemoveRepeatedLines(clines):
     return clines
 
 def ClineAlreadyExists(cline, clines):
+
     host, port = GetHostPort(cline)
-    count = 0
-    for currentCline in clines:
-        currentHost, currentPort = GetHostPort(currentCline)
-        if host == currentHost and port == currentPort:
-            count += 1
-    if count > 1:
-        return True
+
+    if host is not None and port is not None:
+        count = 0
+        for currentCline in clines:
+            currentHost, currentPort = GetHostPort(currentCline)
+            if currentHost is not None and currentPort is not None:
+                if host == currentHost and port == currentPort:
+                    count += 1
+        if count > 1:
+            return True
+
     return False
 
 def GetHostPort(cline):
     import re
+
+    host = None
+    port = None
 
     regExpr = re.compile('[CN]:\s*(\S+)+\s+(\d*)\s+')
     match = regExpr.search(cline)
     if match is not None:
         host = match.group(1)
         port = int(match.group(2))
+
     return host, port
 
 def GetClinesByArgument(arguments, customClines):
