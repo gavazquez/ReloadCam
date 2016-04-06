@@ -6,7 +6,7 @@
 
 #Para usarlo: 
 #1 - Crea un archivo llamado "ReloadCam.py" (La extension debe ser .py!) con algun editor de texto
-#2 - Pega TOTALMENTE (absolutamente todo) este texto en ese fichero y guardalo
+#2 - Pega TODO (absolutamente TODO) este texto en ese fichero y guardalo
 #3 - Lee todo este texto hasta abajo y haz las correcciones que se indiquen en caso de que sea necesario
 #4 - Create otro fichero llamado "RefrescarCcam.sh" (La extension debe ser .sh!) con algun editor de texto
 #5 - Desde ese .sh sera desde donde llames al ReloadCam.py, para ello, puedes llamarlo con los estos parametros (por ejemplo)
@@ -149,7 +149,7 @@ def GetScriptVersion(path):
 #region Main
 
 def Main():
-    import ReloadCam_Main, platform
+    import ReloadCam_Main, platform, traceback, sys
     
     try:
         if  platform.system().lower() == "windows": #Esto es solo por si lo ejecutas en windows
@@ -158,6 +158,7 @@ def Main():
             ReloadCam_Main.Main(GetCustomClines(), cccamPath, cccamBin)
     except Exception,e:
         print "Unexpected error: " + str(e)
+        traceback.print_exc(file=sys.stdout)
     finally:
         ReloadCam_Main.CleanFiles(GetCurrentPath(), platform.system())
 
@@ -178,6 +179,7 @@ def InternetConnected():
 #endregion
 
 if __name__ == "__main__":
+    import ReloadCam_Main
     if InternetConnected():
         print "Getting latest file versions and checking for updates..."
         DownloadScript("ReloadCam_Versions")
