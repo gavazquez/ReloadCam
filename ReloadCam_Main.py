@@ -7,13 +7,19 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 17
+    return 18
 
 class Server(object):
     def GetUrl():
         pass
     def GetClines(self):
         pass
+
+def CleanupClines(clines):
+    clines = filter(None, clines) #Remove "None" lines
+    clines = [cline.strip() for cline in clines] #Remove '\n' in all clines
+    clines = RemoveRepeatedLines(clines) #Remove duplicated lines
+    return clines
 
 def WriteCccamFile(clines, path):
     """Crea el archivo CCCam.cfg"""
@@ -28,15 +34,20 @@ def WriteCccamFile(clines, path):
     
     print "Testing " + str(len(existingClines)) + " existing clines..."
     for cline in existingClines:
-        if ReloadCam_Helper.TestCline(cline) == True:
-            clinesToWrite.append(cline)
+        if ReloadCam_Helper.TestCline(cline) == False:
+            existingClines.remove(cline)
+
+    existingClines = CleanupClines(existingClines)
+    clines = CleanupClines(clines)
+    print "Found " + str(len(existingClines)) + " working existing clines..."
+    print "Retrieved " + str(len(clines)) + " new lines"
 
     clinesToWrite += clines
-    clinesToWrite = filter(None, clinesToWrite) #Remove "None" lines
-    clinesToWrite = [cline.strip() for cline in clinesToWrite] #Remove '\n' in all clines
-    clinesToWrite = RemoveRepeatedLines(clinesToWrite) #Remove duplicated lines
+    clinesToWrite += existingClines
+    clinesToWrite = CleanupClines(clinesToWrite)
+
     clinesToWrite = ReloadCam_Helper.SortClinesByPing(clinesToWrite)    
-    print "Writing a total of " + str(len(clinesToWrite)) + " lines to the cccam.cfg!"
+    print "Writing a combined total of " + str(len(clinesToWrite)) + " lines to the cccam.cfg!"
 
     file = open(path, 'w')
     for cline in clinesToWrite:
