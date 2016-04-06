@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 16
+    return 17
 
 class Server(object):
     def GetUrl():
@@ -124,33 +124,39 @@ def RestartCccam(path):
         print "ERROR! Cannot restart cccam! Restart manually or fix variable path cccamBin! Current value: " + path
 
 def Main(customClines, cccamPath, cccamBin):
-    import sys, os, optparse, ReloadCam_Arguments, platform
-    clines = []
+    import sys, os, optparse, ReloadCam_Arguments, platform, traceback, sys
 
-    parser = optparse.OptionParser(description="Refrescador automatico de clines. Creado por Dagger")
+    try:
+        clines = []
 
-    possibleArguments = '%s' % ','.join(map(str, ReloadCam_Arguments.Arguments))
+        parser = optparse.OptionParser(description="Refrescador automatico de clines. Creado por Dagger")
+        
+        possibleArguments = '%s' % ','.join(map(str, ReloadCam_Arguments.Arguments))
 
-    parser.add_option('-s', '--server', dest='web', action='append', choices=ReloadCam_Arguments.Arguments,
-        help="Especifica la web de la que quieres descargar las clines. Puedes repetir este parametro varias \
-            veces o usar ALL para llamar a todos o ALLTF para todos menos testious y feecline. Valores posibles: " + possibleArguments)
+        parser.add_option('-s', '--server', dest='web', action='append', choices=ReloadCam_Arguments.Arguments,
+            help="Especifica la web de la que quieres descargar las clines. Puedes repetir este parametro varias \
+                veces o usar ALL para llamar a todos o ALLTF para todos menos testious y feecline. Valores posibles: " + possibleArguments)
 
-    parser.add_option('-r', '--norestart', dest='norestart', default=False, action='store_true', 
-        help='NO reinicia la cccam despues del refresco de clines')
+        parser.add_option('-r', '--norestart', dest='norestart', default=False, action='store_true', 
+            help='NO reinicia la cccam despues del refresco de clines')
 
-    (opts, args) = parser.parse_args()
+        (opts, args) = parser.parse_args()
 
-    clines = GetClinesByArgument(opts.web, customClines)
+        clines = GetClinesByArgument(opts.web, customClines)
 
-    if len(clines) <= 0:
-        print "CAUTION! No new lines retrieved"
+        if len(clines) <= 0:
+            print "CAUTION! No new lines retrieved"
     
-    WriteCccamFile(clines, cccamPath)
-    if opts.norestart is False and platform.system().lower() != "windows":
-        print "Restarting cam!"
-        RestartCccam(cccamBin)
-    print "Finished!!!"
+        WriteCccamFile(clines, cccamPath)
 
+        if opts.norestart is False and platform.system().lower() != "windows":
+            print "Restarting cam!"
+            RestartCccam(cccamBin)
+        print "Finished!!!"
+
+    except Exception,e:
+        print "Unexpected error thrown in ReloadCam_Main: " + str(e)
+        traceback.print_exc(file=sys.stdout)
     return;
 
 def CleanFiles(currentPath, platform):
