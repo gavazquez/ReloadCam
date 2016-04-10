@@ -179,7 +179,6 @@ def InternetConnected():
 #endregion
 
 if __name__ == "__main__":
-    import ReloadCam_Main
     if InternetConnected():
         print "Getting latest file versions and checking for updates..."
         DownloadScript("ReloadCam_Versions")
