@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 2
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
 class Mario(ReloadCam_Main.Server):
@@ -16,11 +16,11 @@ class Mario(ReloadCam_Main.Server):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
 
         if (serverNo <= 4):
-            realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjcq5-oZU=")
+            realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjco5-oQ==')
         elif (serverNo >= 5 and serverNo <= 8):
-            realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjcq5_oZU=")
+            realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjco5_oQ==')
         elif (serverNo >= 9):
-            realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjcq6AoZU=")
+            realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjco6AoQ==')
         
         realUrl = realUrl + str(serverNo)
         return realUrl
