@@ -28,7 +28,7 @@ Versions = {
     "ReloadCam_Server_Satunivers" : 3,
     "ReloadCam_Server_Seduct" : 2,
     "ReloadCam_Server_Testious" : 2,
-    "ReloadCam_Server_Toopccam" : 2,
+    "ReloadCam_Server_Toopccam" : 3,
     "ReloadCam_Server_Ultrahd" : 0,
     "ReloadCam_Server_Xhaka" : 3,
     "ReloadCam_Server_Myfree" : 2,
