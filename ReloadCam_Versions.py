@@ -37,6 +37,6 @@ Versions = {
     "ReloadCam_Server_ManiaForall" : 0,
     "ReloadCam_Server_Foot4sport" : 2,
     "ReloadCam_Server_Top2servers" : 2,
-    "ReloadCam_Server_Mario" : 3,
+    "ReloadCam_Server_Mario" : 4,
     "ReloadCam_Server_Madvengers" : 1
 }
