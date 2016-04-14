@@ -19,7 +19,7 @@ Versions = {
     "ReloadCam_Server_Elaissaoui" : 3,
     "ReloadCam_Server_Freecline" : 2,
     "ReloadCam_Server_Greencccamfree" : 4,
-    "ReloadCam_Server_Jokercccam" : 2,
+    "ReloadCam_Server_Jokercccam" : 3,
     "ReloadCam_Server_Kacsat" : 3,
     "ReloadCam_Server_Mycccam" : 0,
     "ReloadCam_Server_Realtv1" : 0,
