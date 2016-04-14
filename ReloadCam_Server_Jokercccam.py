@@ -7,14 +7,24 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 2
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
 class Jokercccam(ReloadCam_Main.Server):
 
-    def GetUrl(self):
+    def GetUrl(self, serverNo):
+
+        dictionary = {
+            1:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15StoLupX6KbpA==',
+            2:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15StyZOpdWCjnLM=',
+            3:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15SytpSsX6KbpA==',
+            4:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15SttqmYX6KbpA==',
+            5:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15StwLiZX6KbpA==',
+            6:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15StpaOyX6KbpA=='
+        }
+
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15Tnn96SoZqj")
+        realUrl = ReloadCam_Helper.Decrypt(dictionary[serverNo])
         return realUrl
 
     def GetClines(self):
@@ -31,7 +41,7 @@ class Jokercccam(ReloadCam_Main.Server):
         return jokerClines
 
     def __GetJokerCline(self, serverNo):
-        htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl().format(serverNo))
+        htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl(serverNo))
         cline = ReloadCam_Helper.FindStandardClineInText(htmlCode)
         if cline != None and ReloadCam_Helper.TestCline(cline):
             return cline
