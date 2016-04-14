@@ -26,7 +26,7 @@ Versions = {
     "ReloadCam_Server_Raul7" : 4,
     "ReloadCam_Server_Satna" : 2,
     "ReloadCam_Server_Satunivers" : 3,
-    "ReloadCam_Server_Seduct" : 2,
+    "ReloadCam_Server_Seduct" : 3,
     "ReloadCam_Server_Testious" : 2,
     "ReloadCam_Server_Toopccam" : 3,
     "ReloadCam_Server_Ultrahd" : 0,
