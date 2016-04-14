@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 3
+    return 4
 
 #Filename must start with Server, classname and argument must be the same!
 class Mario(ReloadCam_Main.Server):
@@ -22,7 +22,7 @@ class Mario(ReloadCam_Main.Server):
         elif (serverNo >= 9):
             realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjco6AoQ==')
         
-        realUrl = realUrl + str(serverNo)
+        realUrl = realUrl + 'm' + str(serverNo)
         return realUrl
 
     def GetClines(self):
