@@ -7,14 +7,14 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 4
+    return 5
 
 #Filename must start with Server, classname and argument must be the same!
 class Cccamcafard(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNXIz9DOx5KYlKanb7Dh0pvWy8ydmZ2cr3V9ppWb2M_IlqphpKux")
+        realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453IyZ-XpZW3sL-gyM_SwtGUk5mVtaV71dTZnsjOmZ6anqutgaKZnJ7K0pWXq2Kzqb0=')
         return realUrl
 
     def GetClines(self):
