@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a309e664-2ba3-40a7-820c-f52cf27fbb85}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>DELETED_ReloadCam_Server_Demed.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DELETED_ReloadCam_Server_Demed.py" />
+    <Compile Include="DELETED_ReloadCam_Server_ManiaForall.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Mycccam.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Realtv1.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Ultrahd.py" />
+    <Compile Include="ReloadCam.py" />
+    <Compile Include="ReloadCamUndro.py" />
+    <Compile Include="ReloadCam_Arguments.py" />
+    <Compile Include="ReloadCam_ClineTester.py" />
+    <Compile Include="ReloadCam_Helper.py" />
+    <Compile Include="ReloadCam_Main.py" />
+    <Compile Include="ReloadCam_Server_Allcam.py" />
+    <Compile Include="ReloadCam_Server_Cccam4you.py" />
+    <Compile Include="ReloadCam_Server_Cccamcafard.py" />
+    <Compile Include="ReloadCam_Server_Cccamfree.py" />
+    <Compile Include="ReloadCam_Server_Cccamgenerator.py" />
+    <Compile Include="ReloadCam_Server_Cccamgratis.py" />
+    <Compile Include="ReloadCam_Server_Elaissaoui.py" />
+    <Compile Include="ReloadCam_Server_Foot4sport.py" />
+    <Compile Include="ReloadCam_Server_Freecline.py" />
+    <Compile Include="ReloadCam_Server_Greencccamfree.py" />
+    <Compile Include="ReloadCam_Server_Jokercccam.py" />
+    <Compile Include="ReloadCam_Server_Kacsat.py" />
+    <Compile Include="ReloadCam_Server_Madvengers.py" />
+    <Compile Include="ReloadCam_Server_Mario.py" />
+    <Compile Include="ReloadCam_Server_Mawali.py" />
+    <Compile Include="ReloadCam_Server_Myfree.py" />
+    <Compile Include="ReloadCam_Server_Raul7.py" />
+    <Compile Include="ReloadCam_Server_Satna.py" />
+    <Compile Include="ReloadCam_Server_Satunivers.py" />
+    <Compile Include="ReloadCam_Server_Seduct.py" />
+    <Compile Include="ReloadCam_Server_Testious.py" />
+    <Compile Include="ReloadCam_Server_Toopccam.py" />
+    <Compile Include="ReloadCam_Server_Top2servers.py" />
+    <Compile Include="ReloadCam_Server_Xhaka.py" />
+    <Compile Include="ReloadCam_Versions.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\2.7" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
