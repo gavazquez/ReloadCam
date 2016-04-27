@@ -1,10 +1,8 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*- 
-
+# -*- coding: utf-8 -*- 
 #Refrescador automatico de clines
-#Creado por Dagger
-
-#If version is 0 or less it will mean that we will delete that file
+#Creado por Dagger
+#If version is 0 or less it will mean that we will delete that file
 Versions = {
     "ReloadCam_Arguments" : 12,
     "ReloadCam_ClineTester" : 1,
@@ -16,7 +14,7 @@ Versions = {
     "ReloadCam_Server_Cccamfree" : 3,
     "ReloadCam_Server_Cccamgenerator" : 5,
     "ReloadCam_Server_Cccamgratis" : 3,
-    "ReloadCam_Server_Elaissaoui" : 3,
+    "ReloadCam_Server_Elaissaoui" : 4,
     "ReloadCam_Server_Freecline" : 2,
     "ReloadCam_Server_Greencccamfree" : 4,
     "ReloadCam_Server_Jokercccam" : 3,
@@ -39,4 +37,4 @@ Versions = {
     "ReloadCam_Server_Top2servers" : 2,
     "ReloadCam_Server_Mario" : 4,
     "ReloadCam_Server_Madvengers" : 1
-}
+}
