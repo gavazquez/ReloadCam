@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 3
+    return 4
 
 #Filename must start with Server, classname and argument must be the same!
 class Jokercccam(ReloadCam_Main.Server):
@@ -15,12 +15,12 @@ class Jokercccam(ReloadCam_Main.Server):
     def GetUrl(self, serverNo):
 
         dictionary = {
-            1:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15StoLupX6KbpA==',
-            2:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15StyZOpdWCjnLM=',
-            3:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15SytpSsX6KbpA==',
-            4:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15SttqmYX6KbpA==',
-            5:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15StwLiZX6KbpA==',
-            6:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15StpaOyX6KbpA=='
+            1:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15Sdoo_UmaI=',
+            2:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15Seoo_UmaI=',
+            3:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15Sfoo_UmaI=',
+            4:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15Sgoo_UmaI=',
+            5:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15Shoo_UmaI=',
+            6:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15Sioo_UmaI='
         }
 
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
