@@ -10,7 +10,7 @@ Versions = {
     "ReloadCam_ClineTester" : 1,
     "ReloadCam_Helper" : 11,
     "ReloadCam_Main" : 18,
-    "ReloadCam_Server_Allcam" : 3,
+    "ReloadCam_Server_Allcam" : 4,
     "ReloadCam_Server_Cccam4you" : 6,
     "ReloadCam_Server_Cccamcafard" : 5,
     "ReloadCam_Server_Cccamfree" : 3,
