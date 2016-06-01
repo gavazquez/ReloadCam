@@ -113,7 +113,7 @@ def GetPostHtmlCode(data, headers, url):
     return htmlCode;
 
 def FindStandardClineInText(text):
-    return FindClineInText(text, "([CN]:\s*\S+\s+\d+\s+\S+\s+[\w.-]+)");
+    return FindClineInText(text, "([CN]:\s*\S+\s+\d+\s+\S+\s+[\w.-/]+)");
 
 def FindClineInText(text, regex):
     import re
