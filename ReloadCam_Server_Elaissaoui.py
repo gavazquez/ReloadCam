@@ -7,14 +7,14 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 4
+    return 5
 
 #Filename must start with Server, classname and argument must be the same!
 class Elaissaoui(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNfRzdjU15KhqJ1xr7yfztydxNNfp55jqbOy18jP0sLRYJuhmKi5e-LN3A==")
+        realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNfRzdjU15KhqJ1xqa7V0JniwthfoaWbcqWy5djf4pmTmqCXmbtvvdrV')
         return realUrl
 
     def GetClines(self):
