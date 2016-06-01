@@ -22,7 +22,7 @@ class Cccamcafard(ReloadCam_Main.Server):
         cccamcafardClines = []
         cccamcafardClines.append(self.__GetCccamcafardCline())
         cccamcafardClines = filter(None, cccamcafardClines)
-        if len(cccamcafardClines) == 0: print "No CCcamcafard lines retrieved"
+        if len(cccamcafardClines) == 0: print "No Cccamcafard lines retrieved"
         return cccamcafardClines
 
     def __GetCccamcafardCline(self):
