@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 11
+    return 12
 
 cryptoKey = "1234CAMreload"
 currentIpAddress = "0"
@@ -149,7 +149,7 @@ def TestNLine(nline):
         return False;
 
     testSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    testSocket.settimeout(5)
+    testSocket.settimeout(15)
 
     try:
         host = match.group(1)
