@@ -5,7 +5,7 @@
 #Creado por Dagger
 
 def GetVersion():
-    return 1
+    return 2
 
 recvblock = None
 sendblock = None
@@ -27,7 +27,7 @@ def TestCline(cline):
         return False;
 
     testSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_IP)
-    testSocket.settimeout(5)
+    testSocket.settimeout(15)
 
     host = match.group(1)
     port = int(match.group(2))
