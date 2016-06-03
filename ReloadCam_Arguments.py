@@ -38,6 +38,7 @@ Arguments = [
     'Mario',
     #'Madvengers',
     'Hacksat',
+    'Fullmonsters',
     'ALL', #ALL Servers,
     'ALLTF' #ALL Servers except testious and freecline
 ]

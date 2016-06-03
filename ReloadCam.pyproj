@@ -48,6 +48,7 @@
     <Compile Include="ReloadCam_Server_Cccamgenerator.py" />
     <Compile Include="ReloadCam_Server_Cccamgratis.py" />
     <Compile Include="ReloadCam_Server_Elaissaoui.py" />
+    <Compile Include="ReloadCam_Server_Fullmonsters.py" />
     <Compile Include="ReloadCam_Server_Freecline.py" />
     <Compile Include="ReloadCam_Server_Greencccamfree.py" />
     <Compile Include="ReloadCam_Server_Jokercccam.py" />
