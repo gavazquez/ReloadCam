@@ -14,6 +14,7 @@ class Kacsat(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://kac-sat.noip.me/index.php
         realUrl = ReloadCam_Helper.Decrypt("maanpH1wfN3Gz5zUxaVgoaOssXvfypvYz8iWqmGkq7E=")
         return realUrl
 
