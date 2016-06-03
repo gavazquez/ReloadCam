@@ -14,6 +14,7 @@ class Mawali(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://mawali.no-ip.org/index.php
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfN_G49DNzV-gomGssXvh19OeytKVl6tis6m9')
         return realUrl
 
