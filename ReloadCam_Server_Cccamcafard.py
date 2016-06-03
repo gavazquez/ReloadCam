@@ -15,10 +15,8 @@ class Cccamcafard(ReloadCam_Main.Server):
     def GetUrl(self, serverNo):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
         if serverNo <= 1:
-            #http://www.generator.cccamcafard.com/gjhlgjhl4040/index.php
             realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453IyZ-XpZW3sL-gyM_SwtGUk5mVtaV71dTZnsjOmZ6anqutgaKZnJ7K0pWXq2Kzqb0=')
         else:
-            #http://generator.cccamcafard.com/48/
             realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNnK2tTTxaWhpWKmpLDT0s_Qx8WjlmGXsq58pp2b2M_IlqphpKux')
 
         return realUrl
