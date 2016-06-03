@@ -26,9 +26,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DELETED_ReloadCam_Server_Demed.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Foot4sport.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Kacsat.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Madvengers.py" />
     <Compile Include="DELETED_ReloadCam_Server_ManiaForall.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Mawali.py" />
     <Compile Include="DELETED_ReloadCam_Server_Mycccam.py" />
     <Compile Include="DELETED_ReloadCam_Server_Realtv1.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Satna.py" />
     <Compile Include="DELETED_ReloadCam_Server_Ultrahd.py" />
     <Compile Include="ReloadCam.py" />
     <Compile Include="ReloadCamUndro.py" />
@@ -43,17 +48,13 @@
     <Compile Include="ReloadCam_Server_Cccamgenerator.py" />
     <Compile Include="ReloadCam_Server_Cccamgratis.py" />
     <Compile Include="ReloadCam_Server_Elaissaoui.py" />
-    <Compile Include="ReloadCam_Server_Foot4sport.py" />
     <Compile Include="ReloadCam_Server_Freecline.py" />
     <Compile Include="ReloadCam_Server_Greencccamfree.py" />
     <Compile Include="ReloadCam_Server_Jokercccam.py" />
     <Compile Include="ReloadCam_Server_Kacsat.py" />
-    <Compile Include="ReloadCam_Server_Madvengers.py" />
     <Compile Include="ReloadCam_Server_Mario.py" />
-    <Compile Include="ReloadCam_Server_Mawali.py" />
     <Compile Include="ReloadCam_Server_Myfree.py" />
     <Compile Include="ReloadCam_Server_Raul7.py" />
-    <Compile Include="ReloadCam_Server_Satna.py" />
     <Compile Include="ReloadCam_Server_Satunivers.py" />
     <Compile Include="ReloadCam_Server_Seduct.py" />
     <Compile Include="ReloadCam_Server_Testious.py" />
