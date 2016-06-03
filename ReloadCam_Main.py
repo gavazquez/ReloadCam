@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 18
+    return 19
 
 class Server(object):
     def GetUrl():
@@ -116,10 +116,12 @@ def GetClinesByArgument(arguments, customClines):
 
     for argument in arguments:
         moduleName = 'ReloadCam_Server_' + argument #creamos el nombre del modulo que tenemos que importar ej:ReloadCam_Myccam
-        my_module = importlib.import_module(moduleName) #Esta linea importa el modulo como si hicieramos un import <nombremodulo>
-        classInstance = getattr(my_module, argument)() #Creamos una instancia de ese modulo importado
-        clines += classInstance.GetClines() #Este metodo lo deben implementar todas las clases derivadas de "Server"
-
+        try:
+            my_module = importlib.import_module(moduleName) #Esta linea importa el modulo como si hicieramos un import <nombremodulo>
+            classInstance = getattr(my_module, argument)() #Creamos una instancia de ese modulo importado
+            clines += classInstance.GetClines() #Este metodo lo deben implementar todas las clases derivadas de "Server"
+        except Exception,e:
+            print "Error loading module: " + moduleName
     return clines
 
 def RestartCccam(path):
