@@ -14,6 +14,7 @@ class Foot4sport(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://foot4sport.no-ip.org/index.php
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNjU2-OV16Ghpahxr7yfztyd0NaYYZyip6bFoNXU3w==')
         return realUrl
 
