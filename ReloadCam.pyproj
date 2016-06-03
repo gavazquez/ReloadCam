@@ -16,7 +16,7 @@
     <InterpreterArguments>
     </InterpreterArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <CommandLineArguments>-s Toopccam</CommandLineArguments>
+    <CommandLineArguments>-s Cccamcafard</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -51,7 +51,6 @@
     <Compile Include="ReloadCam_Server_Freecline.py" />
     <Compile Include="ReloadCam_Server_Greencccamfree.py" />
     <Compile Include="ReloadCam_Server_Jokercccam.py" />
-    <Compile Include="ReloadCam_Server_Kacsat.py" />
     <Compile Include="ReloadCam_Server_Mario.py" />
     <Compile Include="ReloadCam_Server_Myfree.py" />
     <Compile Include="ReloadCam_Server_Raul7.py" />
