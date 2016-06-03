@@ -21,11 +21,11 @@ Versions = {
     "ReloadCam_Server_Greencccamfree" : 4,
     "ReloadCam_Server_Hacksat" : 1,
     "ReloadCam_Server_Jokercccam" : 4,
-    "ReloadCam_Server_Kacsat" : 3,
+    "ReloadCam_Server_Kacsat" : 0,
     "ReloadCam_Server_Mycccam" : 0,
     "ReloadCam_Server_Realtv1" : 0,
     "ReloadCam_Server_Raul7" : 4,
-    "ReloadCam_Server_Satna" : 2,
+    "ReloadCam_Server_Satna" : 0,
     "ReloadCam_Server_Satunivers" : 3,
     "ReloadCam_Server_Seduct" : 4,
     "ReloadCam_Server_Testious" : 2,
@@ -33,13 +33,13 @@ Versions = {
     "ReloadCam_Server_Ultrahd" : 0,
     "ReloadCam_Server_Xhaka" : 3,
     "ReloadCam_Server_Myfree" : 2,
-    "ReloadCam_Server_Mawali" : 2,
+    "ReloadCam_Server_Mawali" : 0,
     "ReloadCam_Server_Demed" : 0,
     "ReloadCam_Server_ManiaForall" : 0,
-    "ReloadCam_Server_Foot4sport" : 2,
+    "ReloadCam_Server_Foot4sport" : 0,
     "ReloadCam_Server_Top2servers" : 2,
     "ReloadCam_Server_Mario" : 5,
-    "ReloadCam_Server_Madvengers" : 1
+    "ReloadCam_Server_Madvengers" : 0
 }
 
 
