@@ -14,6 +14,7 @@ class Madvengers(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://madvengers-cccam.com/verif.php
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfN_G0OXG0piXpadwpLDVxtmdxNOeYamZtaqzoNXU3w==')
         return realUrl
 
