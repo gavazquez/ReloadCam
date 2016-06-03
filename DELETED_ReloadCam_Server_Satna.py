@@ -14,6 +14,7 @@ class Satna(ReloadCam_Main.Server):
     
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://satna4ever.no-ip.biz
         realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOXG4N3CmJaomKZxr7yfztydw82rYaaVt6-uoeCc7NTWp2CjnLM=")
         return realUrl
 
