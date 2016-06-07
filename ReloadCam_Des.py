@@ -7,15 +7,16 @@
 def GetVersion():
     return 2
 
-import sys
-
 # The base class shared by des and triple des.
 class _baseDes(object):
+	import sys
+	
 	_pythonMajorVersion = sys.version_info[0]
 	ECB =	0
 	CBC =	1
 	PAD_NORMAL = 1
 	PAD_PKCS5 = 2
+	
 	def __init__(self, mode=ECB, IV=None, pad=None, padmode=PAD_NORMAL):
 		if IV:
 			IV = self._guardAgainstUnicode(IV)
@@ -153,6 +154,8 @@ class _baseDes(object):
 		return data
 
 class des(_baseDes):
+	import sys
+	
 	_pythonMajorVersion = sys.version_info[0]
 	ECB =	0
 	CBC =	1
@@ -575,6 +578,8 @@ class des(_baseDes):
 		return self._unpadData(data, pad, padmode)
 
 class triple_des(_baseDes):
+	import sys
+	
 	_pythonMajorVersion = sys.version_info[0]
 	ECB =	0
 	CBC =	1
