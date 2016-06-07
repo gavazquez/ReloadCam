@@ -16,7 +16,7 @@
     <InterpreterArguments>
     </InterpreterArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <CommandLineArguments>-s Cccamcafard</CommandLineArguments>
+    <CommandLineArguments>-s Freecline</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -38,6 +38,9 @@
     <Compile Include="ReloadCam.py" />
     <Compile Include="ReloadCamUndro.py" />
     <Compile Include="ReloadCam_Arguments.py" />
+    <Compile Include="ReloadCam_Des.py" />
+    <Compile Include="ReloadCam_Md5.py" />
+    <Compile Include="ReloadCam_NlineTester.py" />
     <Compile Include="ReloadCam_ClineTester.py" />
     <Compile Include="ReloadCam_Helper.py" />
     <Compile Include="ReloadCam_Main.py" />

@@ -5,12 +5,12 @@
 #Creado por Dagger
 
 def GetVersion():
-    return 3
+    return 4
 
 recvblock = None
 sendblock = None
 
-def TestCline(cline):
+def TestCline(cline, timeout):
     import socket, re, sys, array, time, select
 
     global recvblock
@@ -27,7 +27,7 @@ def TestCline(cline):
         return False;
 
     testSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_IP)
-    testSocket.settimeout(15)
+    testSocket.settimeout(timeout)
 
     host = match.group(1)
     port = int(match.group(2))
