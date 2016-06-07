@@ -38,8 +38,6 @@
     <Compile Include="ReloadCam.py" />
     <Compile Include="ReloadCamUndro.py" />
     <Compile Include="ReloadCam_Arguments.py" />
-    <Compile Include="ReloadCam_Des.py" />
-    <Compile Include="ReloadCam_Md5.py" />
     <Compile Include="ReloadCam_NlineTester.py" />
     <Compile Include="ReloadCam_ClineTester.py" />
     <Compile Include="ReloadCam_Helper.py" />
