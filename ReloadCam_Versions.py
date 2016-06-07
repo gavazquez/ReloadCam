@@ -26,7 +26,7 @@ Versions = {
     "ReloadCam_Server_Kacsat" : 0,
     "ReloadCam_Server_Mycccam" : 0,
     "ReloadCam_Server_Realtv1" : 0,
-    "ReloadCam_Server_Raul7" : 4,
+    "ReloadCam_Server_Raul7" : 5,
     "ReloadCam_Server_Satna" : 0,
     "ReloadCam_Server_Satunivers" : 3,
     "ReloadCam_Server_Seduct" : 4,
