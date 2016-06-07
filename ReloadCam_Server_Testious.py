@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 3
+    return 4
 
 #Filename must start with Server, classname and argument must be the same!
 class Testious(ReloadCam_Main.Server):
@@ -40,7 +40,7 @@ class Testious(ReloadCam_Main.Server):
             matches = regExpr.findall(htmlCode)
 
         for match in matches:
-            if ReloadCam_Helper.TestCline(match):
+            if ReloadCam_Helper.TestClineTimeout(match,5):
                 clines.append(match)
 
         return clines;
