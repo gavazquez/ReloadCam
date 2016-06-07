@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 20
+    return 21
 
 class Server(object):
     def GetUrl():
