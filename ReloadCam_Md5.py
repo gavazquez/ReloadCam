@@ -5,7 +5,7 @@
 #Creado por Dagger
 
 def GetVersion():
-    return 1
+    return 2
 
 import md5
 
