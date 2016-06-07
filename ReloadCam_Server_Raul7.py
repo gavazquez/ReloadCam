@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 4
+    return 5
 
 BestEuroCccamUsername = 'username'
 BestEuroCccamPort = 170099
@@ -44,7 +44,7 @@ class Raul7(ReloadCam_Main.Server):
         clines = []
         htmlCode = ReloadCam_Helper.GetHtmlCode(None, self.GetUrl())
 
-        regExpr = re.compile('([CN]:\s*\S+\s+\S+\s+\S+\s+[\w.-]+)')
+        regExpr = re.compile('([C]:\s*\S+\s+\S+\s+\S+\s+[\w.-]+)')
         matches = regExpr.findall(htmlCode)
         
         for match in matches:
