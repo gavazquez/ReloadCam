@@ -67,26 +67,3 @@ def md5crypt(password, salt, magic='$1$'):
         rearranged += itoa64[v & 0x3f]; v >>= 6
 
     return magic + salt + '$' + rearranged
-
-if __name__ == '__main__':
-
-    def test(clear_password, the_hash):
-        magic, salt = the_hash[1:].split('$')[:2]
-        magic = '$' + magic + '$'
-        return md5crypt(clear_password, salt, magic) == the_hash
-
-    test_cases = (
-        (' ', '$1$yiiZbNIH$YiCsHZjcTkYd31wkgW8JF.'),
-        ('pass', '$1$YeNsbWdH$wvOF8JdqsoiLix754LTW90'),
-        ('____fifteen____', '$1$s9lUWACI$Kk1jtIVVdmT01p0z3b/hw1'),
-        ('____sixteen_____', '$1$dL3xbVZI$kkgqhCanLdxODGq14g/tW1'),
-        ('____seventeen____', '$1$NaH5na7J$j7y8Iss0hcRbu3kzoJs5V.'),
-        ('__________thirty-three___________', '$1$HO7Q6vzJ$yGwp2wbL5D7eOVzOmxpsy.'),
-        ('apache', '$apr1$J.w5a/..$IW9y6DR0oO/ADuhlMF5/X1')
-    )
-
-    for clearpw, hashpw in test_cases:
-        if test(clearpw, hashpw):
-            print '%s: pass' % clearpw
-        else:
-            print '%s: FAIL' % clearpw
