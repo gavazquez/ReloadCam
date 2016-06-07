@@ -254,15 +254,15 @@ def md5crypt(password, salt, magic='$1$'):
 
 #region DES
 
-import sys
-
-_pythonMajorVersion = sys.version_info[0]
-ECB =	0
-CBC =	1
-PAD_NORMAL = 1
-PAD_PKCS5 = 2
-
 class _baseDes(object):
+	import sys
+
+	_pythonMajorVersion = sys.version_info[0]
+	ECB =	0
+	CBC =	1
+	PAD_NORMAL = 1
+	PAD_PKCS5 = 2
+	
 	def __init__(self, mode=ECB, IV=None, pad=None, padmode=PAD_NORMAL):
 		if IV:
 			IV = self._guardAgainstUnicode(IV)
@@ -400,6 +400,14 @@ class _baseDes(object):
 		return data
 
 class des(_baseDes):
+	import sys
+
+	_pythonMajorVersion = sys.version_info[0]
+	ECB =	0
+	CBC =	1
+	PAD_NORMAL = 1
+	PAD_PKCS5 = 2
+	
 	# Permutation and translation tables for DES
 	__pc1 = [56, 48, 40, 32, 24, 16,  8,
 		  0, 57, 49, 41, 33, 25, 17,
@@ -789,6 +797,14 @@ class des(_baseDes):
 		return self._unpadData(data, pad, padmode)
 
 class triple_des(_baseDes):
+	import sys
+
+	_pythonMajorVersion = sys.version_info[0]
+	ECB =	0
+	CBC =	1
+	PAD_NORMAL = 1
+	PAD_PKCS5 = 2
+	
 	def __init__(self, key, mode=ECB, IV=None, pad=None, padmode=PAD_NORMAL):
 		_baseDes.__init__(self, mode, IV, pad, padmode)
 		self.setKey(key)
