@@ -4,8 +4,16 @@
 #Refrescador automatico de clines
 #Creado por Dagger
 
+import sys
+
+_pythonMajorVersion = sys.version_info[0]
+ECB =	0
+CBC =	1
+PAD_NORMAL = 1
+PAD_PKCS5 = 2
+
 def GetVersion():
-    return 5
+    return 6
 
 def TestNline(nline, timeout):
     import socket, re, sys, array, time, select, random
@@ -87,9 +95,9 @@ def TestNline(nline, timeout):
             else:
                 returnValue = False
 
-        except:
+        except Exception, e:
             return returnValue
-    except:
+    except Exception, e:
         return returnValue
 
     testSocket.close()
