@@ -51,7 +51,8 @@ def WriteCccamFile(clines, path):
 
     file = open(path, 'w')
     for cline in clinesToWrite:
-        file.write(cline + '\n')
+        file.write(cline)
+        file.write('\n')
     file.close()
 
 def RemoveRepeatedLines(clines):
