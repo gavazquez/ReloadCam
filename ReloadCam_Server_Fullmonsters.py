@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 3
 
 #Filename must start with Server, classname and argument must be the same!
 class Fullmonsters(ReloadCam_Main.Server):
@@ -22,8 +22,8 @@ class Fullmonsters(ReloadCam_Main.Server):
         fullmonstersClines = []
         fullmonstersClines.append(self.__GetFullmonstersCline())
         fullmonstersClines = filter(None, fullmonstersClines)
-        if len(elaissaouiClines) == 0: print "No Fullmonsters lines retrieved"
-        return elaissaouiClines
+        if len(fullmonstersClines) == 0: print "No Fullmonsters lines retrieved"
+        return fullmonstersClines
 
     def __GetFullmonstersCline(self):
 
