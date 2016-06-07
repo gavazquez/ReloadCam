@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 19
+    return 20
 
 class Server(object):
     def GetUrl():
@@ -153,12 +153,19 @@ def Main(customClines, cccamPath, cccamBin):
         parser.add_option('-r', '--norestart', dest='norestart', default=False, action='store_true', 
             help='NO reinicia la cccam despues del refresco de clines')
 
+        parser.add_option('-n', '--nodownload', dest='nodownload', default=False, action='store_true', 
+            help='NO descarga nuevas lineas. Solo reordena por ping y elimina las lineas que no funcionan')
+
         (opts, args) = parser.parse_args()
 
-        clines = GetClinesByArgument(opts.web, customClines)
-
-        if len(clines) <= 0:
-            print "CAUTION! No new lines retrieved"
+        if opts.nodownload is True and opts.web is not None:
+            print "Cannot call with -s and -n at the same time"
+            return;
+        
+        if opts.nodownload is False:
+            clines = GetClinesByArgument(opts.web, customClines)
+            if len(clines) <= 0:
+                print "CAUTION! No new lines retrieved"
     
         WriteCccamFile(clines, cccamPath)
 
