@@ -5,7 +5,7 @@
 #Creado por Dagger
 
 def GetVersion():
-    return 4
+    return 5
 
 def TestNline(nline, timeout):
     import socket, re, sys, array, time, select, random
