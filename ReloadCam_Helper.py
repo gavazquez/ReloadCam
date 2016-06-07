@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 15
+    return 16
 
 cryptoKey = "1234CAMreload"
 currentIpAddress = "0"
@@ -132,7 +132,7 @@ def TestCline(cline):
     return TestCline(cline, 15)
 
 def TestCline(cline, timeout):
-    import socket, re, sys, ReloadCam_ClineTester, ReloadCam_NlineTester
+    import socket, re, sys, ReloadCam_ClineTester
 
     regExpr = re.compile('[C].*')
     match = regExpr.search(cline)
