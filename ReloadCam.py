@@ -13,7 +13,7 @@
 
 #(Recuerda borrar el simbolo ----> #)
 #python '/usr/script/ReloadCam.py' -s Allcam                Refresca el CCcam.cfg con lineas de la web de allcam
-#python '/usr/script/ReloadCam.py' -s Satna -s Allcam       Refresca el CCcam.cfg con lineas de la web de satna y allcam
+#python '/usr/script/ReloadCam.py' -s Mario -s Allcam       Refresca el CCcam.cfg con lineas de la web de mario y allcam
 
 #TODAS (menos testious y freecam): 
 #python '/usr/script/ReloadCam.py' -s ALLTF
@@ -27,9 +27,8 @@
 #Si ademas le añades el parametro '--norestart' (-r) el CCCam NO se reiniciara despues de actualizar las lineas
 
 #Ejemplos (ambos son iguales):
-#ReloadCam.py -s Satna --norestart
-#ReloadCam.py -s Satna -r
-
+#ReloadCam.py -s Mario --norestart
+#ReloadCam.py -s Mario -r
 
 #IMPORTANTE!!!  Tu archivo RefrescarCcam.sh deberia quedar con una sola linea y sin ningun simbolo ------> #
 #Ejemplo: ------> python '/usr/script/ReloadCam.py' -s ALLTF
@@ -41,16 +40,10 @@
 
 #-------------------------
 
-#En un futuro seria interesante añadir los servidores de abajo, aunque para eso hay que abrir un zip y leerlas...
-#http://free-cccam.tk/MultiUser/cline.php?f=cline/CCcam.zip
-#http://free-cccam.tk/MultiUser2/cline.php?f=cline/CCcam.zip
-
-#-------------------------
-
 cccamBin = "/usr/bin/CCcam_230" #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
 cccamPath = "/etc/CCcam.cfg"  #Cambia esta ruta entre comillas en caso necesario pero no la borres!!
 
-#Cambia esta ruta SOLO si vas a ejecutar el script en windows. Si lo vas a poner en el vu+ no hace falta que la toques
+#Cambia esta ruta SOLO si vas a ejecutar el script desde windows. Si lo vas a poner en el vu+ no hace falta que la toques
 cccamPathWindows = "C:\Users\gavaz\Desktop\CCcam.cfg"  
 
 #-------------------------
@@ -60,7 +53,9 @@ cccamPathWindows = "C:\Users\gavaz\Desktop\CCcam.cfg"
 def GetCustomClines(): #No borres esta linea!
     customClines = [] #No borres esta linea!
 
-    #Añade aqui una o mas custom clines si quieres (puede ser una cline privada o similar) 
+    #Añade aqui una o mas custom clines si quieres (puede ser una cline privada o similar)
+    #Respeta las comillas al inicio y final de esta!
+    
     #Ejemplos: (Recuerda borrar el '#')
 
     #customClines.append('C: micline.no-ip.org 42000 user pass')
