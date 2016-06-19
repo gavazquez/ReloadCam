@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 4
+    return 5
 
 #Filename must start with Server, classname and argument must be the same!
 class Testious(ReloadCam_Main.Server):
@@ -43,4 +43,6 @@ class Testious(ReloadCam_Main.Server):
             if ReloadCam_Helper.TestClineTimeout(match,5):
                 clines.append(match)
 
-        return clines;
+        ReloadCam_Helper.SortClinesByPing(clines)
+
+        return clines[:5]; #return only the best 5 clines
