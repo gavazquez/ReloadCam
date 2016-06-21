@@ -18,6 +18,12 @@
 #TODAS (menos testious y freecam): 
 #python '/usr/script/ReloadCam.py' -s ALLTF
 
+#TODAS (menos testious): 
+#python '/usr/script/ReloadCam.py' -s ALLF
+
+#TODAS (menos freecam): 
+#python '/usr/script/ReloadCam.py' -s ALLT
+
 #TODAS (incluidas testious y freecam): 
 #python '/usr/script/ReloadCam.py' -s ALL
 
