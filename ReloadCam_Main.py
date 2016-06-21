@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 23
+    return 24
 
 class Server(object):
     def GetUrl():
@@ -108,6 +108,16 @@ def GetClinesByArgument(arguments, customClines):
         arguments = ReloadCam_Arguments.Arguments
         arguments.remove('ALL')
         arguments.remove('ALLTF')
+    elif len(arguments) == 1 and 'ALLT' in arguments:
+        arguments = ReloadCam_Arguments.Arguments
+        arguments.remove('ALL')
+        arguments.remove('ALLTF')
+        arguments.remove('Freecline')
+    elif len(arguments) == 1 and 'ALLF' in arguments:
+        arguments = ReloadCam_Arguments.Arguments
+        arguments.remove('ALL')
+        arguments.remove('ALLTF')
+        arguments.remove('Testious')
     elif len(arguments) == 1 and 'ALLTF' in arguments:
         arguments = ReloadCam_Arguments.Arguments
         arguments.remove('ALL')
