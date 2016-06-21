@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 22
+    return 23
 
 class Server(object):
     def GetUrl():
@@ -52,7 +52,6 @@ def WriteCccamFile(clines, path):
     file = open(path, 'w')
     for cline in clinesToWrite:
         file.write(cline)
-        file.write('\n')
         file.write('\n')
     file.close()
 
