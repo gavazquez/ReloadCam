@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 26
+    return 28
 
 class Server(object):
     def GetUrl():
@@ -104,21 +104,30 @@ def GetClinesByArgument(arguments, customClines):
     if len(arguments) > 1 and ('ALL' in arguments or 'ALLTF' in arguments or 'ALLT' in arguments or 'ALLF' in arguments):
         print "Cannot use parameter ALL/ALLTF/ALLT/ALLF with other parameters"
         return clines
-    elif len(arguments) == 1 
-        arguments = ReloadCam_Arguments.Arguments
+    else:
         if 'ALLT' in arguments:
+            arguments = ReloadCam_Arguments.Arguments
+            arguments.remove('ALL')
+            arguments.remove('ALLT')
+            arguments.remove('ALLF')
+            arguments.remove('ALLTF')
             arguments.remove('Testious')
         if 'ALLF' in arguments:
+            arguments = ReloadCam_Arguments.Arguments
+            arguments.remove('ALL')
+            arguments.remove('ALLT')
+            arguments.remove('ALLF')
+            arguments.remove('ALLTF')
             arguments.remove('Freecline')
         if 'ALLTF' in arguments:
+            arguments = ReloadCam_Arguments.Arguments
+            arguments.remove('ALL')
+            arguments.remove('ALLT')
+            arguments.remove('ALLF')
+            arguments.remove('ALLTF')
             arguments.remove('Testious')
             arguments.remove('Freecline')
-        
-    arguments.remove('ALL')
-    arguments.remove('ALLTF')
-    arguments.remove('ALLT')
-    arguments.remove('ALLF')
-
+            
     for argument in arguments:
         moduleName = 'ReloadCam_Server_' + argument #creamos el nombre del modulo que tenemos que importar ej:ReloadCam_Myccam
         try:
