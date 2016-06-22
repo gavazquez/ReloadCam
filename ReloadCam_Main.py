@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 25
+    return 26
 
 class Server(object):
     def GetUrl():
@@ -101,8 +101,8 @@ def GetClinesByArgument(arguments, customClines):
     clines = []
     clines += customClines #Primero agregamos las clines custom
 
-    if len(arguments) > 1 and ('ALL' in arguments or 'ALLTF' in arguments):
-        print "Cannot use parameter ALL/ALLTF with other parameters"
+    if len(arguments) > 1 and ('ALL' in arguments or 'ALLTF' in arguments or 'ALLT' in arguments or 'ALLF' in arguments):
+        print "Cannot use parameter ALL/ALLTF/ALLT/ALLF with other parameters"
         return clines
     elif len(arguments) == 1 and 'ALL' in arguments:
         arguments = ReloadCam_Arguments.Arguments
