@@ -39,6 +39,7 @@ Arguments = [
     #'Madvengers',
     'Hacksat',
     'Fullmonsters',
+    'Cccamgenerador',
     'ALL', #ALL Servers,
     'ALLTF', #ALL Servers except testious and freecline
     'ALLT', #ALL Servers except testious
