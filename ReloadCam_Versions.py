@@ -6,15 +6,15 @@
 
 #If version is 0 or less it will mean that we will delete that file
 Versions = {
-    "ReloadCam_Arguments" : 18,
+    "ReloadCam_Arguments" : 19,
     "ReloadCam_ClineTester" : 4,
     "ReloadCam_Helper" : 19,
     "ReloadCam_NlineTester" : 6,
     "ReloadCam_Main" : 28,
     "ReloadCam_Server_Allcam" : 6,
-    "ReloadCam_Server_Cccam4you" : 6,
+    "ReloadCam_Server_Cccam4you" : 7,
     "ReloadCam_Server_Cccamcafard" : 7,
-    "ReloadCam_Server_Cccamfree" : 3,
+    "ReloadCam_Server_Cccamfree" : 4,
     "ReloadCam_Server_Cccamgenerator" : 6,
     "ReloadCam_Server_Cccamgratis" : 3,
     "ReloadCam_Server_Elaissaoui" : 5,
@@ -42,4 +42,5 @@ Versions = {
     "ReloadCam_Server_Top2servers" : 2,
     "ReloadCam_Server_Mario" : 5,
     "ReloadCam_Server_Madvengers" : 0
+    "ReloadCam_Server_Cccamgenerador" : 1
 }
