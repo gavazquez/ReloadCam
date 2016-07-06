@@ -38,7 +38,7 @@
 
 #Si quieres usar OSCAM en vez de cccam debes usarlo con el parametro -o "RUTAALOSCAM.SERVER" ejemplo (ambos son iguales):
 #ReloadCam.py -s ALL -o "/etc/tuxbox/config/oscam.server"
-#ReloadCam.py -s ALL -oscam "/etc/tuxbox/config/oscam.server"
+#ReloadCam.py -s ALL --oscam "/etc/tuxbox/config/oscam.server"
 
 #IMPORTANTE!!!  Tu archivo RefrescarCcam.sh deberia quedar con una sola linea y sin ningun simbolo ------> #
 #Ejemplo: ------> python '/usr/script/ReloadCam.py' -s ALLTF
