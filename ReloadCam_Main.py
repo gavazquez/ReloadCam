@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 28
+    return 29
 
 class Server(object):
     def GetUrl():
@@ -164,6 +164,8 @@ def Main(customClines, cccamPath, cccamBin):
             help="Especifica la web de la que quieres descargar las clines. Puedes repetir este parametro varias \
                 veces o usar ALL para llamar a todos o ALLTF para todos menos testious y feecline. Valores posibles: " + possibleArguments)
 
+        parser.add_option('-o', '--oscam', dest='oscam', help='Traduce el cccam.cfg a formato OSCAM y lo guarda en la ruta que le indiques')
+
         parser.add_option('-r', '--norestart', dest='norestart', default=False, action='store_true', 
             help='NO reinicia la cccam despues del refresco de clines')
 
@@ -183,6 +185,9 @@ def Main(customClines, cccamPath, cccamBin):
     
         WriteCccamFile(clines, cccamPath)
 
+        if opts.oscam is not None:
+            TransformToOscamFile(opts.oscam, cccamPath)
+
         if opts.norestart is False and platform.system().lower() != "windows":
             print "Restarting cam!"
             RestartCccam(cccamBin)
@@ -192,6 +197,34 @@ def Main(customClines, cccamPath, cccamBin):
         print "Unexpected error thrown in ReloadCam_Main: " + str(e)
         traceback.print_exc(file=sys.stdout)
     return;
+
+def TransformToOscamFile(oscamPath, cccamPath):
+    import re, os
+
+    if os.path.exists(cccamPath):
+        file = open(oscamPath, 'w')
+        for line in open(cccamPath,'r').readlines():
+            cline = re.match(r'(.*)C: (.*?) (.*?) (.*?) (.*)',line)
+            if cline:            
+                file.write("\n")
+                file.write("[reader]"+"\n")
+                file.write("enable = 1"+"\n")
+                file.write("label = "+ cline.group(2)+"\n")
+                file.write("protocol = cccam"+"\n")         
+                file.write("device = "+cline.group(2)+","+cline.group(3)+"\n")
+                file.write("user = "+cline.group(4)+"\n")
+                file.write("password = "+cline.group(5)+"\n")
+                file.write("inactivitytimeout = 5"+"\n")
+                file.write("reconnecttimeout = 5"+"\n")
+                file.write("group = 1"+"\n")
+                file.write("emmcache = 1,3,2,0"+"\n")
+                file.write("blockemm-unknown = 1"+"\n")
+                file.write("blockemm-u = 1"+"\n")
+                file.write("blockemm-s = 1"+"\n")
+                file.write("blockemm-g = 1"+"\n")
+                file.write("cccversion = 2.0.11"+"\n")
+                file.write("ccckeepalive = 1"+"\n")
+        file.close()
 
 def CleanFiles(currentPath, platform):
     import os, glob
@@ -204,5 +237,3 @@ def CleanFiles(currentPath, platform):
     else:
         os.system("rm -rf " + currentPath + "*.pyc")
         os.system("rm -rf " + currentPath + "*.pyo")
-
-#endregion
