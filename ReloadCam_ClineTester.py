@@ -5,7 +5,7 @@
 #Creado por Dagger
 
 def GetVersion():
-    return 4
+    return 5
 
 recvblock = None
 sendblock = None
@@ -20,7 +20,7 @@ def TestCline(cline, timeout):
     sendblock = CryptographicBlock()
 
     returnValue = False
-    regExpr = re.compile('[C]:\s*(\S+)+\s+(\d*)\s+(\S+)\s+([\w.-/]+)')
+    regExpr = re.compile('[C]:\s*(\S+)+\s+(\d*)\s+(\S+)\s+([\w./\-]+)')
     match = regExpr.search(cline)
 
     if match is None:

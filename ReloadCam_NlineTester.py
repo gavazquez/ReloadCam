@@ -13,13 +13,13 @@ PAD_NORMAL = 1
 PAD_PKCS5 = 2
 
 def GetVersion():
-    return 6
+    return 7
 
 def TestNline(nline, timeout):
     import socket, re, sys, array, time, select, random
 
     returnValue = False
-    regExpr = re.compile('[N]:\s*(\S+)+\s+(\d*)\s+(\S+)\s+([\w.-]+)((?:\s(?:\d\d)){14})')
+    regExpr = re.compile('[N]:\s*(\S+)+\s+(\d*)\s+(\S+)\s+([\w.\-]+)((?:\s(?:\d\d)){14})')
     match = regExpr.search(nline)
 
     if match is None:

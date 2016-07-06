@@ -16,7 +16,7 @@
     <InterpreterArguments>
     </InterpreterArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <CommandLineArguments>-s Cccamgenerador</CommandLineArguments>
+    <CommandLineArguments>-s Hacksat</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -47,12 +47,14 @@
     <Compile Include="ReloadCam_Server_Cccam4you.py" />
     <Compile Include="ReloadCam_Server_Cccamcafard.py" />
     <Compile Include="ReloadCam_Server_Cccamfree.py" />
+    <Compile Include="ReloadCam_Server_Kingcccam.py" />
     <Compile Include="ReloadCam_Server_Cccamgenerator.py" />
     <Compile Include="ReloadCam_Server_Cccamgratis.py" />
     <Compile Include="ReloadCam_Server_Elaissaoui.py" />
     <Compile Include="ReloadCam_Server_Fullmonsters.py" />
     <Compile Include="ReloadCam_Server_Freecline.py" />
     <Compile Include="ReloadCam_Server_Greencccamfree.py" />
+    <Compile Include="ReloadCam_Server_Hacksat.py" />
     <Compile Include="ReloadCam_Server_Jokercccam.py" />
     <Compile Include="ReloadCam_Server_Mario.py" />
     <Compile Include="ReloadCam_Server_Myfree.py" />

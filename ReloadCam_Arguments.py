@@ -5,7 +5,7 @@
 #Creado por Dagger
 
 def GetVersion():
-    return 19
+    return 20
 
 Arguments = [
     #'Mycccam',
@@ -40,6 +40,7 @@ Arguments = [
     'Hacksat',
     'Fullmonsters',
     'Cccamgenerador',
+    'Kingcccam',
     'ALL', #ALL Servers,
     'ALLTF', #ALL Servers except testious and freecline
     'ALLT', #ALL Servers except testious
