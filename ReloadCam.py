@@ -36,7 +36,7 @@
 #ReloadCam.py -s Mario --norestart
 #ReloadCam.py -s Mario -r
 
-#Si quieres usar OSCAM en vez de cccam debes usarlo con el parametro -o "RUTAALOSCAM.SERVER" ejemplo (ambos son iguales):
+#Si quieres usar OSCAM en vez de cccam debes usarlo con el parametro -o "RUTAALOSCAM.SERVER" ejemplos (ambos son iguales):
 #ReloadCam.py -s ALL -o "/etc/tuxbox/config/oscam.server"
 #ReloadCam.py -s ALL --oscam "/etc/tuxbox/config/oscam.server"
 
