@@ -7,7 +7,7 @@
 import ReloadCam_Arguments, ReloadCam_Helper
 
 def GetVersion():
-    return 30
+    return 31
 
 class Server(object):
     def GetUrl():
@@ -96,10 +96,14 @@ def GetHostPort(cline):
 
 def GetClinesByArgument(arguments, customClines):
     """Lee los arguments y carga las clines pertinentes"""
-    import importlib
+    import ReloadCam_Importlib
 
     clines = []
     clines += customClines #Primero agregamos las clines custom
+
+    if arguments is None:
+        print "No parameters supplied!"
+        return clines
 
     if len(arguments) > 1 and ('ALL' in arguments or 'ALLTF' in arguments or 'ALLT' in arguments or 'ALLF' in arguments):
         print "Cannot use parameter ALL/ALLTF/ALLT/ALLF with other parameters"
@@ -137,7 +141,7 @@ def GetClinesByArgument(arguments, customClines):
     for argument in arguments:
         moduleName = 'ReloadCam_Server_' + argument #creamos el nombre del modulo que tenemos que importar ej:ReloadCam_Myccam
         try:
-            my_module = importlib.import_module(moduleName) #Esta linea importa el modulo como si hicieramos un import <nombremodulo>
+            my_module = ReloadCam_Importlib.import_module(moduleName) #Esta linea importa el modulo como si hicieramos un import <nombremodulo>
             classInstance = getattr(my_module, argument)() #Creamos una instancia de ese modulo importado
             clines += classInstance.GetClines() #Este metodo lo deben implementar todas las clases derivadas de "Server"
         except Exception,e:
