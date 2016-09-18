@@ -12,7 +12,7 @@ Versions = {
     "ReloadCam_NlineTester" : 7,
     "ReloadCam_Main" : 31,
     "ReloadCam_Importlib" : 1,
-    "ReloadCam_Server_Allcam" : 7,
+    "ReloadCam_Server_Allcam" : 8,
     "ReloadCam_Server_Cccam4you" : 7,
     "ReloadCam_Server_Cccamcafard" : 8,
     "ReloadCam_Server_Cccamfree" : 4,
