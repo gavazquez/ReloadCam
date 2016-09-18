@@ -30,6 +30,7 @@
     <Compile Include="DELETED_ReloadCam_Server_Kacsat.py" />
     <Compile Include="DELETED_ReloadCam_Server_Madvengers.py" />
     <Compile Include="DELETED_ReloadCam_Server_ManiaForall.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Mario.py" />
     <Compile Include="DELETED_ReloadCam_Server_Mawali.py" />
     <Compile Include="DELETED_ReloadCam_Server_Mycccam.py" />
     <Compile Include="DELETED_ReloadCam_Server_Realtv1.py" />
@@ -59,7 +60,6 @@
     <Compile Include="ReloadCam_Server_Greencccamfree.py" />
     <Compile Include="ReloadCam_Server_Hacksat.py" />
     <Compile Include="ReloadCam_Server_Jokercccam.py" />
-    <Compile Include="ReloadCam_Server_Mario.py" />
     <Compile Include="ReloadCam_Server_Myfree.py" />
     <Compile Include="ReloadCam_Server_Raul7.py" />
     <Compile Include="ReloadCam_Server_Satunivers.py" />
