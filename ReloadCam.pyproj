@@ -25,9 +25,13 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DELETED_ReloadCam_Server_Cccam4you.py" />
     <Compile Include="DELETED_ReloadCam_Server_Demed.py" />
     <Compile Include="DELETED_ReloadCam_Server_Foot4sport.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Fullmonsters.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Hacksat.py" />
     <Compile Include="DELETED_ReloadCam_Server_Kacsat.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Kingcccam.py" />
     <Compile Include="DELETED_ReloadCam_Server_Madvengers.py" />
     <Compile Include="DELETED_ReloadCam_Server_ManiaForall.py" />
     <Compile Include="DELETED_ReloadCam_Server_Mario.py" />
@@ -35,6 +39,7 @@
     <Compile Include="DELETED_ReloadCam_Server_Mycccam.py" />
     <Compile Include="DELETED_ReloadCam_Server_Realtv1.py" />
     <Compile Include="DELETED_ReloadCam_Server_Satna.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Toopccam.py" />
     <Compile Include="DELETED_ReloadCam_Server_Ultrahd.py" />
     <Compile Include="ReloadCam.py" />
     <Compile Include="ReloadCamUndro.py" />
@@ -48,24 +53,19 @@
     <Compile Include="ReloadCam_Main.py" />
     <Compile Include="ReloadCam_Server_Allcam.py" />
     <Compile Include="ReloadCam_Server_Cccamgenerador.py" />
-    <Compile Include="ReloadCam_Server_Cccam4you.py" />
     <Compile Include="ReloadCam_Server_Cccamcafard.py" />
     <Compile Include="ReloadCam_Server_Cccamfree.py" />
-    <Compile Include="ReloadCam_Server_Kingcccam.py" />
     <Compile Include="ReloadCam_Server_Cccamgenerator.py" />
     <Compile Include="ReloadCam_Server_Cccamgratis.py" />
     <Compile Include="ReloadCam_Server_Elaissaoui.py" />
-    <Compile Include="ReloadCam_Server_Fullmonsters.py" />
     <Compile Include="ReloadCam_Server_Freecline.py" />
     <Compile Include="ReloadCam_Server_Greencccamfree.py" />
-    <Compile Include="ReloadCam_Server_Hacksat.py" />
     <Compile Include="ReloadCam_Server_Jokercccam.py" />
     <Compile Include="ReloadCam_Server_Myfree.py" />
     <Compile Include="ReloadCam_Server_Raul7.py" />
     <Compile Include="ReloadCam_Server_Satunivers.py" />
     <Compile Include="ReloadCam_Server_Seduct.py" />
     <Compile Include="ReloadCam_Server_Testious.py" />
-    <Compile Include="ReloadCam_Server_Toopccam.py" />
     <Compile Include="ReloadCam_Server_Top2servers.py" />
     <Compile Include="ReloadCam_Server_Xhaka.py" />
     <Compile Include="ReloadCam_Versions.py" />
