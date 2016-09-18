@@ -5,19 +5,19 @@
 #Creado por Dagger
 
 def GetVersion():
-    return 21
+    return 22
 
 Arguments = [
     #'Mycccam',
     #'Satna',
-    'Cccam4you',
+    #'Cccam4you',
     'Testious',
     'Freecline',
     'Allcam',
     'Cccamfree',
     'Cccamgenerator',
     'Cccamcafard',
-    'Toopccam',
+    #'Toopccam',
     #'Kacsat',
     'Elaissaoui',
     #'Realtv1',
@@ -37,10 +37,10 @@ Arguments = [
     'Top2servers',
     #'Mario',
     #'Madvengers',
-    'Hacksat',
-    'Fullmonsters',
+    #'Hacksat',
+    #'Fullmonsters',
     'Cccamgenerador',
-    'Kingcccam',
+    #'Kingcccam',
     'ALL', #ALL Servers,
     'ALLTF', #ALL Servers except testious and freecline
     'ALLT', #ALL Servers except testious
