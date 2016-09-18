@@ -1,5 +1,5 @@
 # ReloadCam
-Script para refrescar las ccclines automaticamente y directamente desde el mando de tu decodificador
+Script en Python para refrescar las ccclines automaticamente y directamente desde el mando de tu decodificador
 
 ----------
 
