@@ -2,6 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/New folder
-/vs
+/New folder/
+/vs/
 *.pyc
