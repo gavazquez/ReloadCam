@@ -44,6 +44,6 @@ Versions = {
     "ReloadCam_Server_Mario" : 0,
     "ReloadCam_Server_Madvengers" : 0,
     "ReloadCam_Server_Cccamgenerador" : 1,
-    "ReloadCam_Server_Kingcccam" : 1
+    "ReloadCam_Server_Kingcccam" : 0
 }
 
