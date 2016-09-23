@@ -16,7 +16,7 @@
     <InterpreterArguments>
     </InterpreterArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <CommandLineArguments>-s Freecccam</CommandLineArguments>
+    <CommandLineArguments>-s Bilalon</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -52,6 +52,7 @@
     <Compile Include="ReloadCam_Helper.py" />
     <Compile Include="ReloadCam_Main.py" />
     <Compile Include="ReloadCam_Server_Allcam.py" />
+    <Compile Include="ReloadCam_Server_Freeccamserver.py" />
     <Compile Include="ReloadCam_Server_Freecccam.py" />
     <Compile Include="ReloadCam_Server_Cccam4k.py">
       <SubType>Code</SubType>
