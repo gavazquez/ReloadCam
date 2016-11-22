@@ -1,6 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- 
 
+#Creado por 'Dagger'
+---
+
+#- Script para refrescar lineas desde python para Vu+/Qviart. Permite refrescarlas desde el mando a 
+#distancia o con el CronManager a una hora fijada.
+
+#- Foro de discusion del script: http://www.forokeys.com/foro/vu/refrescar-cclines-automaticamente
+
+#- Url del repositiorio: https://github.com/DaggerES
+
+#- El script es de codigo libre por lo que si quieres comprobar como NO 
+#envia tus Clines a nadie puedes verlo por ti mismo en la url del repositorio (es necesario que tengas conocimientos de python)
+
+#- El script NO inserta las lineas que NO funcionan por lo cual puede parecer que no inserta casi lineas, 
+#lo que pasa es que una vez ha obtenido las lineas de una web, comprueba si estas funcionan o no y no inserta las que no funcionan.
+
+#- Cuando testea las lineas, las testea internamente, NO las envia ni a testious ni a otro tipo de webs "sospechosas"
+
 #IMPORTANTE!!! este simbolo -----> #    Son COMENTARIOS en python, son simplemente para que el python lo ignore,
 #esto significa que en tus scripts .sh NO debes ponerlo!
 
