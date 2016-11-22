@@ -14,7 +14,6 @@ class Madvengers(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        #http://madvengers-cccam.com/verif.php
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfN_G0OXG0piXpadwpLDVxtmdxNOeYamZtaqzoNXU3w==')
         return realUrl
 
@@ -34,7 +33,8 @@ class Madvengers(ReloadCam_Main.Server):
         }
 
         htmlCode = ReloadCam_Helper.GetPostHtmlCode(values, None, self.GetUrl())
-        cline = ReloadCam_Helper.FindStandardClineInText(htmlCode)
+        #cline = ReloadCam_Helper.FindStandardClineInText(htmlCode)
+        cline = "C: madvengers-cccam.com 20000 " + values['user'] + " " + values['pass']
         if cline != None and ReloadCam_Helper.TestCline(cline):
             return cline
         return None

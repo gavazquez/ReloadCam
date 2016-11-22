@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 5
+    return 6
 
 #Filename must start with Server, classname and argument must be the same!
 class Freecline(ReloadCam_Main.Server):
@@ -29,14 +29,14 @@ class Freecline(ReloadCam_Main.Server):
         clines = []
 
         header = [('User-agent', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36')]
-        url = "http://www.freecline.com/history/CCcam/" + datetime.date.today().strftime("%Y/%m/%d")
+        url = "http://www.freecline.com/history/CCcam/" + (datetime.date.today() - datetime.timedelta( days = 1 )).strftime("%Y/%m/%d").replace('0', '')
         htmlCode = ReloadCam_Helper.GetHtmlCode(header, url)
 
         regExpr = re.compile('Detailed information of the line.*([C]:.*?)<.*\n.*\n.*\n.*\n.*online')
         matches = regExpr.findall(htmlCode)
 
         while len(matches) < 3:
-            yesterday = datetime.date.today() - datetime.timedelta( days = 1 )        
+            yesterday = datetime.date.today() - datetime.timedelta( days = 2 )        
             url = "http://www.freecline.com/history/CCcam/" + yesterday.strftime("%Y/%m/%d")
             htmlCode = ReloadCam_Helper.GetHtmlCode(header, url)
             matches = regExpr.findall(htmlCode)

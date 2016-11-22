@@ -16,7 +16,7 @@
     <InterpreterArguments>
     </InterpreterArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <CommandLineArguments>-s Bilalon</CommandLineArguments>
+    <CommandLineArguments>-s Madvengers</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -32,7 +32,6 @@
     <Compile Include="DELETED_ReloadCam_Server_Hacksat.py" />
     <Compile Include="DELETED_ReloadCam_Server_Kacsat.py" />
     <Compile Include="DELETED_ReloadCam_Server_Kingcccam.py" />
-    <Compile Include="DELETED_ReloadCam_Server_Madvengers.py" />
     <Compile Include="DELETED_ReloadCam_Server_ManiaForall.py" />
     <Compile Include="DELETED_ReloadCam_Server_Mario.py" />
     <Compile Include="DELETED_ReloadCam_Server_Mawali.py" />
@@ -52,6 +51,8 @@
     <Compile Include="ReloadCam_Helper.py" />
     <Compile Include="ReloadCam_Main.py" />
     <Compile Include="ReloadCam_Server_Allcam.py" />
+    <Compile Include="ReloadCam_Server_Madvengers.py" />
+    <Compile Include="ReloadCam_Server_Onecccam.py" />
     <Compile Include="ReloadCam_Server_Freeccamserver.py" />
     <Compile Include="ReloadCam_Server_Freecccam.py" />
     <Compile Include="ReloadCam_Server_Cccam4k.py">
