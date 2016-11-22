@@ -42,7 +42,7 @@ Versions = {
     "ReloadCam_Server_Foot4sport" : 0,
     "ReloadCam_Server_Top2servers" : 2,
     "ReloadCam_Server_Mario" : 0,
-    "ReloadCam_Server_Madvengers" : 0,
+    "ReloadCam_Server_Madvengers" : 1,
     "ReloadCam_Server_Cccamgenerador" : 1,
     "ReloadCam_Server_Kingcccam" : 0,
     "ReloadCam_Server_Cccam4k" : 1,
