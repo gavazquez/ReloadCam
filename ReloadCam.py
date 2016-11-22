@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*- 
 
 #Creado por 'Dagger'
----
 
 #- Script para refrescar lineas desde python para Vu+/Qviart. Permite refrescarlas desde el mando a 
 #distancia o con el CronManager a una hora fijada.
