@@ -44,7 +44,10 @@ Arguments = [
     'Cccam4k',
     'Freecccam',
     'Freeccamserver',
-    'Onecccam',
+    'Onecccam',    
+    'Bilalon',
+    'Bosscccam',
+    'Cccamlux',
     'ALL', #ALL Servers,
     'ALLTF', #ALL Servers except testious and freecline
     'ALLT', #ALL Servers except testious
