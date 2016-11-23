@@ -8,7 +8,7 @@
 Versions = {
     "ReloadCam_Arguments" : 26,
     "ReloadCam_ClineTester" : 5,
-    "ReloadCam_Helper" : 20,
+    "ReloadCam_Helper" : 21,
     "ReloadCam_NlineTester" : 7,
     "ReloadCam_Main" : 32,
     "ReloadCam_Importlib" : 1,
