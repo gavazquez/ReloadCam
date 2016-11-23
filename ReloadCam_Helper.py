@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 20
+    return 21
 
 cryptoKey = "1234CAMreload"
 currentIpAddress = "0"
@@ -129,6 +129,8 @@ def FindClineInText(text, regex):
     return cline;
 
 def TestCline(cline):
+    if PingCline(cline) >= 2500: 
+        return False
     return TestClineTimeout(cline, 15)
 
 def TestClineTimeout(cline, timeout):
