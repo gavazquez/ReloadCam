@@ -129,7 +129,7 @@ def FindClineInText(text, regex):
     return cline;
 
 def TestCline(cline):
-    if PingCline(cline) >= 2500: 
+    if PingCline(cline) == 9999: 
         return False
     return TestClineTimeout(cline, 15)
 
