@@ -51,6 +51,9 @@
     <Compile Include="ReloadCam_Helper.py" />
     <Compile Include="ReloadCam_Main.py" />
     <Compile Include="ReloadCam_Server_Allcam.py" />
+    <Compile Include="ReloadCam_Server_Bilalon.py" />
+    <Compile Include="ReloadCam_Server_Bosscccam.py" />
+    <Compile Include="ReloadCam_Server_Cccamlux.py" />
     <Compile Include="ReloadCam_Server_Madvengers.py" />
     <Compile Include="ReloadCam_Server_Onecccam.py" />
     <Compile Include="ReloadCam_Server_Freeccamserver.py" />
