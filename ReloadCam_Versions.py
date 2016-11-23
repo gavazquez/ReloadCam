@@ -48,6 +48,9 @@ Versions = {
     "ReloadCam_Server_Cccam4k" : 1,
     "ReloadCam_Server_Freecccam" : 1,
     "ReloadCam_Server_Freeccamserver" : 1,
-    "ReloadCam_Server_Onecccam" : 1
+    "ReloadCam_Server_Onecccam" : 1,
+    "ReloadCam_Server_Bilalon" : 1,
+    "ReloadCam_Server_Bosscccam" : 1,
+    "ReloadCam_Server_Cccamlux" : 1,
 }
 
