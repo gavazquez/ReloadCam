@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 7
+    return 8
 
 #Filename must start with Server, classname and argument must be the same!
 class Freecline(ReloadCam_Main.Server):
@@ -29,7 +29,10 @@ class Freecline(ReloadCam_Main.Server):
         clines = []
 
         header = [('User-agent', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36')]
-        url = "http://www.freecline.com/history/CCcam/" + (datetime.date.today() - datetime.timedelta( days = 1 )).strftime("%Y/%m/%d").replace('0', '')
+        yesterday = (datetime.date.today() - datetime.timedelta( days = 1 ))
+        date = yesterday.strftime("%Y") + yesterday.strftime("/%m/%d").replace('0', '')
+
+        url = "http://www.freecline.com/history/CCcam/" + date
         htmlCode = ReloadCam_Helper.GetHtmlCode(header, url)
 
         regExpr = re.compile('Detailed information of the line.*([C]:.*?)<.*\n.*\n.*\n.*\n.*online')
@@ -54,7 +57,10 @@ class Freecline(ReloadCam_Main.Server):
         nlines = []
 
         header = [('User-agent', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36')]
-        url = "http://www.freecline.com/history/Newcamd/" + (datetime.date.today() - datetime.timedelta( days = 1 )).strftime("%Y/%m/%d").replace('0', '')
+        yesterday = (datetime.date.today() - datetime.timedelta( days = 1 ))
+        date = yesterday.strftime("%Y") + yesterday.strftime("/%m/%d").replace('0', '')
+
+        url = "http://www.freecline.com/history/Newcamd/" + date
         htmlCode = ReloadCam_Helper.GetHtmlCode(header, url)
 
         regExpr = re.compile('Detailed information of the line.*([N]:.*?)<.*\n.*\n.*\n.*\n.*online')
