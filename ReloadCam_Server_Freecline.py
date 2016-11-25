@@ -40,7 +40,9 @@ class Freecline(ReloadCam_Main.Server):
 
         while len(matches) < 3:
             yesterday = datetime.date.today() - datetime.timedelta( days = 2 )
-            url = "http://www.freecline.com/history/CCcam/" + yesterday.strftime("%Y/%m/%d").replace('0', '')
+            date = yesterday.strftime("%Y") + yesterday.strftime("/%m/%d").replace('0', '')
+
+            url = "http://www.freecline.com/history/CCcam/" + date
             htmlCode = ReloadCam_Helper.GetHtmlCode(header, url)
             matches = regExpr.findall(htmlCode)
 
@@ -67,8 +69,10 @@ class Freecline(ReloadCam_Main.Server):
         matches = regExpr.findall(htmlCode)
 
         while len(matches) < 3:
-            yesterday = datetime.date.today() - datetime.timedelta( days = 2 )        
-            url = "http://www.freecline.com/history/Newcamd/" + yesterday.strftime("%Y/%m/%d").replace('0', '')
+            yesterday = datetime.date.today() - datetime.timedelta( days = 2 )
+            date = yesterday.strftime("%Y") + yesterday.strftime("/%m/%d").replace('0', '')
+    
+            url = "http://www.freecline.com/history/Newcamd/" + date
             htmlCode = ReloadCam_Helper.GetHtmlCode(header, url)
             matches = regExpr.findall(htmlCode)
 
