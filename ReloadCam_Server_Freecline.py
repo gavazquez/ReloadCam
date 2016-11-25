@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 9
+    return 10
 
 #Filename must start with Server, classname and argument must be the same!
 class Freecline(ReloadCam_Main.Server):
@@ -38,7 +38,7 @@ class Freecline(ReloadCam_Main.Server):
         regExpr = re.compile('Detailed information of the line.*([C]:.*?)<.*\n.*\n.*\n.*\n.*online')
         matches = regExpr.findall(htmlCode)
 
-        while len(matches) < 3:
+        if len(matches) < 3:
             yesterday = datetime.date.today() - datetime.timedelta( days = 2 )
             date = yesterday.strftime("%Y") + yesterday.strftime("/%m/%d").replace('0', '')
 
@@ -68,7 +68,7 @@ class Freecline(ReloadCam_Main.Server):
         regExpr = re.compile('Detailed information of the line.*([N]:.*?)<.*\n.*\n.*online')
         matches = regExpr.findall(htmlCode)
 
-        while len(matches) < 3:
+        if len(matches) < 3:
             yesterday = datetime.date.today() - datetime.timedelta( days = 2 )
             date = yesterday.strftime("%Y") + yesterday.strftime("/%m/%d").replace('0', '')
     
