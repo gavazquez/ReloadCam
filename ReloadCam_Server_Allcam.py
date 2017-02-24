@@ -7,7 +7,7 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 8
+    return 9
 
 #Filename must start with Server, classname and argument must be the same!
 class Allcam(ReloadCam_Main.Server):
@@ -15,9 +15,9 @@ class Allcam(ReloadCam_Main.Server):
     def GetUrl(self, serverNo):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
         if serverNo == 1:
-            realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453C0J2VlpekrnvV1NmeyMmlY6Vis6m9')
+            realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453C0J2VlpekrnvV1NmeyMmlY51is6m9')
         elif serverNo == 2:
-            realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453C0J2VlpekrnvV1NmeyMmlZKVis6m9')
+            realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453C0J2VlpekrnvV1NmeyMmlZJ1is6m9')
 
         return realUrl
 
