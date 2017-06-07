@@ -22,7 +22,7 @@ class Jokercccam(ReloadCam_Main.Server):
             5:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15Shoo_UmaI=',
             6:'maanpH1wfNzU19TTx5SVlKFxrbzZztrj0JKel2KiqbOy15Sioo_UmaI='
         }
-
+        #http://jokercccam.loginto.me/
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
         realUrl = ReloadCam_Helper.Decrypt(dictionary[serverNo])
         return realUrl

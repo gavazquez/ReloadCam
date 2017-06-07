@@ -14,6 +14,7 @@ class Cccamgratis(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://cccam.gratis/1092/index.php
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNXIz9DOkpiklKistHzY19HUkM2flpiscbG14g==')
         return realUrl
 

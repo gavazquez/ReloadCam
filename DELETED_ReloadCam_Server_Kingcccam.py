@@ -14,6 +14,7 @@ class Kingcccam(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #'http://kyng.cccam.bz/top/cccam.php'
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfN3e2taPx5SVlKFxo8eh2dvfkMeUlZShcbG14g==')
         return realUrl
 

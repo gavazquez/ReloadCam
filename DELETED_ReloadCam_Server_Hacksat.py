@@ -14,6 +14,9 @@ class Hacksat(ReloadCam_Main.Server):
 
     def GetUrl(self, serverNo):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #'http://06.hack-sat.org/bg_j/index.php'
+        #'http://star.hack-sat.org/yu_u/index.php'
+        #'http://b1.hack-sat.org/l-01/index.php'
         if serverNo == 0:
             realUrl = ReloadCam_Helper.Decrypt('maanpH1wfKKbmtfCx5xfppW3b7zkzJvRyMObYZyip6bFoNXU3w==')
         elif serverNo == 1: 

@@ -14,6 +14,7 @@ class Realtv1(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #'http://real-tv1.com/verif.php'
         realUrl = ReloadCam_Helper.Decrypt("maanpH1wfOTKzduO2KdjYZeyrnzoyt7Yx5KhmqM=")
         return realUrl
 

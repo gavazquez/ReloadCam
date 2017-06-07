@@ -7,14 +7,14 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Cccamgenerador(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNXIz9DOy5agmKakpbzkk8_ezpOYpJSorLR82crgndHMoQ==')
+        realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNXIz9DOy5agmKakpbzkk8_ezpOYpJSorLR82crgoY_UmaI=')
         return realUrl
 
     def GetClines(self):

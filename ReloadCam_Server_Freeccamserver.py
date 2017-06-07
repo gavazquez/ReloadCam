@@ -7,14 +7,14 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 1
+    return 2
 
 #Filename must start with Server, classname and argument must be the same!
 class Freeccamserver(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)        
-        realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNjX0dTEx5Kfppm1t7Lkk8_ezpOXpJiZcqiy5pPc19E=')
+        realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNjX0dTEx5Kfppm1t7Lkk8_ezpOXpJiZcqiy5pea38nU')
         return realUrl
 
     def GetClines(self):
@@ -26,11 +26,13 @@ class Freeccamserver(ReloadCam_Main.Server):
         return freeccamserverClines
 
     def __GetFreeccamserverCline(self):
+        import time
 
         header = [('User-agent', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36')]
 
         htmlCode = ReloadCam_Helper.GetHtmlCode(header, self.GetUrl())
         cline = ReloadCam_Helper.FindStandardClineInText(htmlCode)
+        time.sleep(10) #sleep for 10 seconds as page is slow...
         if cline != None and ReloadCam_Helper.TestCline(cline):
             return cline
         return None

@@ -14,7 +14,7 @@ class Mario(ReloadCam_Main.Server):
 
     def GetUrl(self, serverNo):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-
+        #'http://www.mariocccam.tk/Mario/M1/'
         if (serverNo <= 4):
             realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOnc453OxaObopempK7fk-DakLGSpJyjco5-oQ==')
         elif (serverNo >= 5 and serverNo <= 8):

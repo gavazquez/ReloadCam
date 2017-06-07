@@ -7,7 +7,7 @@
 import ReloadCam_Arguments
 
 def GetVersion():
-    return 21
+    return 22
 
 cryptoKey = "1234CAMreload"
 currentIpAddress = "0"
@@ -115,6 +115,14 @@ def GetPostHtmlCode(data, headers, url):
 def FindStandardClineInText(text):
     return FindClineInText(text, "([CN]:\s*\S+\s+\d+\s+\S+\s+[\w./\-]+)");
 
+
+
+def CleanHtml(raw_html):
+    import re
+    cleanr = re.compile('<.*?>')
+    cleantext = re.sub(cleanr, '', raw_html)
+    return cleantext
+
 def FindClineInText(text, regex):
     import re
 
@@ -130,8 +138,12 @@ def FindClineInText(text, regex):
 
 def TestCline(cline):
     if PingCline(cline) == 9999: 
+        print "Cline: '" + cline + "' did not pass validation. (No ping)"
         return False
-    return TestClineTimeout(cline, 15)
+    clineValid = TestClineTimeout(cline, 15)
+    if clineValid is False:
+        print "Cline: '" + cline + "' did not pass validation. (user/pass invalid or timeout)"
+    return clineValid
 
 def TestClineTimeout(cline, timeout):
     import socket, re, sys, ReloadCam_ClineTester, ReloadCam_NlineTester

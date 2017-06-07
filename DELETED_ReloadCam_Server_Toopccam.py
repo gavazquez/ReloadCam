@@ -14,6 +14,7 @@ class Toopccam(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #'http://plus.multics.tv/kk/cccam.php'
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOLR4eKP0aaep52mtHvm25vazJOUlZaVsG-92tU=')
         return realUrl
 

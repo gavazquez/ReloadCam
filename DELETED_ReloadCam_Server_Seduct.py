@@ -14,6 +14,7 @@ class Seduct(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://seduct.loginto.me
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOXK0OTE2F-eopusr8Hhk9nUkNeWlq5kwG-92tU=')
         return realUrl
 

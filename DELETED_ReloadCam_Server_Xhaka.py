@@ -14,6 +14,7 @@ class Xhaka(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://myfree.cccam.bz/
         realUrl = ReloadCam_Helper.Decrypt("maanpH1wfN_e0uHGyV-VlpekrnvU35vdxttglZaXpK574s3c")
         return realUrl
 

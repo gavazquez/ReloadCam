@@ -7,14 +7,14 @@
 import ReloadCam_Main, ReloadCam_Helper
 
 def GetVersion():
-    return 4
+    return 5
 
 #Filename must start with Server, classname and argument must be the same!
 class Satunivers(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-        realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOXG4OTPzaeXpadxpbHg2JrdxthglZZjrK-x193S4Y_UmaI=')
+        realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNvT0t7UxaVgppW3trvb29Hh1JKlqGKXqq982cra1NPFpZedmKyle-LN3A==')
         return realUrl
 
     def GetClines(self):

@@ -14,6 +14,7 @@ class Bilalon(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://bilalon.myvps.tv/
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNTO2NDN059goK25scCg2eKeydienmJ3hqSu35TV3cXJqWCjnLM=')
         return realUrl
 
@@ -35,6 +36,9 @@ class Bilalon(ReloadCam_Main.Server):
 
         htmlCode = ReloadCam_Helper.GetPostHtmlCode(values, None, self.GetUrl())
         cline = ReloadCam_Helper.FindStandardClineInText(htmlCode)
-        if cline != None and ReloadCam_Helper.TestCline(cline):
+        if cline is None: 
+            print 'Failed to obtain cline from html code of ' + self.GetUrl()
+            return None
+        if ReloadCam_Helper.TestCline(cline):
             return cline
         return None

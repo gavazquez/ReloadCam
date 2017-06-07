@@ -14,6 +14,7 @@ class Fullmonsters(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://fullmonsters.zapto.org/cccam-gratuit/js/teste1.php
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNja2NvO05-lp5m1tHvsxtzj0JKgpJpjpqSw09KZ1tPFpaecqHKrwKHZ0eLVyWJgo5yz')
         return realUrl
 

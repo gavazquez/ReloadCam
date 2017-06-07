@@ -13,7 +13,8 @@ def GetVersion():
 class Cccam4you(ReloadCam_Main.Server):
 
     def GetUrl(self, serverNo):
-        #Pon un breakpoint aqui si quieres ver la URL verdadera ;)        
+        #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #http://cccam-free2.com/cccamfree/get.php
         if serverNo <= 1:
             realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNXIz9DOkZekmJl1b7Dh0pvSxMeSn5mmqKZ82crgndHMoQ==')
         else:

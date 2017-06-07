@@ -13,6 +13,7 @@ def GetVersion():
 class Elaissaoui(ReloadCam_Main.Server):
 
     def GetUrl(self):
+        #CAPTCHA http://elaissaoui.hack-sat.org/dessss8/index.php
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfNfRzdjU15KhqJ1xqa7V0JniwthfoaWbcqWy5djf4pmTmqCXmbtvvdrV')
         return realUrl

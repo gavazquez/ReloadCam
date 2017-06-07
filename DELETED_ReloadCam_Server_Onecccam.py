@@ -14,6 +14,7 @@ class Onecccam(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #COMPLEX http://onecccam.com/free_cccam_generator/
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOHT0dLEx5KfYZeyrnzZytrU08WdYZqZsaa_09nb4Y_UmaI=')
         return realUrl
 

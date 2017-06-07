@@ -11,18 +11,16 @@
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
-    <InterpreterVersion>2.7</InterpreterVersion>
+    <InterpreterId>Global|PythonCore|2.7-32</InterpreterId>
     <InterpreterArguments>
     </InterpreterArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <CommandLineArguments>-s Freecline</CommandLineArguments>
+    <CommandLineArguments>-s Xhaka</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <PropertyGroup>
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
-    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DELETED_ReloadCam_Server_Cccam4you.py" />
@@ -35,7 +33,7 @@
     <Compile Include="DELETED_ReloadCam_Server_ManiaForall.py" />
     <Compile Include="DELETED_ReloadCam_Server_Mario.py" />
     <Compile Include="DELETED_ReloadCam_Server_Mawali.py" />
-    <Compile Include="DELETED_ReloadCam_Server_Mycccam.py" />
+    <Compile Include="ReloadCam_Server_Mycccam.py" />
     <Compile Include="DELETED_ReloadCam_Server_Realtv1.py" />
     <Compile Include="DELETED_ReloadCam_Server_Satna.py" />
     <Compile Include="DELETED_ReloadCam_Server_Toopccam.py" />
@@ -51,37 +49,36 @@
     <Compile Include="ReloadCam_Helper.py" />
     <Compile Include="ReloadCam_Main.py" />
     <Compile Include="ReloadCam_Server_Allcam.py" />
-    <Compile Include="ReloadCam_Server_Bilalon.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Bilalon.py" />
     <Compile Include="ReloadCam_Server_Bosscccam.py" />
     <Compile Include="ReloadCam_Server_Cccamlux.py" />
-    <Compile Include="ReloadCam_Server_Madvengers.py" />
-    <Compile Include="ReloadCam_Server_Onecccam.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Madvengers.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Onecccam.py" />
     <Compile Include="ReloadCam_Server_Freeccamserver.py" />
     <Compile Include="ReloadCam_Server_Freecccam.py" />
     <Compile Include="ReloadCam_Server_Cccam4k.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ReloadCam_Server_Cccamgenerador.py" />
-    <Compile Include="ReloadCam_Server_Cccamcafard.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Cccamcafard.py" />
     <Compile Include="ReloadCam_Server_Cccamfree.py" />
     <Compile Include="ReloadCam_Server_Cccamgenerator.py" />
-    <Compile Include="ReloadCam_Server_Cccamgratis.py" />
-    <Compile Include="ReloadCam_Server_Elaissaoui.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Cccamgratis.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Elaissaoui.py" />
     <Compile Include="ReloadCam_Server_Freecline.py" />
-    <Compile Include="ReloadCam_Server_Greencccamfree.py" />
-    <Compile Include="ReloadCam_Server_Jokercccam.py" />
-    <Compile Include="ReloadCam_Server_Myfree.py" />
-    <Compile Include="ReloadCam_Server_Raul7.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Greencccamfree.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Jokercccam.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Myfree.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Raul7.py" />
     <Compile Include="ReloadCam_Server_Satunivers.py" />
-    <Compile Include="ReloadCam_Server_Seduct.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Seduct.py" />
     <Compile Include="ReloadCam_Server_Testious.py" />
     <Compile Include="ReloadCam_Server_Top2servers.py" />
-    <Compile Include="ReloadCam_Server_Xhaka.py" />
+    <Compile Include="DELETED_ReloadCam_Server_Xhaka.py" />
     <Compile Include="ReloadCam_Versions.py" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\2.7" />
+    <InterpreterReference Include="Global|PythonCore|2.7-32" />
   </ItemGroup>
-  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

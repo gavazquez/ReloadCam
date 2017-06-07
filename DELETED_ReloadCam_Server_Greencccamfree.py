@@ -14,7 +14,7 @@ class Greencccamfree(ReloadCam_Main.Server):
 
     def GetUrl(self, serverNo):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
-
+        #http://greencccamfree.ddns.net/
         if serverNo == 0:
             realUrl = ReloadCam_Helper.Decrypt("maanpH1wfNnX0dTPx5SVlKGps7LXk9DTz9dfoJiocqiy4Mua38nU")
         else: 

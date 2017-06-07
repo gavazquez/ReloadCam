@@ -14,6 +14,7 @@ class Ultrahd(ReloadCam_Main.Server):
 
     def GetUrl(self):
         #Pon un breakpoint aqui si quieres ver la URL verdadera ;)
+        #'http://ultrahd.no-ip.biz/tv/free.php?new&2'
         realUrl = ReloadCam_Helper.Decrypt('maanpH1wfOfR4OHCzJVgoaNwqr2gx9XpkNinYZmmqKZ74s3crs_JqFhl')
         return realUrl
 
