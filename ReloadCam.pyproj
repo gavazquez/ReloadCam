@@ -15,7 +15,7 @@
     <InterpreterArguments>
     </InterpreterArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <CommandLineArguments>-s Xhaka</CommandLineArguments>
+    <CommandLineArguments>-s Cccamspot</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -33,6 +33,12 @@
     <Compile Include="DELETED_ReloadCam_Server_ManiaForall.py" />
     <Compile Include="DELETED_ReloadCam_Server_Mario.py" />
     <Compile Include="DELETED_ReloadCam_Server_Mawali.py" />
+    <Compile Include="ReloadCam_Server_Cccamspot.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReloadCam_Server_Powerfull.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ReloadCam_Server_Mycccam.py" />
     <Compile Include="DELETED_ReloadCam_Server_Realtv1.py" />
     <Compile Include="DELETED_ReloadCam_Server_Satna.py" />
