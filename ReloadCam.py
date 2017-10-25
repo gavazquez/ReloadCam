@@ -8,7 +8,7 @@
 
 #- Foro de discusion del script: http://www.forokeys.com/foro/vu/refrescar-cclines-automaticamente
 
-#- Url del repositiorio: https://github.com/DaggerES
+#- Url del repositiorio: https://github.com/gavazquez/ReloadCam
 
 #- El script es de codigo libre por lo que si quieres comprobar como NO 
 #envia tus Clines a nadie puedes verlo por ti mismo en la url del repositorio (es necesario que tengas conocimientos de python)
